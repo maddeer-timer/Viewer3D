@@ -67,7 +67,7 @@
      <string>帮助(&amp;H)</string>
     </property>
     <addaction name="action_help"/>
-    <addaction name="action_abort"/>
+    <addaction name="action_about"/>
    </widget>
    <widget class="QMenu" name="menu_view">
     <property name="title">
@@ -81,7 +81,7 @@
    <addaction name="menu_help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_abort">
+  <action name="action_about">
    <property name="text">
     <string>关于(&amp;A)</string>
    </property>
