@@ -25,7 +25,45 @@
   <property name="windowTitle">
    <string>Viewer3D</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QListWidget" name="listWidget">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>0</y>
+      <width>200</width>
+      <height>435</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>435</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>435</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -40,7 +78,6 @@
      <string>文件(&amp;F)</string>
     </property>
     <addaction name="action_open"/>
-    <addaction name="action_recent"/>
     <addaction name="separator"/>
     <addaction name="action_export"/>
     <addaction name="action_export_all"/>
@@ -83,18 +120,10 @@
     <string>打开(&amp;O)...</string>
    </property>
    <property name="statusTip">
-    <string>打开一个3D模型文件</string>
+    <string>打开3D模型文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
-   </property>
-  </action>
-  <action name="action_recent">
-   <property name="text">
-    <string>打开最近(&amp;R)</string>
-   </property>
-   <property name="statusTip">
-    <string>打开最近的文件</string>
    </property>
   </action>
   <action name="action_save_image">
