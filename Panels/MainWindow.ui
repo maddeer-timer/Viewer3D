@@ -198,5 +198,25 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>menubar</sender>
+   <signal>triggered(QAction*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>triggered(QAction*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>36</x>
+     <y>24</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>triggered(QAction*)</slot>
+ </slots>
 </ui>
