@@ -1,4 +1,4 @@
-## <font color=Maroon>**\[Note\]: Sorry, the software is still in development stage, now uploaded for the program backup!!!**</font>
+## <font color=Maroon>**\[Note\]: Sorry, the software is still in development stage, the relevant functions cannot be implemented yet, now uploaded for the program backup!!!**</font>
 
 ### Introduction
 * This is a software for reading and displaying 3D models, and it can also be used for format conversion. 
