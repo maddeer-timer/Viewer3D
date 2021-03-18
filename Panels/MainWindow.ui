@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Viewer3D</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QOpenGLWidget" name="openGLWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>640</width>
+      <height>435</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <widget class="QMenu" name="menu_export">
+     <property name="statusTip">
+      <string>导出当前窗口中的3D模型文件</string>
+     </property>
+     <property name="title">
+      <string>导出(&amp;E)</string>
+     </property>
+     <addaction name="action_export_as_dae"/>
+     <addaction name="action_export_as_abc"/>
+     <addaction name="action_export_as_3ds"/>
+     <addaction name="action_export_as_fbx"/>
+     <addaction name="action_export_as_bvh"/>
+     <addaction name="action_export_as_ply"/>
+     <addaction name="action_export_as_obj"/>
+     <addaction name="action_export_as_x3d"/>
+     <addaction name="action_export_as_wrl"/>
+     <addaction name="action_export_as_stl"/>
+     <addaction name="action_export_as_x"/>
+     <addaction name="action_export_as_pmx"/>
+    </widget>
+    <addaction name="action_open"/>
+    <addaction name="action_recent"/>
+    <addaction name="separator"/>
+    <addaction name="menu_export"/>
+    <addaction name="action_export_all"/>
+    <addaction name="action_save_image"/>
+    <addaction name="separator"/>
+    <addaction name="action_close"/>
+    <addaction name="action_close_all"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="action_help"/>
+    <addaction name="action_abort"/>
+   </widget>
+   <widget class="QMenu" name="menu_view">
+    <property name="title">
+     <string>视图(&amp;V)</string>
+    </property>
+    <addaction name="action_menu"/>
+    <addaction name="action_status"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_view"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_abort">
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+   <property name="statusTip">
+    <string>显示有关Viewer3D的信息</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="text">
+    <string>打开(&amp;O)...</string>
+   </property>
+   <property name="statusTip">
+    <string>打开一个3D模型文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_recent">
+   <property name="text">
+    <string>打开最近(&amp;R)</string>
+   </property>
+   <property name="statusTip">
+    <string>打开最近的文件</string>
+   </property>
+  </action>
+  <action name="action_save_image">
+   <property name="text">
+    <string>保存图像(&amp;I)</string>
+   </property>
+   <property name="statusTip">
+    <string>保存当前视图中的图像</string>
+   </property>
+  </action>
+  <action name="action_close">
+   <property name="text">
+    <string>关闭文件(&amp;C)</string>
+   </property>
+   <property name="statusTip">
+    <string>关闭当前窗口中的3D模型文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>退出(&amp;X)</string>
+   </property>
+   <property name="statusTip">
+    <string>退出应用程序</string>
+   </property>
+  </action>
+  <action name="action_close_all">
+   <property name="text">
+    <string>关闭全部(&amp;L)</string>
+   </property>
+   <property name="statusTip">
+    <string>关闭全部文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="action_export_as_fbx">
+   <property name="text">
+    <string>&amp;FBX(.fbx)</string>
+   </property>
+  </action>
+  <action name="action_export_as_obj">
+   <property name="text">
+    <string>&amp;Wavefront(.obj)</string>
+   </property>
+  </action>
+  <action name="action_export_as_pmx">
+   <property name="text">
+    <string>M&amp;ikuMikuDance Model(.pmx)</string>
+   </property>
+  </action>
+  <action name="action_export_as_dae">
+   <property name="text">
+    <string>&amp;Collada(默认)(.dae)</string>
+   </property>
+  </action>
+  <action name="action_export_as_abc">
+   <property name="text">
+    <string>&amp;Alembic(.abc)</string>
+   </property>
+  </action>
+  <action name="action_export_as_3ds">
+   <property name="text">
+    <string>3&amp;D Studio(.3ds)</string>
+   </property>
+  </action>
+  <action name="action_export_as_bvh">
+   <property name="text">
+    <string>&amp;Motion Capture(.bvh)</string>
+   </property>
+  </action>
+  <action name="action_export_as_ply">
+   <property name="text">
+    <string>&amp;Stanford(.ply)</string>
+   </property>
+  </action>
+  <action name="action_export_as_x3d">
+   <property name="text">
+    <string>&amp;X3D Extensible 3D(.x3d)</string>
+   </property>
+  </action>
+  <action name="action_export_as_stl">
+   <property name="text">
+    <string>S&amp;tl(.stl)</string>
+   </property>
+  </action>
+  <action name="action_export_as_wrl">
+   <property name="text">
+    <string>&amp;VRML(.wrl)</string>
+   </property>
+  </action>
+  <action name="action_export_as_x">
+   <property name="text">
+    <string>Di&amp;rectX(.x)</string>
+   </property>
+  </action>
+  <action name="action_help">
+   <property name="text">
+    <string>帮助(&amp;H)</string>
+   </property>
+   <property name="statusTip">
+    <string>显示有关软件使用的帮助</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="action_export_all">
+   <property name="text">
+    <string>导出全部(&amp;A)</string>
+   </property>
+   <property name="statusTip">
+    <string>导出全部文件</string>
+   </property>
+  </action>
+  <action name="action_menu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>文件菜单(&amp;F)</string>
+   </property>
+   <property name="statusTip">
+    <string>显示/隐藏文件菜单</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_status">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>状态栏(&amp;S)</string>
+   </property>
+   <property name="statusTip">
+    <string>显示/隐藏状态栏</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
