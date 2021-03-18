@@ -9,5 +9,5 @@ try:
 except:
     traceback.print_exc()
 def main():
-    import Loader
-    Loader.main()
+    import Panels.Control as Control
+    Control.main()
