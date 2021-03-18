@@ -11,3 +11,5 @@ except:
 def main():
     import Panels.Control as Control
     Control.main()
+if __name__=="__main__":
+    main()
