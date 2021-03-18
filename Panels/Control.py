@@ -3,7 +3,7 @@ import os
 import sys
 import traceback
 from PyQt5.QtCore import pyqtSignal,QModelIndex
-from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog
+from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog,QMessageBox
 import Panels.Gui as Gui
 from Core import *
 # 重载QMainWindow类
@@ -20,7 +20,6 @@ class MyMainWindow(QMainWindow):
         # 状态变量
         self.MenuChecked=False
         self.StatusChecked=True
-        self.PathHistory=[sys.path[0]]
         self.ModelDictionary={}
         self.CurrentModelName=None
         self.SelectedModelList=[]
@@ -50,7 +49,6 @@ class MyMainWindow(QMainWindow):
         FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
         FileDialog.setViewMode(QFileDialog.Detail)
         FileDialog.setFileMode(QFileDialog.ExistingFiles)
-        FileDialog.setHistory(self.PathHistory)
         FileDialog.setNameFilters(SuffixList)
         if FileDialog.exec()==QFileDialog.Accepted:
             FilepathList=FileDialog.selectedFiles()
@@ -69,23 +67,30 @@ class MyMainWindow(QMainWindow):
         # 获取当前选择的内容
         self.getSelected.emit()
         length=len(self.SelectedModelList)
-        if length==0: return
+        if length==0:
+            pass
         # 选择本地路径
         if length==1:
             # 对于单文件
             FileDialog=QFileDialog(self,"导出3D模型文件")
             FileDialog.setAcceptMode(QFileDialog.AcceptSave)
             FileDialog.setViewMode(QFileDialog.Detail)
-            FileDialog.setFileMode(QFileDialog.ExistingFile)
-            FileDialog.setHistory(self.PathHistory)
+            FileDialog.setFileMode(QFileDialog.AnyFile)
             FileDialog.setNameFilters(SuffixList)
-
-            if FileDialog.exec()==FileDialog.Accepted:
-                Filepath=FileDialog.selectedFiles()[0]
+            FileDialog.setLabelText(FileDialog.Accept,"导出(&E)")
+            if FileDialog.exec()==QFileDialog.Accepted:
+                FilepathList=FileDialog.selectedFiles()
             else: return
         else:
             # 对于多个文件
-            pass
+            FileDialog=QFileDialog(self,"导出3D模型文件")
+            FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
+            FileDialog.setViewMode(QFileDialog.Detail)
+            FileDialog.setFileMode(QFileDialog.DirectoryOnly)
+            FileDialog.setLabelText(FileDialog.Accept,"导出(&E)")
+            if FileDialog.exec()==QFileDialog.Accepted:
+                FilepathList=FileDialog.selectedFiles()
+            else: return
     def action_export_all(self):
         pass
     def action_save_image(self):
