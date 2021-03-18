@@ -50,30 +50,10 @@
     <property name="title">
      <string>文件(&amp;F)</string>
     </property>
-    <widget class="QMenu" name="menu_export">
-     <property name="statusTip">
-      <string>导出当前窗口中的3D模型文件</string>
-     </property>
-     <property name="title">
-      <string>导出(&amp;E)</string>
-     </property>
-     <addaction name="action_export_as_dae"/>
-     <addaction name="action_export_as_abc"/>
-     <addaction name="action_export_as_3ds"/>
-     <addaction name="action_export_as_fbx"/>
-     <addaction name="action_export_as_bvh"/>
-     <addaction name="action_export_as_ply"/>
-     <addaction name="action_export_as_obj"/>
-     <addaction name="action_export_as_x3d"/>
-     <addaction name="action_export_as_wrl"/>
-     <addaction name="action_export_as_stl"/>
-     <addaction name="action_export_as_x"/>
-     <addaction name="action_export_as_pmx"/>
-    </widget>
     <addaction name="action_open"/>
     <addaction name="action_recent"/>
     <addaction name="separator"/>
-    <addaction name="menu_export"/>
+    <addaction name="action_export"/>
     <addaction name="action_export_all"/>
     <addaction name="action_save_image"/>
     <addaction name="separator"/>
@@ -166,66 +146,6 @@
     <string>Ctrl+Shift+C</string>
    </property>
   </action>
-  <action name="action_export_as_fbx">
-   <property name="text">
-    <string>&amp;FBX(.fbx)</string>
-   </property>
-  </action>
-  <action name="action_export_as_obj">
-   <property name="text">
-    <string>&amp;Wavefront(.obj)</string>
-   </property>
-  </action>
-  <action name="action_export_as_pmx">
-   <property name="text">
-    <string>M&amp;ikuMikuDance Model(.pmx)</string>
-   </property>
-  </action>
-  <action name="action_export_as_dae">
-   <property name="text">
-    <string>&amp;Collada(默认)(.dae)</string>
-   </property>
-  </action>
-  <action name="action_export_as_abc">
-   <property name="text">
-    <string>&amp;Alembic(.abc)</string>
-   </property>
-  </action>
-  <action name="action_export_as_3ds">
-   <property name="text">
-    <string>3&amp;D Studio(.3ds)</string>
-   </property>
-  </action>
-  <action name="action_export_as_bvh">
-   <property name="text">
-    <string>&amp;Motion Capture(.bvh)</string>
-   </property>
-  </action>
-  <action name="action_export_as_ply">
-   <property name="text">
-    <string>&amp;Stanford(.ply)</string>
-   </property>
-  </action>
-  <action name="action_export_as_x3d">
-   <property name="text">
-    <string>&amp;X3D Extensible 3D(.x3d)</string>
-   </property>
-  </action>
-  <action name="action_export_as_stl">
-   <property name="text">
-    <string>S&amp;tl(.stl)</string>
-   </property>
-  </action>
-  <action name="action_export_as_wrl">
-   <property name="text">
-    <string>&amp;VRML(.wrl)</string>
-   </property>
-  </action>
-  <action name="action_export_as_x">
-   <property name="text">
-    <string>Di&amp;rectX(.x)</string>
-   </property>
-  </action>
   <action name="action_help">
    <property name="text">
     <string>帮助(&amp;H)</string>
@@ -274,6 +194,17 @@
    </property>
    <property name="statusTip">
     <string>显示/隐藏状态栏</string>
+   </property>
+  </action>
+  <action name="action_export">
+   <property name="text">
+    <string>导出(&amp;E)</string>
+   </property>
+   <property name="statusTip">
+    <string>导出当前窗口中的3D模型文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
    </property>
   </action>
  </widget>

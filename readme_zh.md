@@ -1,14 +1,32 @@
-English: (readme.md)
+English: [readme.md](readme.md)
 
-# Introduction
-This is a software for reading and displaying 3D models, and it can also be used for format conversion. 
-It loads and displays the model by using PyQt and PyOpenGL. 
-You can use the keyboard to move the model, or use the mouse to rotate and scale the model.
+## 介绍
+* 这是一个用来读取和显示3D模型的软件, 也可以用于格式转换。
+* 它通过使用PyQt和PyOpenGL来加载和显示模型。 
+* 可以使用键盘来移动模型, 使用鼠标来旋转和缩放模型。
 
-# Requirements
-The source code of this software uses two libraries: PyQt5, PyOpenGL.
-You can use pip to install PyQT by using "pip install pyqt5".
-However, to install PyOpenGL on a 64-bit machine, you need to visit  [this website](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopengl),  because pip will install the 32-bit version by default.
-In addition to this, another option is to use a packaged application, you can download it [here](https://www.github.com).
+## 需要的库
+* 使用了两个库: PyQt5和PyOpenGL。
+* 可以使用pip安装PyQT5, 即“pip install pyqt5”。
+* 不过, 要在64位机器上安装PyOpenGL, 需要访问[这里][1], 因为pip默认安装的是32位版本。
+* 除此之外, 还可以使用打包好的程序, 你可以在[这里][2]下载它。
 
-Supported file formats
+## 支持的文件格式
+Collada(.dae)
+Alembic(.abc)
+3D Studio(.3ds)
+FBX(.fbx)
+Motion Capture(.bvh)
+Stanford(.ply)
+Wavefront(.obj)
+X3D Extensible 3D(.x3d)
+VRML(.wrl)
+Stl(.stl)
+DirectX(.x)
+MikuMikuDance Model(.pmx)
+
+## 参考
+
+
+[1]: <https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopengl>
+[2]: <https://www.github.com>
