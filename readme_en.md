@@ -1,5 +1,7 @@
 ## <font color=Maroon>**\[Note\]: Sorry, the software is still in development stage, the relevant functions cannot be implemented yet, now uploaded for the program backup!!!**</font>
 
+## <font color=Maroon>**\[Note\]: Please note this, the person who wrote this program is a rookie, if there are any bugs or areas which can be optimized, please point out, thank you!!!**</font>
+
 ### Introduction
 * This is a software for reading and displaying 3D models, and it can also be used for format conversion. 
 * It loads and displays the model by using PyQt and PyOpenGL. 

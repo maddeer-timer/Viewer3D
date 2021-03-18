@@ -2,21 +2,19 @@
 import os
 import sys
 import traceback
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal,QModelIndex
 from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog
 import Panels.Gui as Gui
 from Core import *
-# 创建函数
-def create():
-    pass
-# 销毁函数
-def destroy():
-    pass
 # 重载QMainWindow类
 class MyMainWindow(QMainWindow):
-    # 信号(发送给槽)
-    UpdateView=pyqtSignal(object,list,list) # 请求刷新视图内容
-    # 初始化,销毁及特殊函数
+    # 信号(请求槽)
+    setMenuEnabled=pyqtSignal(bool)          # 显示/隐藏文件菜单
+    setCurrent=pyqtSignal(QModelIndex)      # 切换当前选择的内容
+    updateList=pyqtSignal(list)             # 请求更新文件菜单
+    updateView=pyqtSignal(object,list,list) # 请求刷新OpenGL显示界面
+    getSelected=pyqtSignal()                # 获取当前选择的内容
+    # 初始化,销毁函数
     def __init__(self):
         super(MyMainWindow,self).__init__()
         # 状态变量
@@ -25,26 +23,27 @@ class MyMainWindow(QMainWindow):
         self.PathHistory=[sys.path[0]]
         self.ModelDictionary={}
         self.CurrentModelName=None
+        self.SelectedModelList=[]
         # 模型状态变量
         self.IsRotating=False
         self.IsMoving=False
         self.Location=[0,0,0]
         self.Rotation=[0,0,0]               # 使用xyz欧拉
-    def closeEvent(self,event):
-        super(MyMainWindow,self).closeEvent(event)
-        destroy()
+    def closeEvent(self,Event):
+        super(MyMainWindow,self).closeEvent(Event)
+        # destroy()
         sys.exit(0)
-    def updateList(self,ModelList):
-        # 更新文件菜单列表
-        pass
+    # 特殊函数
     def updateDisplay(self):
         # 更新程序界面
         if self.MenuChecked:
-            self.updateList(self.ModelDictionary.keys())
-        if self.CurrentModelName!=None:
-            self.UpdateView.emit(self.ModelDictionary[self.CurrentModelName],self.Location,self.Rotation)
+            ModelList=self.ModelDictionary.keys()
+            self.updateList.emit(ModelList)
+            self.setCurrent.emit(list(ModelList).index(self.CurrentModelName))
+        if self.CurrentModelName is not None:
+            self.updateView.emit(self.ModelDictionary[self.CurrentModelName],self.Location,self.Rotation)
     # 处理函数
-    def action_open(self,action):
+    def action_open(self):
         global SuffixList
         # 选择本地3D模型文件
         FileDialog=QFileDialog(self,"打开3D模型文件")
@@ -57,50 +56,72 @@ class MyMainWindow(QMainWindow):
             FilepathList=FileDialog.selectedFiles()
         else: return
         # 读取模型文件内容
-        for filepath in FilepathList:
+        for Filepath in FilepathList:
             try:
-                Importer=eval("{}.Importer()".format(LoaderDictionary[os.path.splitext(filepath)[1]]))
-                self.ModelDictionary[filepath]=Importer.execute(filepath)
+                Importer=eval("{}.Importer()".format(LoaderDictionary[os.path.splitext(Filepath)[1]]))
+                self.ModelDictionary[Filepath]=Importer.execute(Filepath)
                 self.updateDisplay()
             except:
                 traceback.print_exc()
                 self.close()
-    def action_export(self,action):
+    def action_export(self):
+        global SuffixList
+        # 获取当前选择的内容
+        self.getSelected.emit()
+        length=len(self.SelectedModelList)
+        if length==0: return
+        # 选择本地路径
+        if length==1:
+            # 对于单文件
+            FileDialog=QFileDialog(self,"导出3D模型文件")
+            FileDialog.setAcceptMode(QFileDialog.AcceptSave)
+            FileDialog.setViewMode(QFileDialog.Detail)
+            FileDialog.setFileMode(QFileDialog.ExistingFile)
+            FileDialog.setHistory(self.PathHistory)
+            FileDialog.setNameFilters(SuffixList)
+
+            if FileDialog.exec()==FileDialog.Accepted:
+                Filepath=FileDialog.selectedFiles()[0]
+            else: return
+        else:
+            # 对于多个文件
+            pass
+    def action_export_all(self):
         pass
-    def action_export_all(self,action):
+    def action_save_image(self):
         pass
-    def action_save_image(self,action):
+    def action_close(self):
         pass
-    def action_close(self,action):
+    def action_close_all(self):
         pass
-    def action_close_all(self,action):
+    def action_exit(self):
         pass
-    def action_exit(self,action):
+    def action_menu(self):
         pass
-    def action_menu(self,action):
+    def action_status(self):
         pass
-    def action_status(self,action):
+    def action_help(self):
         pass
-    def action_help(self,action):
-        pass
-    def action_about(self,action):
+    def action_about(self):
         pass
     # 槽(接收信号)
-    def triggered(self,action):
+    def triggered(self,Action):
         # 直接执行对应的函数代码
         try:
-            eval("self.{}(action)".format(action.objectName()))
+            eval("self.{}()".format(Action.objectName()))
         except:
             traceback.print_exc()
             self.close()
+    def selectModel(self,ModelItem):
+        pass
 # 主函数
 def main():
-    create()
-    app=QApplication(sys.argv)
+    # create()
+    App=QApplication(sys.argv)
     MainWindow=MyMainWindow()
-    ui=Gui.MyUi_MainWindow()
-    ui.setupUi(MainWindow)
+    Ui=Gui.MyUi_MainWindow()
+    Ui.setupUi(MainWindow)
     MainWindow.show()
-    result=app.exec_()
-    destroy()
-    sys.exit(result)
+    Result=App.exec_()
+    # destroy()
+    sys.exit(Result)

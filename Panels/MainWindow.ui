@@ -59,8 +59,8 @@
     <property name="editTriggers">
      <set>QAbstractItemView::NoEditTriggers</set>
     </property>
-    <property name="sortingEnabled">
-     <bool>true</bool>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::ExtendedSelection</enum>
     </property>
    </widget>
   </widget>
@@ -131,7 +131,7 @@
     <string>保存图像(&amp;I)</string>
    </property>
    <property name="statusTip">
-    <string>保存当前视图中的图像</string>
+    <string>保存当前视图</string>
    </property>
   </action>
   <action name="action_close">
@@ -139,7 +139,7 @@
     <string>关闭文件(&amp;C)</string>
    </property>
    <property name="statusTip">
-    <string>关闭当前窗口中的3D模型文件</string>
+    <string>关闭3D模型文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -169,7 +169,7 @@
     <string>帮助(&amp;H)</string>
    </property>
    <property name="statusTip">
-    <string>显示有关软件使用的帮助</string>
+    <string>显示帮助内容</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -219,7 +219,7 @@
     <string>导出(&amp;E)</string>
    </property>
    <property name="statusTip">
-    <string>导出当前窗口中的3D模型文件</string>
+    <string>导出3D模型文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
@@ -244,8 +244,59 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>selectModel(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>623</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MainWindow</sender>
+   <signal>setMenuEnabled(bool)</signal>
+   <receiver>listWidget</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>623</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>795</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MainWindow</sender>
+   <signal>setCurrent(QModelIndex)</signal>
+   <receiver>listWidget</receiver>
+   <slot>setCurrentIndex(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>624</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>820</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
+  <signal>setMenuEnabled(bool)</signal>
+  <signal>setCurrent(QModelIndex)</signal>
   <slot>triggered(QAction*)</slot>
+  <slot>selectModel(QListWidgetItem*)</slot>
  </slots>
 </ui>
