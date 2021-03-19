@@ -5,7 +5,6 @@ import sys
 import re
 import subprocess
 import traceback
-from Panels.ExtractorBaseCpp import CppBaseCode
 def extractor(FilepathList,TargetPath):
     """
     实用工具Extractor\n
@@ -26,7 +25,7 @@ def extractor(FilepathList,TargetPath):
             # 合并入C++文件
             TemporaryFile=os.path.splitext(TargetPath)[0]+".cpp"
             with open(TemporaryFile,"w",encoding="utf-8") as File:
-                File.write(CppBaseCode["CppBaseHead"]+FilesContent+CppBaseCode["CppBaseEnd"])
+                File.write(FilesContent)
             # 执行LUpdate并输出日志
             print("LUpdate执行日志: ")
             LUpdatePath="\"D:\\Visual Studio\\Microsoft Visual Studio\\Shared\\Python37_64\\Lib"\
