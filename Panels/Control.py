@@ -6,6 +6,7 @@ from PyQt5.QtCore import pyqtSignal,QModelIndex
 from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog,QMessageBox
 import Panels.Gui as Gui
 from Core import *
+import Core.Model as Model
 # 重载QMainWindow类
 class MyMainWindow(QMainWindow):
     # 信号(请求槽)
