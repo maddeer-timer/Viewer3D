@@ -2,7 +2,7 @@
 import os
 import sys
 import traceback
-from PyQt5.QtCore import pyqtSignal,QModelIndex
+from PyQt5.QtCore import pyqtSignal,QModelIndex,QCoreApplication
 from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog,QMessageBox
 import Panels.Gui as Gui
 from Core import *
@@ -46,7 +46,8 @@ class MyMainWindow(QMainWindow):
     def action_open(self):
         global SuffixList
         # 选择本地3D模型文件
-        FileDialog=QFileDialog(self,"打开3D模型文件")
+        _translate=QCoreApplication.translate
+        FileDialog=QFileDialog(self,_translate("FileDialog","打开3D模型文件"))
         FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
         FileDialog.setViewMode(QFileDialog.Detail)
         FileDialog.setFileMode(QFileDialog.ExistingFiles)
@@ -73,22 +74,24 @@ class MyMainWindow(QMainWindow):
         # 选择本地路径
         if length==1:
             # 对于单文件
-            FileDialog=QFileDialog(self,"导出3D模型文件")
+            _translate=QCoreApplication.translate
+            FileDialog=QFileDialog(self,_translate("FileDialog","导出3D模型文件"))
             FileDialog.setAcceptMode(QFileDialog.AcceptSave)
             FileDialog.setViewMode(QFileDialog.Detail)
             FileDialog.setFileMode(QFileDialog.AnyFile)
             FileDialog.setNameFilters(SuffixList)
-            FileDialog.setLabelText(FileDialog.Accept,"导出(&E)")
+            FileDialog.setLabelText(FileDialog.Accept,_translate("FileDialog","导出(&E)"))
             if FileDialog.exec()==QFileDialog.Accepted:
                 FilepathList=FileDialog.selectedFiles()
             else: return
         else:
             # 对于多个文件
-            FileDialog=QFileDialog(self,"导出3D模型文件")
+            _translate=QCoreApplication.translate
+            FileDialog=QFileDialog(self,_translate("FileDialog","导出3D模型文件"))
             FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
             FileDialog.setViewMode(QFileDialog.Detail)
             FileDialog.setFileMode(QFileDialog.DirectoryOnly)
-            FileDialog.setLabelText(FileDialog.Accept,"导出(&E)")
+            FileDialog.setLabelText(FileDialog.Accept,_translate("FileDialog","导出(&E)"))
             if FileDialog.exec()==QFileDialog.Accepted:
                 FilepathList=FileDialog.selectedFiles()
             else: return
