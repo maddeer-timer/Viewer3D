@@ -32,7 +32,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>0</x>
       <y>0</y>
       <width>200</width>
       <height>435</height>
@@ -181,6 +181,9 @@
    </property>
    <property name="statusTip">
     <string>导出全部文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+E</string>
    </property>
   </action>
   <action name="action_menu">
