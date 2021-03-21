@@ -23,7 +23,7 @@ def extractor(FilepathList,TargetPath):
                 ThisContent=File.read()
             # 处理文件内容
             # ThisContent=re.sub('_translate\(".*?",\s*?','QObject::tr(',ThisContent)
-            TranslatePattern=re.compile(r'_translate\("(?P<h>.*?)",\s*(.*?)\)')
+            TranslatePattern=re.compile(r'_translate\("(.*?)",\s*(.*?)\)')
             MatchObject=TranslatePattern.search(ThisContent)
             while MatchObject is not None:
                 ReplaceString=MatchObject.expand(r'\g<1>::tr(\g<2>)')
