@@ -2,6 +2,26 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
+    <name>FileDialog</name>
+    <message>
+        <location filename="../Panels/Control.py" line="54"/>
+        <source>Open 3D model files</source>
+        <translation>打开3D模型文件</translation>
+    </message>
+    <message>
+        <location filename="../Panels/Control.py" line="82"/>
+        <location filename="../Panels/Control.py" line="94"/>
+        <source>Export 3D model files</source>
+        <translation>导出3D模型文件</translation>
+    </message>
+    <message>
+        <location filename="../Panels/Control.py" line="87"/>
+        <location filename="../Panels/Control.py" line="98"/>
+        <source>&amp;Export</source>
+        <translation>导出(&amp;E)</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../Panels/MainWindow.py" line="108"/>
@@ -188,6 +208,23 @@
         <location filename="../Panels/MainWindow.py" line="145"/>
         <source>Change the interface language to English</source>
         <translation>改变界面语言为英文(美国)</translation>
+    </message>
+</context>
+<context>
+    <name>MessageBox</name>
+    <message>
+        <location filename="../Panels/Control.py" line="129"/>
+        <source>About View3D</source>
+        <translation>关于View3D</translation>
+    </message>
+    <message>
+        <location filename="../Panels/Control.py" line="130"/>
+        <source>
+&lt;h3&gt;&lt;font color=Maroon&gt;View3D&lt;/font&gt;&lt;/h3&gt;
+</source>
+        <translation type="unfinished">
+&lt;h3&gt;???&lt;/h3&gt;
+</translation>
     </message>
 </context>
 </TS>

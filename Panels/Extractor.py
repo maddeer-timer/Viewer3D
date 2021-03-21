@@ -5,6 +5,7 @@ import sys
 import re
 import subprocess
 import traceback
+from Panels.Utils import *
 def extractor(FilepathList,TargetPath):
     """
     实用工具Extractor\n
@@ -26,8 +27,20 @@ def extractor(FilepathList,TargetPath):
             MatchObject=TranslatePattern.search(ThisContent)
             while MatchObject is not None:
                 ReplaceString=MatchObject.expand(r'\g<1>::tr(\g<2>)')
+                UsedVariableList=[]
+                for VariableName in MatchObject.group(2).split(','):
+                    VariableName=VariableName.strip()
+                    if VariableName.startswith('"') and VariableName.endswith('"'): continue
+                    if VariableName in UsedVariableList: continue
+                    LastDefinition=re.findall(r'\b\s*(%s\s*=\s*r?(["\']{1,3}).*?\2)'%(escapeString(
+                        VariableName)),ThisContent[:MatchObject.start()],re.DOTALL)[-1][0]
+                    exec(LastDefinition.replace(VariableName,"__"+VariableName))
+                    ReplaceString=ReplaceString.replace(
+                        VariableName,repr(eval("__"+VariableName)).replace("'",'"'))
+                    UsedVariableList.append(VariableName)
                 ThisContent=ThisContent.replace(MatchObject.group(),ReplaceString)
-                MatchObject=TranslatePattern.search(ThisContent,MatchObject.pos+len(ReplaceString))
+                MatchObject=TranslatePattern.search(
+                    ThisContent,MatchObject.start()+len(ReplaceString))
             # 改名原文件写入新文件
             SplitextList=os.path.splitext(Filepath)
             BackupFilepath=SplitextList[0]+"_Bak"+SplitextList[1]
@@ -37,7 +50,8 @@ def extractor(FilepathList,TargetPath):
         except:
             print()
             traceback.print_exc()
-            if "BackupFilepath" in locals() and os.path.exists(BackupFilepath):
+            if "BackupFilepath" in locals() and os.path.splitext(BackupFilepath)[0][:-4]==\
+                    os.path.splitext(Filepath)[0] and os.path.exists(BackupFilepath):
                 print("正在恢复文件\"{}\"...".format(Filepath),end="",flush=True)
                 os.remove(Filepath)
                 os.rename(BackupFilepath,Filepath)

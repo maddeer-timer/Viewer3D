@@ -123,11 +123,11 @@ class MyMainWindow(QMainWindow):
         self.retranslateUi.emit(self)
     def action_about(self):
         _translate=QCoreApplication.translate
-        AboutContent="""
+        AboutContent=r"""
 <h3><font color=Maroon>View3D</font></h3>
 """
-        AboutBox=QMessageBox.about(self,_translate("AboutBox","About View3D"),
-                                   _translate("AboutBox",AboutContent))
+        AboutBox=QMessageBox.about(self,_translate("MessageBox","About View3D"),
+                                   _translate("MessageBox",AboutContent))
     # 槽(接收信号)
     def triggered(self,Action):
         # 直接执行对应的函数代码

@@ -1,23 +1,24 @@
+# coding=utf-8
 import os
 import re
-# Ìæ»»×Ö·û×Öµä
+# æ›¿æ¢å­—ç¬¦å­—å…¸
 EscapeCharacterList={'\\': r'\\', '.': r'\.', '^': r'\^', '$': r'\$', '?': r'\?',
                      '+' : r'\+', '*': r'\*', '{': r'\{', '}': r'\}', '(': r'\(',
                      ')' : r'\)', '[': r'\[', ']': r'\]', '|': r'\|'}
 def escapeString(RawString):
     """
-    ÓÃÀ´½«Ô­×Ö·û´®×ªÒåÎª²»»áÒıÆğÆçÒåµÄ×Ö·û´®\n
-    ·µ»ØÕâÑùµÄ×Ö·û´®\n
+    ç”¨æ¥å°†åŸå­—ç¬¦ä¸²è½¬ä¹‰ä¸ºä¸ä¼šå¼•èµ·æ­§ä¹‰çš„å­—ç¬¦ä¸²\n
+    è¿”å›è¿™æ ·çš„å­—ç¬¦ä¸²\n
     """
     for RawCharacter,EscapeCharacter in EscapeCharacterList.items():
         RawString=RawString.replace(RawCharacter,EscapeCharacter)
     return RawString
 def getRelativePath(WorkDirectory,Filepath):
     """
-    ÓÃÀ´»ñÈ¡Ïà¶ÔÂ·¾¶µÄ¹¤¾ß\n
-    ·µ»Ø´ÓWorkDirectoryµ½FilepathµÄÏà¶ÔÂ·¾¶\n
+    ç”¨æ¥è·å–ç›¸å¯¹è·¯å¾„çš„å·¥å…·\n
+    è¿”å›ä»WorkDirectoryåˆ°Filepathçš„ç›¸å¯¹è·¯å¾„\n
     """
-    # »ñÈ¡WorkDirectoryºÍFilepathµÄÖØ¸´²¿·Ö
+    # è·å–WorkDirectoryå’ŒFilepathçš„é‡å¤éƒ¨åˆ†
     MinLength=min(len(WorkDirectory),len(Filepath))
     Pointer=-1
     for Pointer in range(MinLength):
@@ -26,7 +27,7 @@ def getRelativePath(WorkDirectory,Filepath):
         for Pointer in range(Pointer,-1,-1):
             if WorkDirectory[Pointer]=='\\' or WorkDirectory[Pointer]=='/':
                 break
-    # ÇĞ³ıWorkDirectoryµÄÖØ¸´²¿·Ö²¢½«Ê£Óà²¿·Ö×ª»¯ÎªÄæÏòÂ·¾¶
+    # åˆ‡é™¤WorkDirectoryçš„é‡å¤éƒ¨åˆ†å¹¶å°†å‰©ä½™éƒ¨åˆ†è½¬åŒ–ä¸ºé€†å‘è·¯å¾„
     if WorkDirectory[Pointer]=='\\' or WorkDirectory[Pointer]=='/':
         Pointer+=1
         WorkDirectory=(os.pardir+os.sep)*len(re.split(r'[\\|/]',WorkDirectory[Pointer:]))
