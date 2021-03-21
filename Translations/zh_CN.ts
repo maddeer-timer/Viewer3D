@@ -22,7 +22,7 @@
     <message>
         <location filename="../Panels/MainWindow.py" line="111"/>
         <source>&amp;Language</source>
-        <translation>改变语言(&amp;L)</translation>
+        <translation>更改语言(&amp;L)</translation>
     </message>
     <message>
         <location filename="../Panels/MainWindow.py" line="112"/>

@@ -62,7 +62,7 @@ class MyMainWindow(QMainWindow):
         # 读取模型文件内容
         for Filepath in FilepathList:
             try:
-                Importer=eval("{}.Importer()".format(LoaderDictionary[os.path.splitext(Filepath)[1]]))
+                Importer=exec("{}.Importer()".format(LoaderDictionary[os.path.splitext(Filepath)[1]]))
                 self.ModelDictionary[Filepath]=Importer.execute(Filepath)
                 self.updateDisplay()
             except:
@@ -132,7 +132,7 @@ class MyMainWindow(QMainWindow):
     def triggered(self,Action):
         # 直接执行对应的函数代码
         try:
-            eval("self.{}()".format(Action.objectName()))
+            exec("self.{}()".format(Action.objectName()))
         except:
             traceback.print_exc()
             self.close()
