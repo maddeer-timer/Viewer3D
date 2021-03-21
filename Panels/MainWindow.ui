@@ -27,9 +27,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QListWidget" name="listWidget">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -75,7 +72,7 @@
    </property>
    <widget class="QMenu" name="menu_file">
     <property name="title">
-     <string>文件(&amp;F)</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="action_open"/>
     <addaction name="separator"/>
@@ -90,14 +87,23 @@
    </widget>
    <widget class="QMenu" name="menu_help">
     <property name="title">
-     <string>帮助(&amp;H)</string>
+     <string>&amp;Help</string>
     </property>
+    <widget class="QMenu" name="menu_language">
+     <property name="title">
+      <string>&amp;Language</string>
+     </property>
+     <addaction name="action_Chinese"/>
+     <addaction name="action_English"/>
+    </widget>
     <addaction name="action_help"/>
+    <addaction name="menu_language"/>
+    <addaction name="separator"/>
     <addaction name="action_about"/>
    </widget>
    <widget class="QMenu" name="menu_view">
     <property name="title">
-     <string>视图(&amp;V)</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="action_menu"/>
     <addaction name="action_status"/>
@@ -109,18 +115,18 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_about">
    <property name="text">
-    <string>关于(&amp;A)</string>
+    <string>&amp;About</string>
    </property>
    <property name="statusTip">
-    <string>显示有关Viewer3D的信息</string>
+    <string>Show information about View3D</string>
    </property>
   </action>
   <action name="action_open">
    <property name="text">
-    <string>打开(&amp;O)...</string>
+    <string>&amp;Open...</string>
    </property>
    <property name="statusTip">
-    <string>打开3D模型文件</string>
+    <string>Open 3D model files</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -128,18 +134,18 @@
   </action>
   <action name="action_save_image">
    <property name="text">
-    <string>保存图像(&amp;I)</string>
+    <string>Save &amp;Image...</string>
    </property>
    <property name="statusTip">
-    <string>保存当前视图</string>
+    <string>Save current view</string>
    </property>
   </action>
   <action name="action_close">
    <property name="text">
-    <string>关闭文件(&amp;C)</string>
+    <string>&amp;Close</string>
    </property>
    <property name="statusTip">
-    <string>关闭3D模型文件</string>
+    <string>Close 3D model files</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -147,18 +153,18 @@
   </action>
   <action name="action_exit">
    <property name="text">
-    <string>退出(&amp;X)</string>
+    <string>E&amp;xit</string>
    </property>
    <property name="statusTip">
-    <string>退出应用程序</string>
+    <string>Exit the application</string>
    </property>
   </action>
   <action name="action_close_all">
    <property name="text">
-    <string>关闭全部(&amp;L)</string>
+    <string>Close A&amp;ll</string>
    </property>
    <property name="statusTip">
-    <string>关闭全部文件</string>
+    <string>Close all files</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+C</string>
@@ -166,10 +172,10 @@
   </action>
   <action name="action_help">
    <property name="text">
-    <string>帮助(&amp;H)</string>
+    <string>&amp;Help</string>
    </property>
    <property name="statusTip">
-    <string>显示帮助内容</string>
+    <string>Show the help content</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -177,10 +183,10 @@
   </action>
   <action name="action_export_all">
    <property name="text">
-    <string>导出全部(&amp;A)</string>
+    <string>Export &amp;All</string>
    </property>
    <property name="statusTip">
-    <string>导出全部文件</string>
+    <string>Export all files</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+E</string>
@@ -194,10 +200,10 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>文件菜单(&amp;F)</string>
+    <string>&amp;File Menu</string>
    </property>
    <property name="statusTip">
-    <string>显示/隐藏文件菜单</string>
+    <string>Show/hide the file menu</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
@@ -211,21 +217,37 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>状态栏(&amp;S)</string>
+    <string>&amp;Status</string>
    </property>
    <property name="statusTip">
-    <string>显示/隐藏状态栏</string>
+    <string>Show/hide the status bar</string>
    </property>
   </action>
   <action name="action_export">
    <property name="text">
-    <string>导出(&amp;E)</string>
+    <string>&amp;Export</string>
    </property>
    <property name="statusTip">
-    <string>导出3D模型文件</string>
+    <string>Export 3D model files</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action_Chinese">
+   <property name="text">
+    <string>&amp;Chinese</string>
+   </property>
+   <property name="statusTip">
+    <string>Change the interface language to Chinese</string>
+   </property>
+  </action>
+  <action name="action_English">
+   <property name="text">
+    <string>&amp;English</string>
+   </property>
+   <property name="statusTip">
+    <string>Change the interface language to English</string>
    </property>
   </action>
  </widget>
@@ -254,8 +276,8 @@
    <slot>selectModel(QListWidgetItem*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>97</y>
+     <x>199</x>
+     <y>120</y>
     </hint>
     <hint type="destinationlabel">
      <x>623</x>
@@ -265,17 +287,17 @@
   </connection>
   <connection>
    <sender>MainWindow</sender>
-   <signal>setMenuEnabled(bool)</signal>
+   <signal>setMenuVisible(bool)</signal>
    <receiver>listWidget</receiver>
-   <slot>setEnabled(bool)</slot>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>623</x>
      <y>173</y>
     </hint>
     <hint type="destinationlabel">
-     <x>795</x>
-     <y>165</y>
+     <x>199</x>
+     <y>188</y>
     </hint>
    </hints>
   </connection>
@@ -290,14 +312,14 @@
      <y>236</y>
     </hint>
     <hint type="destinationlabel">
-     <x>820</x>
-     <y>224</y>
+     <x>199</x>
+     <y>247</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <signal>setMenuEnabled(bool)</signal>
+  <signal>setMenuVisible(bool)</signal>
   <signal>setCurrent(QModelIndex)</signal>
   <slot>triggered(QAction*)</slot>
   <slot>selectModel(QListWidgetItem*)</slot>
