@@ -124,10 +124,33 @@ class MyMainWindow(QMainWindow):
     def action_about(self):
         _translate=QCoreApplication.translate
         AboutContent=r"""
-<h3><font color=Maroon>View3D</font></h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        body {
+            font-family: "Consolas",monospace;
+        }
+    </style>
+</head>
+<body>
+<h2><font color=Maroon>About View3D</font></h2>
+<ul style="font-size: 15px;">
+    <li>This is a software for reading and<br/>
+        displaying 3D models, and it can also<br/>
+        be used for format conversion.</li>
+    <li>It loads and displays the model by<br/>
+        using PyQt and PyOpenGL.</li>
+    <li>You can use the mouse and the keyboard<br/>
+        to move, rotate or scale the model.</li>
+</ul>
+<h3 style="text-align: right;"><font color=Green>Code by Maddeer(China)</font></h3>
+</body>
+</html>
 """
-        AboutBox=QMessageBox.about(self,_translate("MessageBox","About View3D"),
-                                   _translate("MessageBox",AboutContent))
+        QMessageBox.about(self,_translate("MessageBox","About View3D"),
+                          _translate("MessageBox",AboutContent))
     # 槽(接收信号)
     def triggered(self,Action):
         # 直接执行对应的函数代码

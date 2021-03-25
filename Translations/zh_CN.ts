@@ -213,17 +213,62 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../Panels/Control.py" line="129"/>
+        <location filename="../Panels/Control.py" line="152"/>
         <source>About View3D</source>
         <translation>关于View3D</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="130"/>
+        <location filename="../Panels/Control.py" line="153"/>
         <source>
-&lt;h3&gt;&lt;font color=Maroon&gt;View3D&lt;/font&gt;&lt;/h3&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        body {
+            font-family: &quot;Consolas&quot;,monospace;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;&lt;font color=Maroon&gt;About View3D&lt;/font&gt;&lt;/h2&gt;
+&lt;ul style=&quot;font-size: 15px;&quot;&gt;
+    &lt;li&gt;This is a software for reading and&lt;br/&gt;
+        displaying 3D models, and it can also&lt;br/&gt;
+        be used for format conversion.&lt;/li&gt;
+    &lt;li&gt;It loads and displays the model by&lt;br/&gt;
+        using PyQt and PyOpenGL.&lt;/li&gt;
+    &lt;li&gt;You can use the mouse and the keyboard&lt;br/&gt;
+        to move, rotate or scale the model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 style=&quot;text-align: right;&quot;&gt;&lt;font color=Green&gt;Code by Maddeer(China)&lt;/font&gt;&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </source>
-        <translation type="unfinished">
-&lt;h3&gt;???&lt;/h3&gt;
+        <translation>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        body {
+            font-family: &quot;Consolas&quot;,monospace;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;&lt;font color=Maroon&gt;关于View3D&lt;/font&gt;&lt;/h2&gt;
+&lt;ul style=&quot;font-size: 15px;&quot;&gt;
+    &lt;li&gt;这是一个用来读取和显示3D模型的软件,&lt;br/&gt;
+        也可以用于格式转换。&lt;/li&gt;
+    &lt;li&gt;它通过使用PyQt和PyOpenGL来加载和显示&lt;br/&gt;
+        模型。&lt;/li&gt;
+    &lt;li&gt;可以使用鼠标和键盘来移动, 旋转和缩放&lt;br/&gt;
+        模型。
+&lt;/ul&gt;
+&lt;h3 style=&quot;text-align: right;&quot;&gt;&lt;font color=Green&gt;制作者为Maddeer(China)&lt;/font&gt;&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </translation>
     </message>
 </context>

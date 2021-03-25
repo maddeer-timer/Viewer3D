@@ -32,11 +32,12 @@ def extractor(FilepathList,TargetPath):
                     VariableName=VariableName.strip()
                     if VariableName.startswith('"') and VariableName.endswith('"'): continue
                     if VariableName in UsedVariableList: continue
-                    LastDefinition=re.findall(r'\b\s*(%s\s*=\s*r?(["\']{1,3}).*?\2)'%(escapeString(
-                        VariableName)),ThisContent[:MatchObject.start()],re.DOTALL)[-1][0]
-                    exec(LastDefinition.replace(VariableName,"__"+VariableName))
-                    ReplaceString=ReplaceString.replace(
-                        VariableName,repr(eval("__"+VariableName)).replace("'",'"'))
+                    LastDefinition=re.findall(r'\b\s*%s\s*=\s*(r?(["\']{1,3}).*?\2)\n'%(
+                        escapeString(VariableName)),ThisContent[:MatchObject.start()],
+                                              re.DOTALL)[-1][0]
+                    RealValue='"'+repr(eval(LastDefinition))[1:-1].replace(r"\'",r"'")\
+                        .replace(r"'",r"\'").replace(r'\"',r'"').replace(r'"',r'\"')+'"'
+                    ReplaceString=ReplaceString.replace(VariableName,RealValue)
                     UsedVariableList.append(VariableName)
                 ThisContent=ThisContent.replace(MatchObject.group(),ReplaceString)
                 MatchObject=TranslatePattern.search(
