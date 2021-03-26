@@ -118,9 +118,8 @@ class MyMainWindow(QtWidgets.QMainWindow):
     def action_status(self):
         pass
     def action_help(self):
-        _translate=QtCore.QCoreApplication.translate
         WizardWindow=Wizard.MyWizard()
-        WizardWindow.show()
+        WizardWindow.exec()
     def action_Chinese(self):
         self.App.installTranslator(self.Translators[0])
         self.App.installTranslator(self.Translators[1])
