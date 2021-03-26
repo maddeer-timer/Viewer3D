@@ -4,19 +4,19 @@
 <context>
     <name>FileDialog</name>
     <message>
-        <location filename="../Panels/Control.py" line="54"/>
+        <location filename="../Panels/Control.py" line="57"/>
         <source>Open 3D model files</source>
         <translation>打开3D模型文件</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="82"/>
-        <location filename="../Panels/Control.py" line="94"/>
+        <location filename="../Panels/Control.py" line="86"/>
+        <location filename="../Panels/Control.py" line="98"/>
         <source>Export 3D model files</source>
         <translation>导出3D模型文件</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="87"/>
-        <location filename="../Panels/Control.py" line="98"/>
+        <location filename="../Panels/Control.py" line="91"/>
+        <location filename="../Panels/Control.py" line="102"/>
         <source>&amp;Export</source>
         <translation>导出(&amp;E)</translation>
     </message>
@@ -213,12 +213,12 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../Panels/Control.py" line="152"/>
+        <location filename="../Panels/Control.py" line="136"/>
         <source>About View3D</source>
         <translation>关于View3D</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="153"/>
+        <location filename="../Panels/Control.py" line="137"/>
         <source>
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;

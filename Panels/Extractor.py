@@ -5,7 +5,6 @@ import sys
 import re
 import subprocess
 import traceback
-from Panels.Utils import *
 def extractor(FilepathList,TargetPath):
     """
     实用工具Extractor\n
@@ -23,22 +22,19 @@ def extractor(FilepathList,TargetPath):
             with open(Filepath,"r",encoding="utf-8") as File:
                 ThisContent=File.read()
             # 处理文件内容
-            TranslatePattern=re.compile(r'_translate\("(.*?)",\s*(.*?)\)')
+            TranslatePattern=re.compile(
+                r'_translate\("(.*?)",\s*((r?(["\']{1,3}).*?\4\s*,\s*)*?r?(["\']{1,3}).*?\5\s*)\)',
+                flags=re.DOTALL)
             MatchObject=TranslatePattern.search(ThisContent)
             while MatchObject is not None:
                 ReplaceString=MatchObject.expand(r'\g<1>::tr(\g<2>)')
-                UsedVariableList=[]
-                for VariableName in MatchObject.group(2).split(','):
-                    VariableName=VariableName.strip()
-                    if VariableName.startswith('"') and VariableName.endswith('"'): continue
-                    if VariableName in UsedVariableList: continue
-                    LastDefinition=re.findall(r'\b\s*%s\s*=\s*(r?(["\']{1,3}).*?\2)\n'%(
-                        escapeString(VariableName)),ThisContent[:MatchObject.start()],
-                                              re.DOTALL)[-1][0]
-                    RealValue='"'+repr(eval(LastDefinition))[1:-1].replace(r"\'",r"'")\
+                ReplaceContent=MatchObject.group(2)
+                VariableStringList=eval('['+ReplaceContent+']')
+                for StringIndex,VariableString in enumerate(VariableStringList):
+                    RealValue='"'+repr(VariableString)[1:-1].replace(r"\'",r"'")\
                         .replace(r"'",r"\'").replace(r'\"',r'"').replace(r'"',r'\"')+'"'
-                    ReplaceString=ReplaceString.replace(VariableName,RealValue)
-                    UsedVariableList.append(VariableName)
+                    VariableStringList[StringIndex]=RealValue
+                ReplaceString=ReplaceString.replace(ReplaceContent,",".join(VariableStringList))
                 ThisContent=ThisContent.replace(MatchObject.group(),ReplaceString)
                 MatchObject=TranslatePattern.search(
                     ThisContent,MatchObject.start()+len(ReplaceString))

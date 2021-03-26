@@ -9,7 +9,7 @@ class MyUi_MainWindow(Ui_MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         self.listWidget.setVisible(False)
         self.openGLWidget=MyOpenGLWidget(self.centralwidget)
-        self.openGLWidget.setGeometry(QtCore.QRect(0,0,640,435))
+        self.openGLWidget.setGeometry(QtCore.QRect(0,0,730,595))
         self.openGLWidget.setObjectName("openGLWidget")
         MainWindow.updateList.connect(self.updateList)
         MainWindow.updateView.connect(self.updateView)

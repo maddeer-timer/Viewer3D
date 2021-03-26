@@ -2,26 +2,28 @@
 import os
 import sys
 import traceback
-from PyQt5.QtCore import pyqtSignal,QModelIndex,QCoreApplication,QTranslator
-from PyQt5.QtWidgets import QApplication,QMainWindow,QFileDialog,QMessageBox
+from PyQt5 import QtCore,QtGui,QtWidgets
+# QtCore:       pyqtSignal,QModelIndex,QCoreApplication,QTranslator
+# QtWidgets:    QApplication,QMainWindow,QFileDialog,QMessageBox
 import Panels.Gui as Gui
+import Panels.Wizard as Wizard
 from Core import *
 import Core.Model as Model
 # 重载QMainWindow类
-class MyMainWindow(QMainWindow):
+class MyMainWindow(QtWidgets.QMainWindow):
     # 信号(请求槽)
-    setMenuVisible=pyqtSignal(bool)         # 显示/隐藏文件菜单
-    setCurrent=pyqtSignal(QModelIndex)      # 切换当前选择的内容
-    updateList=pyqtSignal(list)             # 请求更新文件菜单
-    updateView=pyqtSignal(object,list,list) # 请求刷新OpenGL显示界面
-    getSelected=pyqtSignal()                # 获取当前选择的内容
-    retranslateUi=pyqtSignal(QMainWindow)   # 请求刷新界面
+    setMenuVisible=QtCore.pyqtSignal(bool)                  # 显示/隐藏文件菜单
+    setCurrent=QtCore.pyqtSignal(QtCore.QModelIndex)        # 切换当前选择的内容
+    updateList=QtCore.pyqtSignal(list)                      # 请求更新文件菜单
+    updateView=QtCore.pyqtSignal(object,list,list)          # 请求刷新OpenGL显示界面
+    getSelected=QtCore.pyqtSignal()                         # 获取当前选择的内容
+    retranslateUi=QtCore.pyqtSignal(QtWidgets.QMainWindow)  # 请求刷新界面
     # 初始化,销毁函数
-    def __init__(self,App,Translator):
+    def __init__(self,App,Translators):
         super(MyMainWindow,self).__init__()
         # 主变量
         self.App=App
-        self.Translator=Translator
+        self.Translators=Translators
         # 状态变量
         self.MenuChecked=False
         self.StatusChecked=True
@@ -45,24 +47,26 @@ class MyMainWindow(QMainWindow):
             self.updateList.emit(ModelList)
             self.setCurrent.emit(list(ModelList).index(self.CurrentModelName))
         if self.CurrentModelName is not None:
-            self.updateView.emit(self.ModelDictionary[self.CurrentModelName],self.Location,self.Rotation)
+            self.updateView.emit(self.ModelDictionary[self.CurrentModelName],
+                                 self.Location,self.Rotation)
     # 处理函数
     def action_open(self):
         global SuffixList
         # 选择本地3D模型文件
-        _translate=QCoreApplication.translate
-        FileDialog=QFileDialog(self,_translate("FileDialog","Open 3D model files"))
-        FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
-        FileDialog.setViewMode(QFileDialog.Detail)
-        FileDialog.setFileMode(QFileDialog.ExistingFiles)
+        _translate=QtCore.QCoreApplication.translate
+        FileDialog=QtWidgets.QFileDialog(self,_translate("FileDialog","Open 3D model files"))
+        FileDialog.setAcceptMode(QtWidgets.QFileDialog.AcceptOpen)
+        FileDialog.setViewMode(QtWidgets.QFileDialog.Detail)
+        FileDialog.setFileMode(QtWidgets.QFileDialog.ExistingFiles)
         FileDialog.setNameFilters(SuffixList)
-        if FileDialog.exec()==QFileDialog.Accepted:
+        if FileDialog.exec()==QtWidgets.QFileDialog.Accepted:
             FilepathList=FileDialog.selectedFiles()
         else: return
         # 读取模型文件内容
         for Filepath in FilepathList:
             try:
-                Importer=exec("{}.Importer()".format(LoaderDictionary[os.path.splitext(Filepath)[1]]))
+                Importer=exec("{}.Importer()".format(
+                    LoaderDictionary[os.path.splitext(Filepath)[1]]))
                 self.ModelDictionary[Filepath]=Importer.execute(Filepath)
                 self.updateDisplay()
             except:
@@ -78,25 +82,25 @@ class MyMainWindow(QMainWindow):
         # 选择本地路径
         if length==1:
             # 对于单文件
-            _translate=QCoreApplication.translate
-            FileDialog=QFileDialog(self,_translate("FileDialog","Export 3D model files"))
-            FileDialog.setAcceptMode(QFileDialog.AcceptSave)
-            FileDialog.setViewMode(QFileDialog.Detail)
-            FileDialog.setFileMode(QFileDialog.AnyFile)
+            _translate=QtCore.QCoreApplication.translate
+            FileDialog=QtWidgets.QFileDialog(self,_translate("FileDialog","Export 3D model files"))
+            FileDialog.setAcceptMode(QtWidgets.QFileDialog.AcceptSave)
+            FileDialog.setViewMode(QtWidgets.QFileDialog.Detail)
+            FileDialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
             FileDialog.setNameFilters(SuffixList)
             FileDialog.setLabelText(FileDialog.Accept,_translate("FileDialog","&Export"))
-            if FileDialog.exec()==QFileDialog.Accepted:
+            if FileDialog.exec()==QtWidgets.QFileDialog.Accepted:
                 FilepathList=FileDialog.selectedFiles()
             else: return
         else:
             # 对于多个文件
-            _translate=QCoreApplication.translate
-            FileDialog=QFileDialog(self,_translate("FileDialog","Export 3D model files"))
-            FileDialog.setAcceptMode(QFileDialog.AcceptOpen)
-            FileDialog.setViewMode(QFileDialog.Detail)
-            FileDialog.setFileMode(QFileDialog.DirectoryOnly)
+            _translate=QtCore.QCoreApplication.translate
+            FileDialog=QtWidgets.QFileDialog(self,_translate("FileDialog","Export 3D model files"))
+            FileDialog.setAcceptMode(QtWidgets.QFileDialog.AcceptOpen)
+            FileDialog.setViewMode(QtWidgets.QFileDialog.Detail)
+            FileDialog.setFileMode(QtWidgets.QFileDialog.DirectoryOnly)
             FileDialog.setLabelText(FileDialog.Accept,_translate("FileDialog","&Export"))
-            if FileDialog.exec()==QFileDialog.Accepted:
+            if FileDialog.exec()==QtWidgets.QFileDialog.Accepted:
                 FilepathList=FileDialog.selectedFiles()
             else: return
     def action_export_all(self):
@@ -114,16 +118,23 @@ class MyMainWindow(QMainWindow):
     def action_status(self):
         pass
     def action_help(self):
-        pass
+        _translate=QtCore.QCoreApplication.translate
+        WizardWindow=Wizard.MyWizard()
+        WizardWindow.show()
     def action_Chinese(self):
-        self.App.installTranslator(self.Translator)
+        self.App.installTranslator(self.Translators[0])
+        self.App.installTranslator(self.Translators[1])
+        self.App.removeTranslator(self.Translators[2])
         self.retranslateUi.emit(self)
     def action_English(self):
-        self.App.removeTranslator(self.Translator)
+        self.App.removeTranslator(self.Translators[0])
+        self.App.removeTranslator(self.Translators[1])
+        self.App.installTranslator(self.Translators[2])
         self.retranslateUi.emit(self)
     def action_about(self):
-        _translate=QCoreApplication.translate
-        AboutContent=r"""
+        _translate=QtCore.QCoreApplication.translate
+        QtWidgets.QMessageBox.about(self,_translate("MessageBox","About View3D"),
+                                    _translate("MessageBox",r"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,9 +159,7 @@ class MyMainWindow(QMainWindow):
 <h3 style="text-align: right;"><font color=Green>Code by Maddeer(China)</font></h3>
 </body>
 </html>
-"""
-        QMessageBox.about(self,_translate("MessageBox","About View3D"),
-                          _translate("MessageBox",AboutContent))
+"""))
     # 槽(接收信号)
     def triggered(self,Action):
         # 直接执行对应的函数代码
@@ -163,15 +172,24 @@ class MyMainWindow(QMainWindow):
         pass
 # 主函数
 def main():
-    # create()
-    Translator=QTranslator()
-    Translator.load("zh_CN",directory="Translations")
-    App=QApplication(sys.argv)
+    # 初始化部分
+    App=QtWidgets.QApplication(sys.argv)
+    SystemTranslationsPath=QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)
+    # 翻译和安装部分
+    Translator=QtCore.QTranslator()
+    TranslatorSystem=QtCore.QTranslator()
+    TranslatorSystemEn=QtCore.QTranslator()
+    if not Translator.load("zh_CN",directory="Translations") or \
+            not TranslatorSystem.load("qt_zh_CN",directory=SystemTranslationsPath) or \
+            not TranslatorSystemEn.load("qt_en",directory=SystemTranslationsPath):
+        sys.exit()
     App.installTranslator(Translator)
-    MainWindow=MyMainWindow(App,Translator)
+    App.installTranslator(TranslatorSystem)
+    # 窗口创建
+    MainWindow=MyMainWindow(App,Translators=[Translator,TranslatorSystem,TranslatorSystemEn])
     Ui=Gui.MyUi_MainWindow()
     Ui.setupUi(MainWindow)
     MainWindow.show()
+    # 执行和关闭部分
     Result=App.exec_()
-    # destroy()
     sys.exit(Result)
