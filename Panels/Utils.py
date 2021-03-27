@@ -39,9 +39,10 @@ def getTitleHtml(PageTitle,TitleFont="monospace"):
     这样才可以改变字体\n
     """
     return '<font face="'+TitleFont+'">'+PageTitle+'</font>'
-def getTextHtmlWithColor(RawText,TextColor="Black"):
+def getTextHtmlWithColor(RawText,TextColor="Black",Underline=False):
     """
     将文本变成HTML标签的形式\n
-    用于改变文本颜色\n
+    用于改变文本颜色并可添加下滑线\n
     """
-    return '<font color="'+TextColor+'">'+RawText+'</font>'
+    if not Underline: return '<font color="'+TextColor+'">'+RawText+'</font>'
+    else: return '<u><font color="'+TextColor+'">'+RawText+'</font></u>'
