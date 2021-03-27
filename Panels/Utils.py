@@ -33,3 +33,9 @@ def getRelativePath(WorkDirectory,Filepath):
         WorkDirectory=(os.pardir+os.sep)*len(re.split(r'[\\|/]',WorkDirectory[Pointer:]))
         return WorkDirectory+Filepath[Pointer:]
     else: return Filepath[Pointer+2:]
+def getTitleHtml(PageTitle,TitleFont="monospace"):
+    """
+    将标题变成HTML标签的形式\n
+    这样才可以改变字体\n
+    """
+    return '<font face="'+TitleFont+'">'+PageTitle+'</font>'

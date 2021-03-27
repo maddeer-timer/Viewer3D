@@ -1,4 +1,5 @@
 from PyQt5 import QtCore,QtGui,QtWidgets
+from Panels.Utils import getTitleHtml
 # 重载QWizardPage类
 # IntroPage: 介绍(1)
 class IntroPage(QtWidgets.QWizardPage):
@@ -17,7 +18,7 @@ class IntroPage(QtWidgets.QWizardPage):
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        self.setTitle(_translate("WizardPage","Introduction"))
+        self.setTitle(getTitleHtml(_translate("WizardPage","Introduction"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
 # ViewInfoPage: 模型的查看(2)
 class ViewInfoPage(QtWidgets.QWizardPage):
@@ -26,13 +27,18 @@ class ViewInfoPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-
+        self.label=QtWidgets.QLabel(self)
+        self.label.setWordWrap(True)
         # 布局设置
-
+        self.layout=QtWidgets.QVBoxLayout()
+        self.layout.addWidget(self.label)
+        self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        pass
+        self.setTitle(getTitleHtml(_translate("WizardPage","How to view the models"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.label.setText(_translate("WizardPage","Hello"))
 # FileMenuPage: 文件菜单(3)
 class FileMenuPage(QtWidgets.QWizardPage):
     def __init__(self,parent=None):
@@ -40,13 +46,18 @@ class FileMenuPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-
+        self.label=QtWidgets.QLabel(self)
+        self.label.setWordWrap(True)
         # 布局设置
-
+        self.layout=QtWidgets.QVBoxLayout()
+        self.layout.addWidget(self.label)
+        self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        pass
+        self.setTitle(getTitleHtml(_translate("WizardPage","About the file menu"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.label.setText(_translate("WizardPage","Hello"))
 # FormatInfoPage: 格式转换(4)
 class FormatInfoPage(QtWidgets.QWizardPage):
     def __init__(self,parent=None):
@@ -54,27 +65,37 @@ class FormatInfoPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-
+        self.label=QtWidgets.QLabel(self)
+        self.label.setWordWrap(True)
         # 布局设置
-
+        self.layout=QtWidgets.QVBoxLayout()
+        self.layout.addWidget(self.label)
+        self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        pass
+        self.setTitle(getTitleHtml(_translate("WizardPage","About format conversion"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.label.setText(_translate("WizardPage","Hello"))
 # DocumentPage: 结束页-其他说明(5)
 class DocumentPage(QtWidgets.QWizardPage):
     def __init__(self,parent=None):
         super(DocumentPage,self).__init__(parent)
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
+        self.setPixmap(QtWidgets.QWizard.WatermarkPixmap,QtGui.QPixmap(r"Images/watermark.png"))
         # 内容填充
-
+        self.label=QtWidgets.QLabel(self)
+        self.label.setWordWrap(True)
         # 布局设置
-
+        self.layout=QtWidgets.QVBoxLayout()
+        self.layout.addWidget(self.label)
+        self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        pass
+        self.setTitle(getTitleHtml(_translate("WizardPage","Get more help"),"Consolas"))
+        self.label.setText(_translate("WizardPage","Hello"))
 # 重载QWizard类
 class MyWizard(QtWidgets.QWizard):
     # 页码定义
