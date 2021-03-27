@@ -10,6 +10,9 @@ class MyLabel(QtWidgets.QLabel):
     def mouseDoubleClickEvent(self,Event):
         super(MyLabel,self).mouseDoubleClickEvent(Event)
         self.mouseDoubleClick.emit(self.labelId)
+# 在重载QLabel类的基础上定义MyLabelList类以实现类列表功能
+class MyLabelList(object):
+    pass
 # 重载QWizardPage类
 # IntroPage: 介绍(1)
 class IntroPage(QtWidgets.QWizardPage):
@@ -26,7 +29,7 @@ class IntroPage(QtWidgets.QWizardPage):
         self.label.setWordWrap(True)
         self.labelList=[]
         for Counter in range(MyWizard.Page_Count-1):
-            self.labelList.append([MyLabel(Counter,self),QtWidgets.QLabel(self)])
+            self.labelList.append([MyLabel(Counter+1,self),QtWidgets.QLabel(self)])
             self.labelList[Counter][1].setWordWrap(True)
         # 布局设置
         self.layout=QtWidgets.QVBoxLayout()
