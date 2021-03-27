@@ -26,9 +26,6 @@ class MyLabel(QtWidgets.QLabel):
         super(MyLabel,self).leaveEvent(Event)
         self.setText(self.textList[0])
         self.setCursor(QtCore.Qt.ArrowCursor)
-# 在重载QLabel类的基础上定义MyLabelList类以实现类列表功能
-class MyLabelList(object):
-    pass
 # 重载QWizardPage类
 # IntroPage: 介绍(1)
 class IntroPage(QtWidgets.QWizardPage):
