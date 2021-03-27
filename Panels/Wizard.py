@@ -7,14 +7,24 @@ class MyLabel(QtWidgets.QLabel):
     def __init__(self,Id,Parent=None):
         super(MyLabel,self).__init__(Parent)
         self.labelId=Id
+        self.colors=["DarkGreen","DarkOliveGreen"]
+    def setOriginalText(self,Text):
+        self.originalText=Text
+        self.textList=[
+            getTextHtmlWithColor(self.originalText,self.colors[0]),
+            getTextHtmlWithColor(self.originalText,self.colors[1],True),
+        ]
+        self.setText(self.textList[0])
     def mouseDoubleClickEvent(self,Event):
         super(MyLabel,self).mouseDoubleClickEvent(Event)
         self.mouseDoubleClick.emit(self.labelId)
     def enterEvent(self,Event):
         super(MyLabel,self).enterEvent(Event)
+        self.setText(self.textList[1])
         self.setCursor(QtCore.Qt.PointingHandCursor)
     def leaveEvent(self,Event):
         super(MyLabel,self).leaveEvent(Event)
+        self.setText(self.textList[0])
         self.setCursor(QtCore.Qt.ArrowCursor)
 # 在重载QLabel类的基础上定义MyLabelList类以实现类列表功能
 class MyLabelList(object):
@@ -57,19 +67,19 @@ class IntroPage(QtWidgets.QWizardPage):
         self.label.setText(_translate("WizardPage",r"This wizard will help you learn how to "
             r"use <i>View3D</i> and understand the notices when using it."))
         # ViewInfoPage
-        self.labelList[MyWizard.Page_ViewInfo-1][0].setText(
+        self.labelList[MyWizard.Page_ViewInfo-1][0].setOriginalText(
             _translate("WizardPage","How to view the models"))
         self.labelList[MyWizard.Page_ViewInfo-1][1].setText(_translate("WizardPage","Hello"))
         # FileMenuPage
-        self.labelList[MyWizard.Page_FileMenu-1][0].setText(
+        self.labelList[MyWizard.Page_FileMenu-1][0].setOriginalText(
             _translate("WizardPage","About the file menu"))
         self.labelList[MyWizard.Page_FileMenu-1][1].setText(_translate("WizardPage","Hello"))
         # FormatInfoPage
-        self.labelList[MyWizard.Page_FormatInfo-1][0].setText(
+        self.labelList[MyWizard.Page_FormatInfo-1][0].setOriginalText(
             _translate("WizardPage","About format conversion"))
         self.labelList[MyWizard.Page_FormatInfo-1][1].setText(_translate("WizardPage","Hello"))
         # DocumentPage
-        self.labelList[MyWizard.Page_Document-1][0].setText(
+        self.labelList[MyWizard.Page_Document-1][0].setOriginalText(
             _translate("WizardPage","Get more help"))
         self.labelList[MyWizard.Page_Document-1][1].setText(_translate("WizardPage","Hello"))
     def showEvent(self,Event):
