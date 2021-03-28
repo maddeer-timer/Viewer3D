@@ -21,6 +21,9 @@ class MyMainWindow(QtWidgets.QMainWindow):
     # 初始化,销毁函数
     def __init__(self,App,Translators):
         super(MyMainWindow,self).__init__()
+        Icon=QtGui.QIcon()
+        Icon.addPixmap(QtGui.QPixmap("Images/logo.png"),QtGui.QIcon.Normal,QtGui.QIcon.Off)
+        self.setWindowIcon(Icon)
         # 主变量
         self.App=App
         self.Translators=Translators
@@ -118,7 +121,7 @@ class MyMainWindow(QtWidgets.QMainWindow):
     def action_status(self):
         pass
     def action_help(self):
-        WizardWindow=Wizard.MyWizard()
+        WizardWindow=Wizard.MyWizard(self)
         WizardWindow.exec()
     def action_Chinese(self):
         self.App.installTranslator(self.Translators[0])
