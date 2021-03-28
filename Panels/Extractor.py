@@ -21,14 +21,15 @@ def extractor(FilepathList,TargetPath):
             ThisContent=""
             with open(Filepath,"r",encoding="utf-8") as File:
                 ThisContent=File.read()
-            # 处理文件内容
+            # 处理文件内容(不支持结尾有'\'的字符串, 并且只能读取成功合法字符串)
             TranslatePattern=re.compile(
-                r'_translate\("(.*?)",\s*((r?(["\']{1,3}).*?\4\s*,\s*)*?r?(["\']{1,3}).*?\5\s*)\)',
-                flags=re.DOTALL)
+                r'_translate\s*\(\s*r?(?P<mark1>["\']{1,3})(?P<context>.*?)(?<!\\)(?P=mark1)'
+                r'\s*,\s*(?P<arguments>(r?(?P<mark2>["\']{1,3}).*?(?<!\\)(?P=mark2)\s*,\s*)*?'
+                r'r?(?P<mark3>["\']{1,3}).*?(?<!\\)(?P=mark3))\s*\)',flags=re.DOTALL)
             MatchObject=TranslatePattern.search(ThisContent)
             while MatchObject is not None:
-                ReplaceString=MatchObject.expand(r'\g<1>::tr(\g<2>)')
-                ReplaceContent=MatchObject.group(2)
+                ReplaceString=MatchObject.expand(r'\g<context>::tr(\g<arguments>)')
+                ReplaceContent=MatchObject.group("arguments")
                 VariableStringList=eval('['+ReplaceContent+']')
                 for StringIndex,VariableString in enumerate(VariableStringList):
                     RealValue='"'+repr(VariableString)[1:-1].replace(r"\'",r"'")\

@@ -66,19 +66,23 @@ class IntroPage(QtWidgets.QWizardPage):
         # ViewInfoPage
         self.labelList[MyWizard.Page_ViewInfo-1][0].setOriginalText(
             _translate("WizardPage","How to view the models"))
-        self.labelList[MyWizard.Page_ViewInfo-1][1].setText(_translate("WizardPage","Hello"))
+        self.labelList[MyWizard.Page_ViewInfo-1][1].setText(_translate(
+            "WizardPage",""))
         # FileMenuPage
         self.labelList[MyWizard.Page_FileMenu-1][0].setOriginalText(
             _translate("WizardPage","About the file menu"))
-        self.labelList[MyWizard.Page_FileMenu-1][1].setText(_translate("WizardPage","Hello"))
+        self.labelList[MyWizard.Page_FileMenu-1][1].setText(_translate(
+            "WizardPage",""))
         # FormatInfoPage
         self.labelList[MyWizard.Page_FormatInfo-1][0].setOriginalText(
             _translate("WizardPage","About format conversion"))
-        self.labelList[MyWizard.Page_FormatInfo-1][1].setText(_translate("WizardPage","Hello"))
+        self.labelList[MyWizard.Page_FormatInfo-1][1].setText(_translate(
+            "WizardPage",""))
         # DocumentPage
         self.labelList[MyWizard.Page_Document-1][0].setOriginalText(
             _translate("WizardPage","Get more help"))
-        self.labelList[MyWizard.Page_Document-1][1].setText(_translate("WizardPage","Hello"))
+        self.labelList[MyWizard.Page_Document-1][1].setText(_translate(
+            "WizardPage",""))
     def showEvent(self,Event):
         super(IntroPage,self).showEvent(Event)
         self.setHomeButtonEnabled.emit(False)
