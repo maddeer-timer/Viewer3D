@@ -80,6 +80,7 @@
     <addaction name="action_export_all"/>
     <addaction name="action_save_image"/>
     <addaction name="separator"/>
+    <addaction name="action_reload"/>
     <addaction name="action_close"/>
     <addaction name="action_close_all"/>
     <addaction name="separator"/>
@@ -118,7 +119,7 @@
     <string>&amp;About</string>
    </property>
    <property name="statusTip">
-    <string>Show information about View3D</string>
+    <string>Show information about Viewer3D</string>
    </property>
   </action>
   <action name="action_open">
@@ -248,6 +249,14 @@
    </property>
    <property name="statusTip">
     <string>Change the interface language to English</string>
+   </property>
+  </action>
+  <action name="action_reload">
+   <property name="text">
+    <string>&amp;Reload</string>
+   </property>
+   <property name="statusTip">
+    <string>Reload 3D model files</string>
    </property>
   </action>
  </widget>

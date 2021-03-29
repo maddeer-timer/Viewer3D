@@ -110,6 +110,8 @@ class MyMainWindow(QtWidgets.QMainWindow):
         pass
     def action_save_image(self):
         pass
+    def action_reload(self):
+        pass
     def action_close(self):
         pass
     def action_close_all(self):
@@ -135,7 +137,7 @@ class MyMainWindow(QtWidgets.QMainWindow):
         self.retranslateUi.emit(self)
     def action_about(self):
         _translate=QtCore.QCoreApplication.translate
-        QtWidgets.QMessageBox.about(self,_translate("MessageBox","About View3D"),
+        QtWidgets.QMessageBox.about(self,_translate("MessageBox","About Viewer3D"),
                                     _translate("MessageBox",r"""
 <!DOCTYPE html>
 <html lang="en">
@@ -148,7 +150,7 @@ class MyMainWindow(QtWidgets.QMainWindow):
     </style>
 </head>
 <body>
-<h2><font color=Maroon>About View3D</font></h2>
+<h2><font color=Maroon>About Viewer3D</font></h2>
 <ul style="font-size: 15px;">
     <li>This is a software for reading and<br/>
         displaying 3D models, and it can also<br/>
@@ -181,7 +183,7 @@ def main():
     Translator=QtCore.QTranslator()
     TranslatorSystem=QtCore.QTranslator()
     TranslatorSystemEn=QtCore.QTranslator()
-    if not Translator.load("zh_CN",directory="Translations") or \
+    if not Translator.load("Viewer3D_zh_CN",directory="Translations") or \
             not TranslatorSystem.load("qt_zh_CN",directory=SystemTranslationsPath) or \
             not TranslatorSystemEn.load("qt_en",directory=SystemTranslationsPath):
         sys.exit()

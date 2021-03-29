@@ -62,7 +62,7 @@ class IntroPage(QtWidgets.QWizardPage):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","Introduction"),"Consolas"))
         self.label.setText(_translate("WizardPage",r"This wizard will help you learn how to "
-            r"use <i>View3D</i> and understand the notices when using it."))
+            r"use <i>Viewer3D</i> and understand the notices when using it."))
         # ViewInfoPage
         self.labelList[MyWizard.Page_ViewInfo-1][0].setOriginalText(
             _translate("WizardPage","How to view the models"))
@@ -199,7 +199,7 @@ class MyWizard(QtWidgets.QWizard):
         self.page(MyWizard.Page_Home).jumpToSpecifiedPage.connect(self.jumpToSpecifiedPage)
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("Wizard","View3D Help"))
+        self.setWindowTitle(_translate("Wizard","Viewer3D Help"))
         self.setButtonText(QtWidgets.QWizard.CustomButton1,_translate("Wizard","&Home"))
     # 接收槽定义
     def backToHomePage(self,Which):
