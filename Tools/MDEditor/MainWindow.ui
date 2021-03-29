@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MarkDown Editor</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Images.qrc">
+    <normaloff>:/Help/Images/logo.png</normaloff>:/Help/Images/logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
@@ -137,6 +141,10 @@
    <addaction name="action_Open"/>
    <addaction name="action_Save"/>
    <addaction name="separator"/>
+   <addaction name="action_Cut"/>
+   <addaction name="action_Copy"/>
+   <addaction name="action_Paste"/>
+   <addaction name="separator"/>
    <addaction name="action_Undo"/>
    <addaction name="action_Redo"/>
    <addaction name="separator"/>
@@ -149,8 +157,8 @@
   </widget>
   <action name="action_Open">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/fileopen.png</normaloff>Images/fileopen.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/File/Images/fileopen.png</normaloff>:/File/Images/fileopen.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open...</string>
@@ -164,8 +172,8 @@
   </action>
   <action name="action_New">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/filenew.png</normaloff>Images/filenew.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/File/Images/filenew.png</normaloff>:/File/Images/filenew.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
@@ -179,8 +187,8 @@
   </action>
   <action name="action_Save">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/filesave.png</normaloff>Images/filesave.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/File/Images/filesave.png</normaloff>:/File/Images/filesave.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -228,6 +236,10 @@
    </property>
   </action>
   <action name="action_Reload">
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/File/Images/filereload.png</normaloff>:/File/Images/filereload.png</iconset>
+   </property>
    <property name="text">
     <string>Re&amp;load</string>
    </property>
@@ -239,6 +251,10 @@
    </property>
   </action>
   <action name="action_Setting">
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/File/Images/filesetting.png</normaloff>:/File/Images/filesetting.png</iconset>
+   </property>
    <property name="text">
     <string>Se&amp;tting...</string>
    </property>
@@ -270,8 +286,8 @@
   </action>
   <action name="action_Undo">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/editundo.png</normaloff>Images/editundo.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editundo.png</normaloff>:/Edit/Images/editundo.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Undo</string>
@@ -285,8 +301,8 @@
   </action>
   <action name="action_Redo">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/editredo.png</normaloff>Images/editredo.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editredo.png</normaloff>:/Edit/Images/editredo.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Redo</string>
@@ -300,8 +316,8 @@
   </action>
   <action name="action_Cut">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/editcut.png</normaloff>Images/editcut.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editcut.png</normaloff>:/Edit/Images/editcut.png</iconset>
    </property>
    <property name="text">
     <string>Cu&amp;t</string>
@@ -315,8 +331,8 @@
   </action>
   <action name="action_Copy">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/editcopy.png</normaloff>Images/editcopy.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editcopy.png</normaloff>:/Edit/Images/editcopy.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Copy</string>
@@ -330,8 +346,8 @@
   </action>
   <action name="action_Paste">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/editpaste.png</normaloff>Images/editpaste.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editpaste.png</normaloff>:/Edit/Images/editpaste.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Paste</string>
@@ -390,8 +406,8 @@
   </action>
   <action name="action_Find">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/find.png</normaloff>Images/find.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editfind.png</normaloff>:/Edit/Images/editfind.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Find...</string>
@@ -405,8 +421,8 @@
   </action>
   <action name="action_Replace">
    <property name="icon">
-    <iconset>
-     <normaloff>Images/replace.png</normaloff>Images/replace.png</iconset>
+    <iconset resource="Images.qrc">
+     <normaloff>:/Edit/Images/editreplace.png</normaloff>:/Edit/Images/editreplace.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Replace...</string>
@@ -433,6 +449,10 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/View/Images/vieweditor.png</normaloff>:/View/Images/vieweditor.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Editor</string>
    </property>
@@ -447,6 +467,10 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/View/Images/viewpreview.png</normaloff>:/View/Images/viewpreview.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Preview</string>
    </property>
@@ -458,6 +482,10 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/View/Images/viewboth.png</normaloff>:/View/Images/viewboth.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Both </string>
    </property>
@@ -466,6 +494,10 @@
    </property>
   </action>
   <action name="action_Help">
+   <property name="icon">
+    <iconset resource="Images.qrc">
+     <normaloff>:/Help/Images/help.png</normaloff>:/Help/Images/help.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Help</string>
    </property>
@@ -531,7 +563,9 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>menubar</sender>
