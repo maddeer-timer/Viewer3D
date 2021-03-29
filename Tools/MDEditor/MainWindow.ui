@@ -142,11 +142,16 @@
    <addaction name="separator"/>
    <addaction name="action_Find"/>
    <addaction name="action_Replace"/>
+   <addaction name="separator"/>
    <addaction name="action_Editor"/>
    <addaction name="action_Preview"/>
    <addaction name="action_Both"/>
   </widget>
   <action name="action_Open">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/fileopen.png</normaloff>Images/fileopen.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open...</string>
    </property>
@@ -158,6 +163,10 @@
    </property>
   </action>
   <action name="action_New">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/filenew.png</normaloff>Images/filenew.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;New...</string>
    </property>
@@ -169,6 +178,10 @@
    </property>
   </action>
   <action name="action_Save">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/filesave.png</normaloff>Images/filesave.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
@@ -256,6 +269,10 @@
    </property>
   </action>
   <action name="action_Undo">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/editundo.png</normaloff>Images/editundo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Undo</string>
    </property>
@@ -267,6 +284,10 @@
    </property>
   </action>
   <action name="action_Redo">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/editredo.png</normaloff>Images/editredo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Redo</string>
    </property>
@@ -278,6 +299,10 @@
    </property>
   </action>
   <action name="action_Cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/editcut.png</normaloff>Images/editcut.png</iconset>
+   </property>
    <property name="text">
     <string>Cu&amp;t</string>
    </property>
@@ -289,6 +314,10 @@
    </property>
   </action>
   <action name="action_Copy">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/editcopy.png</normaloff>Images/editcopy.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Copy</string>
    </property>
@@ -300,6 +329,10 @@
    </property>
   </action>
   <action name="action_Paste">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/editpaste.png</normaloff>Images/editpaste.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Paste</string>
    </property>
@@ -356,6 +389,10 @@
    </property>
   </action>
   <action name="action_Find">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/find.png</normaloff>Images/find.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Find...</string>
    </property>
@@ -367,6 +404,10 @@
    </property>
   </action>
   <action name="action_Replace">
+   <property name="icon">
+    <iconset>
+     <normaloff>Images/replace.png</normaloff>Images/replace.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Replace...</string>
    </property>
