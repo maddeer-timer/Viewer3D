@@ -1,5 +1,6 @@
 # coding=utf-8
 from MainWindow import *
+import Classes
 # 重载Ui_MainWindow类
 class MyUi_MainWindow(Ui_MainWindow):
     def setupUi(self,MainWindow):
