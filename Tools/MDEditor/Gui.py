@@ -23,17 +23,12 @@ class MyUi_MainWindow(Ui_MainWindow):
         WebChannel.registerObject("content",self.Content)
         WebEnginePage.setWebChannel(WebChannel)
         self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
-        # 设置Editor和Preview的显示与否
-        self.displayEditor(True)
-        self.displayPreview(False)
         # 对Editor(使用QsciScintilla)进行初始化
         defaultTextFile=QtCore.QFile(":/Resources/default.md")
         defaultTextFile.open(QtCore.QIODevice.ReadOnly)
         self.sciScintilla.setText(defaultTextFile.readAll().data().decode("UTF-8"))
+        # 设置Editor和Preview的显示与否
+        self.sciScintilla.setVisible(True)
+        self.webEngineView.setVisible(False)
         # 连接信号和槽
         MainWindow.retranslateUi.connect(self.retranslateUi)
-    # 处理函数
-    def displayEditor(self,Visible):
-        pass
-    def displayPreview(self,Visible):
-        pass
