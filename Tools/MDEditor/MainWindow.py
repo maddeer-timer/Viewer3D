@@ -22,6 +22,17 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.splitter = QtWidgets.QSplitter(self.centralwidget)
+        self.splitter.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter.setObjectName("splitter")
+        self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.splitter)
+        self.webEngineView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.webEngineView.setObjectName("webEngineView")
+        self.sciScintilla = Qsci.QsciScintilla(self.splitter)
+        self.sciScintilla.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.sciScintilla.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.sciScintilla.setObjectName("sciScintilla")
+        self.horizontalLayout.addWidget(self.splitter)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 23))
@@ -344,5 +355,7 @@ class Ui_MainWindow(object):
         self.action_Word_Wrap.setStatusTip(_translate("MainWindow", "Wrap the file automatically"))
         self.action_About_MarkDown.setText(_translate("MainWindow", "About &MarkDown"))
         self.action_About_MarkDown.setStatusTip(_translate("MainWindow", "Show information about MarkDown"))
+from PyQt5 import Qsci
+from PyQt5 import QtWebEngineWidgets
 import Images_rc
 import Resources_rc

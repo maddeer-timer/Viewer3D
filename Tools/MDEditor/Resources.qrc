@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="Resources">
+  <qresource>
     <file>Resources/Default.md</file>
     <file>Resources/Index.html</file>
     <file>Resources/3rdParty/markdown.css</file>
