@@ -50,7 +50,7 @@
        <string>&amp;Line Separators</string>
       </property>
       <addaction name="action_CRLF_Windows"/>
-      <addaction name="action_LF_Unux"/>
+      <addaction name="action_LF_Unix"/>
       <addaction name="action_CR_MacOS"/>
      </widget>
      <addaction name="action_Encoding"/>
@@ -270,7 +270,7 @@
     <string>&amp;Encoding</string>
    </property>
    <property name="statusTip">
-    <string>Set the file's encoding</string>
+    <string>Set the file encoding</string>
    </property>
   </action>
   <action name="action_Read_Only">
@@ -393,15 +393,24 @@
    <property name="text">
     <string>CRLF-Windows(\r\n)</string>
    </property>
+   <property name="statusTip">
+    <string>Convert the file format to Windows style</string>
+   </property>
   </action>
-  <action name="action_LF_Unux">
+  <action name="action_LF_Unix">
    <property name="text">
-    <string>LF-Unux(\n)</string>
+    <string>LF-Unix(\n)</string>
+   </property>
+   <property name="statusTip">
+    <string>Convert the file format to UNIX(MacOS) style</string>
    </property>
   </action>
   <action name="action_CR_MacOS">
    <property name="text">
     <string>CR-MacOS(\r)</string>
+   </property>
+   <property name="statusTip">
+    <string>Convert the file format to classic MacOS style</string>
    </property>
   </action>
   <action name="action_Find">

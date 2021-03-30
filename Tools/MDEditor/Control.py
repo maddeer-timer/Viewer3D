@@ -100,12 +100,8 @@ class MyMainWindow(QtWidgets.QMainWindow):
             traceback.print_exc()
             self.close()
     def toolbarTriggered(self,Action):
-        # 直接执行对应的函数代码(注意几乎是重复的)
-        try:
-            exec("self.{}()".format(Action.objectName()))
-        except:
-            traceback.print_exc()
-            self.close()
+        # 直接执行对应的函数代码(因为会重复执行所以pass)
+        pass
 # 主函数
 def main():
     # 初始化部分
