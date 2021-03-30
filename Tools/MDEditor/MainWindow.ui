@@ -224,7 +224,7 @@
     <string>Close the Markdown file</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+C</string>
+    <string>Ctrl+W</string>
    </property>
   </action>
   <action name="action_Rename">
@@ -496,7 +496,7 @@
      <normaloff>:/View/Images/viewboth.png</normaloff>:/View/Images/viewboth.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Both </string>
+    <string>&amp;Both</string>
    </property>
    <property name="statusTip">
     <string>Display the editor and preview</string>
