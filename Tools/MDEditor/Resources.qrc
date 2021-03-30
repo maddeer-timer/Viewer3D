@@ -2,7 +2,7 @@
   <qresource prefix="/">
     <file>Resources/Default.md</file>
     <file>Resources/Index.html</file>
-    <file>Resources/3rdParty/markdown.css</file>
-    <file>Resources/3rdParty/marked.js</file>
+    <file>Resources/3rdparty/markdown.css</file>
+    <file>Resources/3rdparty/marked.js</file>
   </qresource>
 </RCC>
