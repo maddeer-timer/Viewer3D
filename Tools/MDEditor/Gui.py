@@ -22,12 +22,12 @@ class MyUi_MainWindow(Ui_MainWindow):
         WebChannel=QtWebChannel.QWebChannel(MainWindow)
         WebChannel.registerObject("content",self.Content)
         WebEnginePage.setWebChannel(WebChannel)
-        self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/Index.html"))
+        self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
         # 设置Editor和Preview的显示与否
         self.displayEditor(True)
         self.displayPreview(False)
         # 对Editor(使用QsciScintilla)进行初始化
-        defaultTextFile=QtCore.QFile(":/Resources/Default.md")
+        defaultTextFile=QtCore.QFile(":/Resources/default.md")
         defaultTextFile.open(QtCore.QIODevice.ReadOnly)
         self.sciScintilla.setText(defaultTextFile.readAll().data().decode("UTF-8"))
         # 连接信号和槽
