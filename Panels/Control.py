@@ -3,8 +3,6 @@ import os
 import sys
 import traceback
 from PyQt5 import QtCore,QtGui,QtWidgets
-# QtCore:       pyqtSignal,QModelIndex,QCoreApplication,QTranslator
-# QtWidgets:    QApplication,QMainWindow,QFileDialog,QMessageBox
 import Panels.Gui as Gui
 import Panels.Wizard as Wizard
 from Core import *

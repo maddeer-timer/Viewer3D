@@ -10,7 +10,7 @@ try:
 except:
     traceback.print_exc()
 def main():
-    import Panels.Control as Control
+    import Control
     Control.main()
 if __name__=="__main__":
     main()

@@ -84,7 +84,7 @@
     <addaction name="action_Copy"/>
     <addaction name="action_Paste"/>
     <addaction name="action_Delete"/>
-    <addaction name="action_All"/>
+    <addaction name="action_Select_All"/>
     <addaction name="separator"/>
     <addaction name="action_Find"/>
     <addaction name="action_Replace"/>
@@ -370,9 +370,9 @@
     <string>Del</string>
    </property>
   </action>
-  <action name="action_All">
+  <action name="action_Select_All">
    <property name="text">
-    <string>&amp;All</string>
+    <string>Select &amp;All</string>
    </property>
    <property name="statusTip">
     <string>Select all</string>
