@@ -345,3 +345,4 @@ class Ui_MainWindow(object):
         self.action_About_MarkDown.setText(_translate("MainWindow", "About &MarkDown"))
         self.action_About_MarkDown.setStatusTip(_translate("MainWindow", "Show information about MarkDown"))
 import Images_rc
+import Resources_rc

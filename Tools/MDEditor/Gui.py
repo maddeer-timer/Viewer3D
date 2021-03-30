@@ -5,4 +5,9 @@ import Classes
 class MyUi_MainWindow(Ui_MainWindow):
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
+
         MainWindow.retranslateUi.connect(self.retranslateUi)
+    def displayEditor(self,Visible):
+        pass
+    def displayPreview(self,Visible):
+        pass

@@ -184,7 +184,8 @@ def main():
     if not Translator.load("Viewer3D_zh_CN",directory="Translations") or \
             not TranslatorSystem.load("qt_zh_CN",directory=SystemTranslationsPath) or \
             not TranslatorSystemEn.load("qt_en",directory=SystemTranslationsPath):
-        sys.exit()
+        # sys.exit()
+        pass
     App.installTranslator(Translator)
     App.installTranslator(TranslatorSystem)
     # 窗口创建
