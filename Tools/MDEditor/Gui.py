@@ -11,7 +11,7 @@ class MyUi_MainWindow(Ui_MainWindow):
         # 对Preview(使用QWebEngineView)进行初始化
         WebEnginePage=MyWebEnginePage(MainWindow)
         self.webEngineView.setPage(WebEnginePage)
-        self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
+        self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/Index.html"))
         # 设置Editor和Preview的显示与否
         self.displayEditor(True)
         self.displayPreview(False)

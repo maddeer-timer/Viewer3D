@@ -1,12 +1,12 @@
 <RCC>
-  <qresource prefix="File">
+  <qresource prefix="/File">
     <file>Images/filesetting.png</file>
     <file>Images/filereload.png</file>
     <file>Images/filenew.png</file>
     <file>Images/fileopen.png</file>
     <file>Images/filesave.png</file>
   </qresource>
-  <qresource prefix="Edit">
+  <qresource prefix="/Edit">
     <file>Images/editcopy.png</file>
     <file>Images/editcut.png</file>
     <file>Images/editfind.png</file>
@@ -15,12 +15,12 @@
     <file>Images/editreplace.png</file>
     <file>Images/editundo.png</file>
   </qresource>
-  <qresource prefix="View">
+  <qresource prefix="/View">
     <file>Images/viewboth.png</file>
     <file>Images/vieweditor.png</file>
     <file>Images/viewpreview.png</file>
   </qresource>
-  <qresource prefix="Help">
+  <qresource prefix="/Help">
     <file>Images/logo.png</file>
     <file>Images/help.png</file>
   </qresource>
