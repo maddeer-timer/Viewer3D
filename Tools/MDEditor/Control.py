@@ -21,21 +21,22 @@ class MyMainWindow(QtWidgets.QMainWindow):
         # destroy()
         sys.exit()
     # 处理函数
+    # -> Menu_File
+    def action_New(self):
+        pass
     def action_Open(self):
         pass
-    def action_New(self):
+    def action_Open_Folder(self):
         pass
     def action_Save(self):
         pass
     def action_Save_As(self):
         pass
-    def action_Exit(self):
-        pass
-    def action_Close(self):
-        pass
     def action_Rename(self):
         pass
     def action_Reload(self):
+        pass
+    def action_Close(self):
         pass
     def action_Setting(self):
         pass
@@ -43,6 +44,15 @@ class MyMainWindow(QtWidgets.QMainWindow):
         pass
     def action_Read_Only(self):
         pass
+    def action_CRLF_Windows(self):
+        pass
+    def action_LF_Unix(self):
+        pass
+    def action_CR_MacOS(self):
+        pass
+    def action_Exit(self):
+        pass
+    # -> Menu_Edit
     def action_Undo(self):
         pass
     def action_Redo(self):
@@ -57,37 +67,31 @@ class MyMainWindow(QtWidgets.QMainWindow):
         pass
     def action_Select_All(self):
         pass
-    def action_Open_Folder(self):
-        pass
-    def action_CRLF_Windows(self):
-        pass
-    def action_LF_Unux(self):
-        pass
-    def action_CR_MacOS(self):
-        pass
     def action_Find(self):
         pass
     def action_Replace(self):
         pass
     def action_Goto(self):
         pass
+    def action_Always_On_Top(self):
+        pass
+    def action_Word_Wrap(self):
+        pass
+    # -> Menu_View
     def action_Editor(self):
         pass
     def action_Preview(self):
         pass
     def action_Both(self):
         pass
+    # -> Menu_Help
     def action_Help(self):
-        pass
-    def action_About(self):
         pass
     def action_Chinese(self):
         pass
     def action_English(self):
         pass
-    def action_Always_On_Top(self):
-        pass
-    def action_Word_Wrap(self):
+    def action_About(self):
         pass
     def action_About_MarkDown(self):
         pass
