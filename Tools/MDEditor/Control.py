@@ -85,6 +85,21 @@ class MyMainWindow(QtWidgets.QMainWindow):
         pass
     def action_Both(self):
         pass
+    # -> Menu_Navigation
+    def action_Back(self):
+        pass
+    def action_Forward(self):
+        pass
+    def action_Reload_MarkDown(self):
+        pass
+    def action_Home(self):
+        pass
+    def action_Restore(self):
+        pass
+    def action_Top(self):
+        pass
+    def action_Bottom(self):
+        pass
     # -> Menu_Help
     def action_Help(self):
         pass
@@ -110,9 +125,7 @@ class MyMainWindow(QtWidgets.QMainWindow):
         except:
             traceback.print_exc()
             self.close()
-    def toolbarTriggered(self,Action):
-        # 直接执行对应的函数代码(因为会重复执行所以pass)
-        pass
+    # 由于toolbar会和menubar同时发出一样的信号导致重复执行所以pass
 # 主函数
 def main():
     # 初始化部分
@@ -140,12 +153,17 @@ def main():
                "https://doc.qt.io/qt-5/qapplication.html#QApplication",
         allow_abbrev=False)
     parse.add_argument("file",nargs='?',default=argparse.SUPPRESS,help="要打开的Markdown文件")
+    parse.add_argument("-H","--home",default=":/Resources/default.md",
+                       help="设置默认打开的Markdown文件")
     parse.add_argument("-l","--language",default="zh_CN",choices=["zh_CN","en_US"],
                        help="设置应用程序界面使用的语言")
     args=parse.parse_args()
     # 处理得到的命令行参数
     if args.language=="zh_CN": MainWindow.action_Chinese()
     elif args.languaga=="en_US": MainWindow.action_English()
+    if Ui.Home!=args.home:
+        Ui.Home=args.home
+        pass
     if "file" in args:
         pass
     # 执行和关闭部分

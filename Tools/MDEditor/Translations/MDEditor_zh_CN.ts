@@ -1,483 +1,623 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../MainWindow.py" line="255"/>
+        <location filename="../MainWindow.py" line="326"/>
         <source>MarkDown Editor</source>
         <translation>MarkDown编辑器</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="256"/>
+        <location filename="../MainWindow.py" line="327"/>
         <source>&amp;File</source>
         <translation>文件(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="257"/>
+        <location filename="../MainWindow.py" line="328"/>
         <source>F&amp;ile Attribute</source>
         <translation>文件属性(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="258"/>
+        <location filename="../MainWindow.py" line="329"/>
         <source>&amp;Line Separators</source>
         <translation>行分隔符(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="259"/>
+        <location filename="../MainWindow.py" line="330"/>
         <source>&amp;Edit</source>
         <translation>编辑(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="260"/>
+        <location filename="../MainWindow.py" line="331"/>
         <source>&amp;View</source>
         <translation>视图(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="261"/>
-        <location filename="../MainWindow.py" line="336"/>
+        <location filename="../MainWindow.py" line="332"/>
+        <location filename="../MainWindow.py" line="409"/>
         <source>&amp;Help</source>
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="262"/>
+        <location filename="../MainWindow.py" line="333"/>
         <source>&amp;Language</source>
         <translation>语言(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="263"/>
-        <source>toolBar</source>
-        <translation>工具栏</translation>
-    </message>
-    <message>
-        <location filename="../MainWindow.py" line="264"/>
+        <location filename="../MainWindow.py" line="337"/>
         <source>&amp;Open...</source>
         <translation>打开(&amp;O)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="265"/>
+        <location filename="../MainWindow.py" line="338"/>
         <source>Open a Markdown file</source>
         <translation>打开一个Markdown文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="266"/>
+        <location filename="../MainWindow.py" line="339"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="267"/>
+        <location filename="../MainWindow.py" line="340"/>
         <source>&amp;New...</source>
         <translation>新建(&amp;N)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="268"/>
+        <location filename="../MainWindow.py" line="341"/>
         <source>New a Markdown file</source>
         <translation>新建一个Markdown文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="269"/>
+        <location filename="../MainWindow.py" line="342"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="270"/>
+        <location filename="../MainWindow.py" line="343"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="271"/>
+        <location filename="../MainWindow.py" line="344"/>
         <source>Save the Markdown file</source>
         <translation>保存Markdown文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="272"/>
+        <location filename="../MainWindow.py" line="345"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="273"/>
+        <location filename="../MainWindow.py" line="346"/>
         <source>Save &amp;As...</source>
         <translation>另存为(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="274"/>
+        <location filename="../MainWindow.py" line="347"/>
         <source>Save the Markdown file as...</source>
         <translation>将Markdown文件另存为...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="275"/>
+        <location filename="../MainWindow.py" line="348"/>
         <source>E&amp;xit</source>
         <translation>退出(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="276"/>
+        <location filename="../MainWindow.py" line="349"/>
         <source>Exit the application</source>
         <translation>退出应用程序</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="277"/>
+        <location filename="../MainWindow.py" line="350"/>
         <source>&amp;Close</source>
         <translation>关闭(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="278"/>
+        <location filename="../MainWindow.py" line="351"/>
         <source>Close the Markdown file</source>
         <translation>关闭Markdown文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="303"/>
+        <location filename="../MainWindow.py" line="355"/>
+        <source>R&amp;eload</source>
+        <translation>重新加载(&amp;E)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="376"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="280"/>
+        <location filename="../MainWindow.py" line="353"/>
         <source>&amp;Rename...</source>
         <translation>重命名(&amp;R)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="279"/>
+        <location filename="../MainWindow.py" line="334"/>
+        <source>&amp;Navigation</source>
+        <translation>导航(&amp;N)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="335"/>
+        <source>toolBar_Editor</source>
+        <translation>Editor工具栏</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="336"/>
+        <source>toolBar_Preview</source>
+        <translation>Preview工具栏</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="352"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="281"/>
+        <location filename="../MainWindow.py" line="354"/>
         <source>Rename the Markdown file</source>
         <translation>重命名Markdown文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="282"/>
         <source>Re&amp;load</source>
-        <translation>重新加载(&amp;L)</translation>
+        <translation type="vanished">重新加载(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="283"/>
+        <location filename="../MainWindow.py" line="356"/>
         <source>Reload the file from the hard disk</source>
         <translation>从硬盘重新加载文件</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="284"/>
+        <location filename="../MainWindow.py" line="357"/>
         <source>Ctrl+Alt+R</source>
         <translation>Ctrl+Alt+R</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="285"/>
+        <location filename="../MainWindow.py" line="358"/>
         <source>Se&amp;tting...</source>
         <translation>设置(&amp;T)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="286"/>
+        <location filename="../MainWindow.py" line="359"/>
         <source>Configure the application</source>
         <translation>配置应用程序</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="287"/>
+        <location filename="../MainWindow.py" line="360"/>
         <source>Ctrl+Alt+S</source>
         <translation>Ctrl+Alt+S</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="288"/>
+        <location filename="../MainWindow.py" line="361"/>
         <source>&amp;Encoding</source>
         <translation>文件编码(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="289"/>
+        <location filename="../MainWindow.py" line="362"/>
         <source>Set the file encoding</source>
         <translation>设置文件编码</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="290"/>
+        <location filename="../MainWindow.py" line="363"/>
         <source>&amp;Read Only</source>
         <translation>设为只读(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="291"/>
+        <location filename="../MainWindow.py" line="364"/>
         <source>Set the file&apos;s read-only property</source>
         <translation>设置文件是否只读</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="292"/>
+        <location filename="../MainWindow.py" line="365"/>
         <source>&amp;Undo</source>
         <translation>撤销(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="293"/>
+        <location filename="../MainWindow.py" line="366"/>
         <source>Undo the last action</source>
         <translation>撤销最后的操作</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="294"/>
+        <location filename="../MainWindow.py" line="367"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="295"/>
+        <location filename="../MainWindow.py" line="368"/>
         <source>&amp;Redo</source>
         <translation>重做(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="296"/>
+        <location filename="../MainWindow.py" line="369"/>
         <source>Redo the last undo action</source>
         <translation>重做最后的撤销操作</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="297"/>
+        <location filename="../MainWindow.py" line="370"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="298"/>
+        <location filename="../MainWindow.py" line="371"/>
         <source>Cu&amp;t</source>
         <translation>剪切(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="299"/>
+        <location filename="../MainWindow.py" line="372"/>
         <source>Cut to the clipboard</source>
         <translation>剪切至剪贴板</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="300"/>
+        <location filename="../MainWindow.py" line="373"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="301"/>
+        <location filename="../MainWindow.py" line="374"/>
         <source>&amp;Copy</source>
         <translation>复制(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="302"/>
+        <location filename="../MainWindow.py" line="375"/>
         <source>Copy to the clipboard</source>
         <translation>复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="304"/>
+        <location filename="../MainWindow.py" line="377"/>
         <source>&amp;Paste</source>
         <translation>粘贴(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="305"/>
+        <location filename="../MainWindow.py" line="378"/>
         <source>Paste from the clipboard</source>
         <translation>从剪贴板粘贴</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="306"/>
+        <location filename="../MainWindow.py" line="379"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="307"/>
+        <location filename="../MainWindow.py" line="380"/>
         <source>&amp;Delete</source>
         <translation>删除(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="308"/>
+        <location filename="../MainWindow.py" line="381"/>
         <source>Delete the selected entry</source>
         <translation>删除所选条目</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="309"/>
+        <location filename="../MainWindow.py" line="382"/>
         <source>Del</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="310"/>
+        <location filename="../MainWindow.py" line="383"/>
         <source>Select &amp;All</source>
         <translation>全选(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="311"/>
+        <location filename="../MainWindow.py" line="384"/>
         <source>Select all</source>
         <translation>全选</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="312"/>
+        <location filename="../MainWindow.py" line="385"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="313"/>
+        <location filename="../MainWindow.py" line="386"/>
         <source>Open &amp;Folder</source>
         <translation>打开包含文件夹(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="314"/>
+        <location filename="../MainWindow.py" line="387"/>
         <source>Open containing folder</source>
         <translation>打开包含文件夹</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="315"/>
-        <source>CRLF-Windows(\r\n)</source>
-        <translation>CRLF-Windows(\r\n)</translation>
+        <location filename="../MainWindow.py" line="388"/>
+        <source>CRLF-&amp;Windows(\r\n)</source>
+        <translation>CRLF-&amp;Windows(\r\n)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="316"/>
+        <location filename="../MainWindow.py" line="390"/>
+        <source>LF-&amp;Unix(\n)</source>
+        <translation>LF-&amp;Unix(\n)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="392"/>
+        <source>CR-&amp;MacOS(\r)</source>
+        <translation>CR-&amp;MacOS(\r)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="397"/>
+        <source>R&amp;eplace...</source>
+        <translation>替换(&amp;E)...</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="430"/>
+        <source>R&amp;eload</source>
+        <comment>Reload MarkDown</comment>
+        <translation>刷新(&amp;E)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="442"/>
+        <source>B&amp;ottom</source>
+        <translation>底部(&amp;O)</translation>
+    </message>
+    <message>
+        <source>CRLF-Windows(\r\n)</source>
+        <translation type="vanished">CRLF-Windows(\r\n)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="389"/>
         <source>Convert the file format to Windows style</source>
         <translation>将文件格式转为Windows风格</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="317"/>
         <source>LF-Unix(\n)</source>
-        <translation>LF-Unix(\n)</translation>
+        <translation type="vanished">LF-Unix(\n)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="318"/>
+        <location filename="../MainWindow.py" line="391"/>
         <source>Convert the file format to UNIX(MacOS) style</source>
         <translation>将文件格式转为UNIX(MacOS)风格</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="319"/>
         <source>CR-MacOS(\r)</source>
-        <translation>CR-MacOS(\r)</translation>
+        <translation type="vanished">CR-MacOS(\r)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="320"/>
+        <location filename="../MainWindow.py" line="393"/>
         <source>Convert the file format to classic MacOS style</source>
         <translation>将文件格式转为经典MacOS风格</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="321"/>
+        <location filename="../MainWindow.py" line="394"/>
         <source>&amp;Find...</source>
         <translation>查找(&amp;F)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="322"/>
+        <location filename="../MainWindow.py" line="395"/>
         <source>Look for a string in the active editor</source>
         <translation>在活动编辑器中查找字符串</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="323"/>
+        <location filename="../MainWindow.py" line="396"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="324"/>
         <source>&amp;Replace...</source>
-        <translation>替换(&amp;R)...</translation>
+        <translation type="vanished">替换(&amp;R)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="325"/>
+        <location filename="../MainWindow.py" line="398"/>
         <source>Replace the string in the active editor with another string</source>
         <translation>使用另一个字符串替换活动编辑器中的字符串</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="326"/>
+        <location filename="../MainWindow.py" line="399"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="327"/>
+        <location filename="../MainWindow.py" line="400"/>
         <source>&amp;Goto...</source>
         <translation>行定位(&amp;G)...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="328"/>
+        <location filename="../MainWindow.py" line="401"/>
         <source>Go to the specified row</source>
         <translation>转至指定行</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="329"/>
+        <location filename="../MainWindow.py" line="402"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="330"/>
+        <location filename="../MainWindow.py" line="403"/>
         <source>&amp;Editor</source>
         <translation>编辑器(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="331"/>
+        <location filename="../MainWindow.py" line="404"/>
         <source>Display the editor only</source>
         <translation>仅显示编辑器</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="332"/>
+        <location filename="../MainWindow.py" line="405"/>
         <source>&amp;Preview</source>
         <translation>预览(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="333"/>
+        <location filename="../MainWindow.py" line="406"/>
         <source>Display the preview only</source>
         <translation>仅显示预览</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="334"/>
+        <location filename="../MainWindow.py" line="407"/>
         <source>&amp;Both</source>
         <translation>并行显示(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="335"/>
+        <location filename="../MainWindow.py" line="408"/>
         <source>Display the editor and preview</source>
         <translation>显示编辑器和预览</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="337"/>
+        <location filename="../MainWindow.py" line="410"/>
         <source>Show the help content</source>
         <translation>显示帮助内容</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="338"/>
+        <location filename="../MainWindow.py" line="411"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="339"/>
+        <location filename="../MainWindow.py" line="412"/>
         <source>&amp;About</source>
         <translation>关于(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="340"/>
+        <location filename="../MainWindow.py" line="413"/>
         <source>Show information about MarkDown Editor</source>
         <translation>显示关于MarkDown编辑器的信息</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="341"/>
+        <location filename="../MainWindow.py" line="414"/>
         <source>&amp;Chinese</source>
         <translation>简体中文(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="342"/>
+        <location filename="../MainWindow.py" line="415"/>
         <source>Change the interface language to Chinese</source>
         <translation>改变界面语言为简体中文</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="343"/>
+        <location filename="../MainWindow.py" line="416"/>
         <source>&amp;English</source>
         <translation>英文(美国)(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="344"/>
+        <location filename="../MainWindow.py" line="417"/>
         <source>Change the interface language to English</source>
         <translation>改变界面语言为英文(美国)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="345"/>
+        <location filename="../MainWindow.py" line="418"/>
         <source>Always On T&amp;op</source>
         <translation>总在最前(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="346"/>
+        <location filename="../MainWindow.py" line="419"/>
         <source>Keep the application always on top</source>
         <translation>保持应用程序总在最前</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="347"/>
+        <location filename="../MainWindow.py" line="420"/>
         <source>&amp;Word Wrap</source>
         <translation>自动换行(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="348"/>
+        <location filename="../MainWindow.py" line="421"/>
         <source>Wrap the file automatically</source>
         <translation>使文件自动换行</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="349"/>
+        <location filename="../MainWindow.py" line="422"/>
         <source>About &amp;MarkDown</source>
         <translation>关于Markdown(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.py" line="350"/>
+        <location filename="../MainWindow.py" line="423"/>
         <source>Show information about MarkDown</source>
         <translation>显示有关MarkDown的信息</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="424"/>
+        <source>&amp;Back</source>
+        <translation>后退(&amp;B)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="425"/>
+        <source>Back to the previous tab</source>
+        <translation>后退至前一个标签页</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="426"/>
+        <source>Ctrl+Alt+Left</source>
+        <translation>Ctrl+Alt+Left</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="427"/>
+        <source>&amp;Forward</source>
+        <translation>前进(&amp;F)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="428"/>
+        <source>Advance to the next tab</source>
+        <translation>前进至后一个标签页</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="429"/>
+        <source>Ctrl+Alt+Right</source>
+        <translation>Ctrl+Alt+Right</translation>
+    </message>
+    <message>
+        <source>&amp;Reload</source>
+        <translation type="vanished">刷新(&amp;R)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="431"/>
+        <source>Reload the current tab</source>
+        <translation>重新加载当前标签页</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="432"/>
+        <source>Ctrl+Alt+Y</source>
+        <translation>Ctrl+Alt+Y</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="433"/>
+        <source>&amp;Home</source>
+        <translation>首页(&amp;H)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="434"/>
+        <source>Back to the home page</source>
+        <translation>回到首页</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="435"/>
+        <source>Home</source>
+        <translation>Home</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="436"/>
+        <source>&amp;Restore</source>
+        <translation>恢复(&amp;R)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="437"/>
+        <source>Restore to the previous tab</source>
+        <translation>恢复为前一个标签页</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="438"/>
+        <source>Ctrl+Alt+Home</source>
+        <translation>Ctrl+Alt+Home</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="439"/>
+        <source>&amp;Top</source>
+        <translation>顶部(&amp;T)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="440"/>
+        <source>Back to the top of page</source>
+        <translation>返回页面顶部</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="441"/>
+        <source>Ctrl+Alt+Up</source>
+        <translation>Ctrl+Alt+Up</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="443"/>
+        <source>Go to the bottom of page</source>
+        <translation>跳转到页面底部</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.py" line="444"/>
+        <source>Ctrl+Alt+Down</source>
+        <translation>Ctrl+Alt+Down</translation>
     </message>
 </context>
 </TS>

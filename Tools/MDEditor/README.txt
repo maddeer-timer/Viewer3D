@@ -4,9 +4,9 @@ http://tango.freedesktop.org/Tango_Desktop_Project
 http://tango.freedesktop.org/Tango_Desktop_Project
 
 Two of the icons are from the Internet.
-Four of the icons are made from or reference to existing icons.
+Six of the icons are made from or reference to existing icons.
 两个图标是从互联网上截取而成。
-其中4个图标是由已有图标更改而成或参照已有图标完成。
+其中6个图标是由已有图标更改而成或参照已有图标完成。
 
 All other icons are from the Qt project(open source):
 https://code.qt.io/cgit/qt/qtbase.git/tree/examples?h=5.15

@@ -20,6 +20,15 @@
     <file>Images/vieweditor.png</file>
     <file>Images/viewpreview.png</file>
   </qresource>
+  <qresource prefix="/Navigation">
+    <file>Images/naviback.png</file>
+    <file>Images/navibottom.png</file>
+    <file>Images/naviforward.png</file>
+    <file>Images/navihome.png</file>
+    <file>Images/navireload.png</file>
+    <file>Images/navirestore.png</file>
+    <file>Images/navitop.png</file>
+  </qresource>
   <qresource prefix="/Help">
     <file>Images/logo.png</file>
     <file>Images/help.png</file>

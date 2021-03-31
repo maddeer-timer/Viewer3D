@@ -8,6 +8,7 @@ class MyUi_MainWindow(Ui_MainWindow):
     def __init__(self):
         super(MyUi_MainWindow,self).__init__()
         self.Content=MyDocument()
+        self.Home=":/Resources/default.md"
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         # 对Editor(使用QsciScintilla)进行设置
@@ -24,11 +25,12 @@ class MyUi_MainWindow(Ui_MainWindow):
         WebEnginePage.setWebChannel(WebChannel)
         self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
         # 对Editor(使用QsciScintilla)进行初始化
-        defaultTextFile=QtCore.QFile(":/Resources/default.md")
+        defaultTextFile=QtCore.QFile(self.Home)
         defaultTextFile.open(QtCore.QIODevice.ReadOnly)
         self.sciScintilla.setText(defaultTextFile.readAll().data().decode("UTF-8"))
         # 设置Editor和Preview的显示与否
         self.sciScintilla.setVisible(True)
-        self.webEngineView.setVisible(False)
+        # self.webEngineView.setVisible(False)
+        self.webEngineView.setVisible(True)
         # 连接信号和槽
         MainWindow.retranslateUi.connect(self.retranslateUi)

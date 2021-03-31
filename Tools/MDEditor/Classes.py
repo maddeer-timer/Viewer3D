@@ -22,7 +22,67 @@ class MyDocument(QtCore.QObject):
         self.textChanged.emit(self._text)
 # 重载QsciLexerMarkdown
 class MyLexerMarkdown(Qsci.QsciLexerMarkdown):
-    pass
+    def __init__(self,Parent=None):
+        super(MyLexerMarkdown,self).__init__(Parent)
+        # 界面设置
+        self.setFont(QtGui.QFont("Consolas"))
+        self.setPaper(QtGui.QColor("Snow"))
+        # 特殊设置
+        # -> Default(0): 默认
+        # -> Special(1): 特殊
+        # -> StrongEmphasisAsterisks(2): 星号重点强调
+        # like "**StrongEmphasisAsterisks**"
+        Font=QtGui.QFont("Consolas")
+        Font.setBold(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.StrongEmphasisAsterisks)
+        # -> StrongEmphasisUnderscores(3): 下划重点强调
+        # like "__StrongEmphasisUnderscores__"
+        Font=QtGui.QFont("Consolas")
+        Font.setBold(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.StrongEmphasisUnderscores)
+        # -> EmphasisAsterisks(4): 星号强调
+        # like "*EmphasisAsterisks*"
+        Font=QtGui.QFont("Consolas")
+        Font.setItalic(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.EmphasisAsterisks)
+        # -> EmphasisUnderscores(5): 下划强调
+        # like "_EmphasisUnderscores_"
+        Font=QtGui.QFont("Consolas")
+        Font.setItalic(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.EmphasisUnderscores)
+        # -> Header(6-11): 标题
+        # like "# Header1"
+        Font=QtGui.QFont("Consolas")
+        Font.setBold(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header1)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header2)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header3)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header4)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header5)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.Header6)
+        # -> Prechar(12):
+        # -> UnorderedListItem(13): 无序列表项
+        # like "* UnorderedListItem"
+        Font=QtGui.QFont("Consolas")
+        Font.setItalic(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.UnorderedListItem)
+        # -> OrderedListItem(14): 有序列表项
+        # like "1. OrderedListItem"
+        # -> BlockQuote(15): 块引用
+        # like "> BlockQuote"
+        Font=QtGui.QFont("Consolas")
+        Font.setBold(True)
+        self.setFont(Font,Qsci.QsciLexerMarkdown.BlockQuote)
+        # -> StrikeOut(16): 删除线
+        # like "~~StrikeOut~~"
+        self.setColor(QtGui.QColor("Gray"),Qsci.QsciLexerMarkdown.StrikeOut)
+        # -> HorizontalRule(17): 水平线
+        # -> Link(18): 链接
+        # like "[Link](Link)" or "[1]: Link"
+
+        # -> CodeBackticks(19):
+        # -> CodeDoubleBackticks(20):
+        # -> CodeBlock(21):
 # 重载QWebEnginePage, 用来阻止页面切换
 class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
@@ -30,3 +90,9 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         if Url.scheme()=="qrc": return True
         QtGui.QDesktopServices.openUrl(Url)
         return False
+# 重载QsciScintilla
+class MysciScintilla(Qsci.QsciScintilla):
+    pass
+# 重载QWebEngineView
+class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
+    pass
