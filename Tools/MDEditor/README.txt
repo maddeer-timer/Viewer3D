@@ -1,18 +1,18 @@
 Two of the icons are from the Tango Desktop project:
 http://tango.freedesktop.org/Tango_Desktop_Project
-ÆäÖĞ2¸öÍ¼±êÀ´×ÔTango×ÀÃæÏîÄ¿:
+å…¶ä¸­2ä¸ªå›¾æ ‡æ¥è‡ªTangoæ¡Œé¢é¡¹ç›®:
 http://tango.freedesktop.org/Tango_Desktop_Project
 
 Two of the icons are from the Internet.
 Six of the icons are made from or reference to existing icons.
-Á½¸öÍ¼±êÊÇ´Ó»¥ÁªÍøÉÏ½ØÈ¡¶ø³É¡£
-ÆäÖĞ6¸öÍ¼±êÊÇÓÉÒÑÓĞÍ¼±ê¸ü¸Ä¶ø³É»ò²ÎÕÕÒÑÓĞÍ¼±êÍê³É¡£
+ä¸¤ä¸ªå›¾æ ‡æ˜¯ä»äº’è”ç½‘ä¸Šæˆªå–è€Œæˆã€‚
+å…¶ä¸­6ä¸ªå›¾æ ‡æ˜¯ç”±å·²æœ‰å›¾æ ‡æ›´æ”¹è€Œæˆæˆ–å‚ç…§å·²æœ‰å›¾æ ‡å®Œæˆã€‚
 
 All other icons are from the Qt project(open source):
 https://code.qt.io/cgit/qt/qtbase.git/tree/examples?h=5.15
-Ê£ÏÂµÄÈ«²¿Í¼±êÀ´×ÔQtÏîÄ¿(¿ªÔ´):
+å‰©ä¸‹çš„å…¨éƒ¨å›¾æ ‡æ¥è‡ªQté¡¹ç›®(å¼€æº):
 https://code.qt.io/cgit/qt/qtbase.git/tree/examples?h=5.15
 
 Part of the program reference Qt official examples completed,
 the rest of the reference from the Internet.
-¸Ã³ÌĞò²¿·Ö²Î¿¼Qt¹Ù·½Ê¾ÀıÍê³É£¬ÆäÓà²Î¿¼×Ô»¥ÁªÍø¡£
+è¯¥ç¨‹åºéƒ¨åˆ†å‚è€ƒQtå®˜æ–¹ç¤ºä¾‹å®Œæˆï¼Œå…¶ä½™å‚è€ƒè‡ªäº’è”ç½‘ã€‚

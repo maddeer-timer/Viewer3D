@@ -26,7 +26,6 @@ class Ui_MainWindow(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.webEngineView = MyWebEngineView(self.splitter)
-        self.webEngineView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.webEngineView.setObjectName("webEngineView")
         self.sciScintilla = MysciScintilla(self.splitter)
         self.sciScintilla.setFrameShape(QtWidgets.QFrame.StyledPanel)

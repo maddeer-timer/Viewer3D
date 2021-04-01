@@ -24,11 +24,7 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="MyWebEngineView" name="webEngineView" native="true">
-       <property name="contextMenuPolicy">
-        <enum>Qt::NoContextMenu</enum>
-       </property>
-      </widget>
+      <widget class="MyWebEngineView" name="webEngineView" native="true"/>
       <widget class="MysciScintilla" name="sciScintilla">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>

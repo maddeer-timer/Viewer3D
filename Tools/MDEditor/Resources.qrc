@@ -1,6 +1,5 @@
 <RCC>
   <qresource prefix="/">
-    <file>Resources/default.md</file>
     <file>Resources/index.html</file>
     <file>Resources/3rdparty/markdown.css</file>
     <file>Resources/3rdparty/marked.js</file>

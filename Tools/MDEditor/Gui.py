@@ -1,4 +1,5 @@
 # coding=utf-8
+import chardet
 from PyQt5 import QtWebChannel
 from MainWindow import *
 from Classes import *
@@ -8,29 +9,39 @@ class MyUi_MainWindow(Ui_MainWindow):
     def __init__(self):
         super(MyUi_MainWindow,self).__init__()
         self.Content=MyDocument()
-        self.Home=":/Resources/default.md"
+        self.Home="Resources/default.md"
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
+        self.MainWindow=MainWindow
         # 对Editor(使用QsciScintilla)进行设置
         self.sciScintilla.setUtf8(True)
         LexerMarkdown=MyLexerMarkdown(self.sciScintilla)
         self.sciScintilla.setLexer(LexerMarkdown)
         # 对Preview(使用QWebEngineView)进行初始化
-        WebEnginePage=MyWebEnginePage(MainWindow)
-        self.webEngineView.setPage(WebEnginePage)
+        self.webEnginePage=MyWebEnginePage(self.MainWindow)
+        self.webEngineView.setPage(self.webEnginePage)
         self.sciScintilla.textChanged.connect(lambda:self.Content.setText(
             self.sciScintilla.text()))
-        WebChannel=QtWebChannel.QWebChannel(MainWindow)
+        WebChannel=QtWebChannel.QWebChannel(self.MainWindow)
         WebChannel.registerObject("content",self.Content)
-        WebEnginePage.setWebChannel(WebChannel)
+        self.webEnginePage.setWebChannel(WebChannel)
         self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
         # 对Editor(使用QsciScintilla)进行初始化
-        defaultTextFile=QtCore.QFile(self.Home)
-        defaultTextFile.open(QtCore.QIODevice.ReadOnly)
-        self.sciScintilla.setText(defaultTextFile.readAll().data().decode("UTF-8"))
+        self.openFile(self.Home)
         # 设置Editor和Preview的显示与否
         self.sciScintilla.setVisible(True)
         # self.webEngineView.setVisible(False)
         self.webEngineView.setVisible(True)
         # 连接信号和槽
-        MainWindow.retranslateUi.connect(self.retranslateUi)
+        self.MainWindow.retranslateUi.connect(self.retranslateUi)
+        self.webEnginePage.openFile.connect(self.openFile)
+    def openFile(self,Filepath):
+        _translate=QtCore.QCoreApplication.translate
+        TextFile=QtCore.QFile(Filepath)
+        if not TextFile.open(QtCore.QIODevice.ReadOnly):
+            QtWidgets.QMessageBox.warning(self.MainWindow,_translate("MessageBox","Warning Dialog"),
+                                          _translate("MessageBox","Failed to open the file"))
+            return
+        FileContent=TextFile.readAll().data()
+        self.sciScintilla.setText(FileContent.decode("UTF-8","replace"))
+        self.webEnginePage.CurrentUrl=Filepath

@@ -3,6 +3,7 @@ from PyQt5 import QtCore,QtGui,QtWidgets
 from PyQt5.QtCore import pyqtProperty
 from PyQt5 import QtWebEngineWidgets
 from PyQt5 import Qsci
+import Utils
 # 实用工具类MyDocument, 用来接收并存储编辑器的值
 class MyDocument(QtCore.QObject):
     # 信号及宏定义
@@ -85,10 +86,17 @@ class MyLexerMarkdown(Qsci.QsciLexerMarkdown):
         # -> CodeBlock(21):
 # 重载QWebEnginePage, 用来阻止页面切换
 class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
+    openFile=QtCore.pyqtSignal(str)
+    def __init__(self,Parent=None):
+        super(MyWebEnginePage,self).__init__(Parent)
+        self.CurrentUrl=""
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
-        # 只允许加载 qrc:/index.html
-        if Url.scheme()=="qrc": return True
-        QtGui.QDesktopServices.openUrl(Url)
+        UrlScheme=Url.scheme()
+        UrlText=Url.url()
+        if UrlText=="qrc:/Resources/index.html": return True
+        if UrlScheme=="qrc": self.openFile.emit(UrlText.replace("qrc:/Resources/",""))
+        elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""))
+        else: QtGui.QDesktopServices.openUrl(Url)
         return False
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
