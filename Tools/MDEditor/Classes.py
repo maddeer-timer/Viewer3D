@@ -1,4 +1,5 @@
 # coding=utf-8
+import os
 from PyQt5 import QtCore,QtGui,QtWidgets
 from PyQt5.QtCore import pyqtProperty
 from PyQt5 import QtWebEngineWidgets
@@ -86,16 +87,20 @@ class MyLexerMarkdown(Qsci.QsciLexerMarkdown):
         # -> CodeBlock(21):
 # 重载QWebEnginePage, 用来阻止页面切换
 class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
-    openFile=QtCore.pyqtSignal(str)
+    openFile=QtCore.pyqtSignal(str,str)
     def __init__(self,Parent=None):
         super(MyWebEnginePage,self).__init__(Parent)
         self.CurrentUrl=""
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
         UrlScheme=Url.scheme()
-        UrlText=Url.url()
+        UrlText=Url.url().replace("/%5C","\\")
         if UrlText=="qrc:/Resources/index.html": return True
-        if UrlScheme=="qrc": self.openFile.emit(UrlText.replace("qrc:/Resources/",""))
-        elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""))
+        if UrlScheme=="qrc":
+            if "qrc:/Resources/" in UrlText: RealPath=UrlText.replace("qrc:/Resources/","")
+            else: RealPath=os.path.join("..",UrlText.replace("qrc:/",""))
+            RealPath=os.path.abspath(os.path.join(os.path.dirname(self.CurrentUrl),RealPath))
+            self.openFile.emit(RealPath,"qrc")
+        elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""),"file")
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
 # 重载QsciScintilla

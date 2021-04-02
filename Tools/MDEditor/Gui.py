@@ -1,5 +1,5 @@
 # coding=utf-8
-import chardet
+from chardet import detect
 from PyQt5 import QtWebChannel
 from MainWindow import *
 from Classes import *
@@ -10,6 +10,9 @@ class MyUi_MainWindow(Ui_MainWindow):
         super(MyUi_MainWindow,self).__init__()
         self.Content=MyDocument()
         self.Home="Resources/default.md"
+        # self.Home=os.path.abspath(r"..\..\readme.md")
+        self.BackHistory=[]
+        self.ForwardHistory=[]
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         self.MainWindow=MainWindow
@@ -27,7 +30,7 @@ class MyUi_MainWindow(Ui_MainWindow):
         self.webEnginePage.setWebChannel(WebChannel)
         self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
         # 对Editor(使用QsciScintilla)进行初始化
-        self.openFile(self.Home)
+        self.openFile(self.Home,"file")
         # 设置Editor和Preview的显示与否
         self.sciScintilla.setVisible(True)
         # self.webEngineView.setVisible(False)
@@ -35,13 +38,22 @@ class MyUi_MainWindow(Ui_MainWindow):
         # 连接信号和槽
         self.MainWindow.retranslateUi.connect(self.retranslateUi)
         self.webEnginePage.openFile.connect(self.openFile)
-    def openFile(self,Filepath):
+    def openFile(self,Filepath,UrlScheme):
         _translate=QtCore.QCoreApplication.translate
         TextFile=QtCore.QFile(Filepath)
         if not TextFile.open(QtCore.QIODevice.ReadOnly):
-            QtWidgets.QMessageBox.warning(self.MainWindow,_translate("MessageBox","Warning Dialog"),
-                                          _translate("MessageBox","Failed to open the file"))
+            if UrlScheme=="qrc":
+                QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
+                    "MessageBox","Warning Dialog"),_translate(
+                    "MessageBox","""Failed to open the file on the path "{}"
+This may be because there is no support for opening relative paths that are not \
+in the default file directory or its parent directory""".format(Filepath)))
+            else:
+                QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
+                    "MessageBox","Warning Dialog"),_translate(
+                    "MessageBox","Failed to open the file on the path \"{}\"".format(Filepath)))
             return
         FileContent=TextFile.readAll().data()
-        self.sciScintilla.setText(FileContent.decode("UTF-8","replace"))
+        self.sciScintilla.setText(FileContent.decode(detect(FileContent)["encoding"],"replace"))
         self.webEnginePage.CurrentUrl=Filepath
+        self.BackHistory.append(self.webEnginePage.CurrentUrl)
