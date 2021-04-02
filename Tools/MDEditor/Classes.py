@@ -4,7 +4,6 @@ from PyQt5 import QtCore,QtGui,QtWidgets
 from PyQt5.QtCore import pyqtProperty
 from PyQt5 import QtWebEngineWidgets
 from PyQt5 import Qsci
-import Utils
 # 实用工具类MyDocument, 用来接收并存储编辑器的值
 class MyDocument(QtCore.QObject):
     # 信号及宏定义
@@ -105,7 +104,34 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         return False
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
-    pass
+    mousePress=QtCore.pyqtSignal(int)
+    def __init__(self,Parent=None):
+        super(MysciScintilla,self).__init__(Parent)
+        self.setUtf8(True)
+        LexerMarkdown=MyLexerMarkdown(self)
+        self.setLexer(LexerMarkdown)
+    def mousePressEvent(self,*args,**kwargs):
+        super(MysciScintilla,self).mousePressEvent(*args,**kwargs)
+        self.mousePress.emit(1)
+    def contextMenuEvent(self,Event):
+        super(MysciScintilla,self).contextMenuEvent(Event)
+        pass
 # 重载QWebEngineView
 class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
-    pass
+    mousePress=QtCore.pyqtSignal(int)
+    def __init__(self,Parent=None):
+        super(MyWebEngineView,self).__init__(Parent)
+        self._ChildObject=None
+    def event(self,Event):
+        if Event.type()==QtCore.QEvent.ChildPolished:
+            self._ChildObject=Event.child()
+            if self._ChildObject!=None: self._ChildObject.installEventFilter(self)
+        return super(MyWebEngineView,self).event(Event)
+    def eventFilter(self,Object,Event):
+        if Object==self._ChildObject and \
+                Event.type()==QtCore.QEvent.MouseButtonPress:
+            self.mousePress.emit(0)
+        return super(MyWebEngineView,self).eventFilter(Object,Event)
+    def contextMenuEvent(self,Event):
+        super(MyWebEngineView,self).contextMenuEvent(Event)
+        pass

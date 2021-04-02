@@ -16,10 +16,6 @@ class MyUi_MainWindow(Ui_MainWindow):
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         self.MainWindow=MainWindow
-        # 对Editor(使用QsciScintilla)进行设置
-        self.sciScintilla.setUtf8(True)
-        LexerMarkdown=MyLexerMarkdown(self.sciScintilla)
-        self.sciScintilla.setLexer(LexerMarkdown)
         # 对Preview(使用QWebEngineView)进行初始化
         self.webEnginePage=MyWebEnginePage(self.MainWindow)
         self.webEngineView.setPage(self.webEnginePage)
@@ -31,13 +27,17 @@ class MyUi_MainWindow(Ui_MainWindow):
         self.webEngineView.setUrl(QtCore.QUrl("qrc:/Resources/index.html"))
         # 对Editor(使用QsciScintilla)进行初始化
         self.openFile(self.Home,"file")
-        # 设置Editor和Preview的显示与否
+        # 设置各控件是否显示
         self.sciScintilla.setVisible(True)
         # self.webEngineView.setVisible(False)
         self.webEngineView.setVisible(True)
+        self.selectToolBar(1)
         # 连接信号和槽
         self.MainWindow.retranslateUi.connect(self.retranslateUi)
         self.webEnginePage.openFile.connect(self.openFile)
+        self.sciScintilla.mousePress.connect(self.selectToolBar)
+        self.webEngineView.mousePress.connect(self.selectToolBar)
+    # 槽函数(接收信号)
     def openFile(self,Filepath,UrlScheme):
         _translate=QtCore.QCoreApplication.translate
         TextFile=QtCore.QFile(Filepath)
@@ -57,3 +57,6 @@ in the default file directory or its parent directory""".format(Filepath)))
         self.sciScintilla.setText(FileContent.decode(detect(FileContent)["encoding"],"replace"))
         self.webEnginePage.CurrentUrl=Filepath
         self.BackHistory.append(self.webEnginePage.CurrentUrl)
+    def selectToolBar(self,WidgetNumber):
+        self.toolBar_Editor.setVisible(bool(WidgetNumber))
+        self.toolBar_Preview.setVisible(bool(not WidgetNumber))
