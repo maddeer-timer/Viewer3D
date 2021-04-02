@@ -9,9 +9,10 @@
 * Chinese: [readme.md](readme.md)
 
 ### Requirements
-* Two libraries are used: PyQt5, PyOpenGL.
-* You can use pip to install PyQT by using "pip install pyqt5".
-* However, to install PyOpenGL on a 64-bit machine, you need to visit [here][1], because pip will install the 32-bit version by default.
+* Two libraries are used: PyQt5 and QScintilla.
+* You can use pip to install PyQt5 and QScintilla, namely, "pip install PyQt5" and "pip install QScintilla".
+* Please note that for v5.11 and later, PyQt5 do not contain the WebEngine modules, please use pip to install PyQtWebEngine separately.
+* Also note that to use some Qt tools such as Qt Designer, install pyqt5-tools using pip (please note that the version should be the same).
 * In addition to this, another option is to use the packaged application, which you can download it [here][2].
 
 ### <span id="format">Supported file formats</span>
