@@ -113,8 +113,7 @@ class MysciScintilla(Qsci.QsciScintilla):
     def mousePressEvent(self,*args,**kwargs):
         super(MysciScintilla,self).mousePressEvent(*args,**kwargs)
         self.mousePress.emit(1)
-    def contextMenuEvent(self,Event):
-        super(MysciScintilla,self).contextMenuEvent(Event)
+    def createStandardContextMenu(self):
         pass
 # 重载QWebEngineView
 class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
