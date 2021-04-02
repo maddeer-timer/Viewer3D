@@ -9,10 +9,10 @@
 * English: [readme_en.md](readme_en.md)
 
 ### 需要的库
-* 使用了两个库: PyQt5和QScintilla。
-* 可以使用pip安装PyQt5和QScintilla, 即"pip install PyQt5"和"pip install QScintilla"。
+* 使用了三个库: PyQt5, QScintilla和chardet。
+* 可以使用pip安装PyQt5, QScintilla和chardet, 即"pip install PackageName"。
 * 请注意, v5.11及更高版本的PyQt5不包含WebEngine模块, 请用pip单独安装PyQtWebEngine。
-* 还有一点需要注意, 若要使用一些Qt工具如Qt Designer, 请用pip安装pyqt5-tools(请注意版本要一致)
+* 还有一点需要注意, 若要使用一些Qt工具如Qt Designer, 请用pip安装pyqt5-tools(请注意版本要一致)。
 * 除此之外, 还可以使用打包好的程序, 你可以在[这里][2]下载它。
 
 ### <span id="format">支持的文件格式</span>

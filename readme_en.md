@@ -9,8 +9,8 @@
 * Chinese: [readme.md](readme.md)
 
 ### Requirements
-* Two libraries are used: PyQt5 and QScintilla.
-* You can use pip to install PyQt5 and QScintilla, namely, "pip install PyQt5" and "pip install QScintilla".
+* Two libraries are used: PyQt5, QScintilla and chardet.
+* You can use pip to install PyQt5, QScintilla and chardet, namely, "pip install PackageName".
 * Please note that for v5.11 and later, PyQt5 do not contain the WebEngine modules, please use pip to install PyQtWebEngine separately.
 * Also note that to use some Qt tools such as Qt Designer, install pyqt5-tools using pip (please note that the version should be the same).
 * In addition to this, another option is to use the packaged application, which you can download it [here][2].
