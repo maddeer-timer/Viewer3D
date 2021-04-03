@@ -16,6 +16,7 @@ class MyUi_MainWindow(Ui_MainWindow):
     def setupUi(self,MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         self.MainWindow=MainWindow
+        self.sciScintilla.ui=self
         # 对Preview(使用QWebEngineView)进行初始化
         self.webEnginePage=MyWebEnginePage(self.MainWindow)
         self.webEngineView.setPage(self.webEnginePage)

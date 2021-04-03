@@ -106,15 +106,46 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
 class MysciScintilla(Qsci.QsciScintilla):
     mousePress=QtCore.pyqtSignal(int)
     def __init__(self,Parent=None):
+        # 初始设置
         super(MysciScintilla,self).__init__(Parent)
+        self.ui=None
+        self.contextMenu=None
+        # 编辑器配置
         self.setUtf8(True)
         LexerMarkdown=MyLexerMarkdown(self)
         self.setLexer(LexerMarkdown)
     def mousePressEvent(self,*args,**kwargs):
         super(MysciScintilla,self).mousePressEvent(*args,**kwargs)
         self.mousePress.emit(1)
+    def contextMenuEvent(self,Event):
+        # 目前不能完全实现原功能
+        self.contextMenu=self.createStandardContextMenu()
+        if self.contextMenu is not None:
+            self.contextMenu.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+            self.contextMenu.popup(Event.globalPos())
     def createStandardContextMenu(self):
-        pass
+        ReadOnly=self.isReadOnly()
+        HasSelectedText=self.hasSelectedText()
+        ContextMenu=QtWidgets.QMenu(self)
+        if not ReadOnly:
+            ContextMenu.addAction(self.ui.action_Undo)
+            self.ui.action_Undo.setEnabled(self.isUndoAvailable())
+            ContextMenu.addAction(self.ui.action_Redo)
+            self.ui.action_Redo.setEnabled(self.isRedoAvailable())
+            ContextMenu.addSeparator()
+            ContextMenu.addAction(self.ui.action_Cut)
+            self.ui.action_Cut.setEnabled(HasSelectedText)
+        ContextMenu.addAction(self.ui.action_Copy)
+        self.ui.action_Copy.setEnabled(HasSelectedText)
+        if not ReadOnly:
+            ContextMenu.addAction(self.ui.action_Paste)
+            self.ui.action_Paste.setEnabled(self.SendScintilla(Qsci.QsciScintilla.SCI_CANPASTE))
+            ContextMenu.addAction(self.ui.action_Delete)
+            self.ui.action_Delete.setEnabled(HasSelectedText)
+        if not ContextMenu.isEmpty(): ContextMenu.addSeparator()
+        ContextMenu.addAction(self.ui.action_Select_All)
+        self.ui.action_Select_All.setEnabled(self.length()!=0)
+        return ContextMenu
 # 重载QWebEngineView
 class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
     mousePress=QtCore.pyqtSignal(int)
