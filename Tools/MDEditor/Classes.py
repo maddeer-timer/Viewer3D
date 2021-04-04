@@ -90,7 +90,6 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
     def __init__(self,Parent=None):
         super(MyWebEnginePage,self).__init__(Parent)
         self.CurrentUrl=""
-        self.ui=None
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
         UrlScheme=Url.scheme()
         UrlText=Url.url().replace("/%5C","\\")
@@ -155,6 +154,7 @@ class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
     def __init__(self,Parent=None):
         super(MyWebEngineView,self).__init__(Parent)
         self._ChildObject=None
+        self.ui=None
     def event(self,Event):
         if Event.type()==QtCore.QEvent.ChildPolished:
             self._ChildObject=Event.child()

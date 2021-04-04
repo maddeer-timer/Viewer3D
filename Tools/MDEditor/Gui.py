@@ -17,9 +17,9 @@ class MyUi_MainWindow(Ui_MainWindow):
         super(MyUi_MainWindow,self).setupUi(MainWindow)
         self.MainWindow=MainWindow
         self.sciScintilla.ui=self
+        self.webEngineView.ui=self
         # 对Preview(使用QWebEngineView)进行初始化
         self.webEnginePage=MyWebEnginePage(self.MainWindow)
-        self.webEnginePage.ui=self
         self.webEngineView.setPage(self.webEnginePage)
         self.sciScintilla.textChanged.connect(lambda:self.Content.setText(
             self.sciScintilla.text()))
