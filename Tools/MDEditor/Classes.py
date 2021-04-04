@@ -102,8 +102,11 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""),"file")
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
+    def isMenuItemEnabled(self):
+        pass
     def createStandardContextMenu(self):
         ContextMenu=QtWidgets.QMenu(self.view())
+        if not hasattr(self,"ui"): self.ui=self.view().ui
         return ContextMenu
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
