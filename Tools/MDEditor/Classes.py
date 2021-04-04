@@ -90,6 +90,7 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
     def __init__(self,Parent=None):
         super(MyWebEnginePage,self).__init__(Parent)
         self.CurrentUrl=""
+        self.ui=None
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
         UrlScheme=Url.scheme()
         UrlText=Url.url().replace("/%5C","\\")
@@ -102,6 +103,9 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""),"file")
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
+    def createStandardContextMenu(self):
+        ContextMenu=QtWidgets.QMenu(self.view())
+        return ContextMenu
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
     mousePress=QtCore.pyqtSignal(int)
@@ -109,7 +113,6 @@ class MysciScintilla(Qsci.QsciScintilla):
         # 初始设置
         super(MysciScintilla,self).__init__(Parent)
         self.ui=None
-        self.contextMenu=None
         # 编辑器配置
         self.setUtf8(True)
         LexerMarkdown=MyLexerMarkdown(self)
@@ -119,10 +122,10 @@ class MysciScintilla(Qsci.QsciScintilla):
         self.mousePress.emit(1)
     def contextMenuEvent(self,Event):
         # 目前不能完全实现原功能
-        self.contextMenu=self.createStandardContextMenu()
-        if self.contextMenu is not None:
-            self.contextMenu.setAttribute(QtCore.Qt.WA_DeleteOnClose)
-            self.contextMenu.popup(Event.globalPos())
+        ContextMenu=self.createStandardContextMenu()
+        if ContextMenu is not None:
+            ContextMenu.setAttribute(QtCore.Qt.WA_DeleteOnClose,True)
+            ContextMenu.popup(Event.globalPos())
     def createStandardContextMenu(self):
         ReadOnly=self.isReadOnly()
         HasSelectedText=self.hasSelectedText()
@@ -163,5 +166,7 @@ class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
             self.mousePress.emit(0)
         return super(MyWebEngineView,self).eventFilter(Object,Event)
     def contextMenuEvent(self,Event):
-        super(MyWebEngineView,self).contextMenuEvent(Event)
-        pass
+        ContextMenu=self.page().createStandardContextMenu()
+        if ContextMenu is not None:
+            ContextMenu.setAttribute(QtCore.Qt.WA_DeleteOnClose,True)
+            ContextMenu.popup(Event.globalPos())
