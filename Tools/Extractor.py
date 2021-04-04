@@ -75,7 +75,7 @@ def extractor(FilepathList,TargetPath):
         FilepathListString=" ".join(['"'+Filepath+'"' for Filepath in FilepathList])
         ShellResult=subprocess.Popen(r"{exec} {temp} -ts {ts}".format(
             exec=LUpdatePath,temp=FilepathListString,ts='"'+TargetPath+'"'),
-            stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+            stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         stdout,stderr=ShellResult.communicate()
         print(stderr.decode("gbk"),end="")
         print(stdout.decode("gbk"),end="")
