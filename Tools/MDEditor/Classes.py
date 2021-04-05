@@ -4,6 +4,7 @@ from PyQt5 import QtCore,QtGui,QtWidgets
 from PyQt5.QtCore import pyqtProperty
 from PyQt5 import QtWebEngineWidgets
 from PyQt5 import Qsci
+from Enumeration import ContextMenuItem
 # 实用工具类MyDocument, 用来接收并存储编辑器的值
 class MyDocument(QtCore.QObject):
     # 信号及宏定义
@@ -102,11 +103,14 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""),"file")
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
-    def isMenuItemEnabled(self):
+    def isMenuItemEnabled(self,MenuItem):
         pass
     def createStandardContextMenu(self):
-        ContextMenu=QtWidgets.QMenu(self.view())
+        # 初始化
         if not hasattr(self,"ui"): self.ui=self.view().ui
+        if not self.contextMenuData(): return None
+        ContextMenu=QtWidgets.QMenu(self.view())
+        # 添加Action并进行设置
         return ContextMenu
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
@@ -169,6 +173,7 @@ class MyWebEngineView(QtWebEngineWidgets.QWebEngineView):
             self.mousePress.emit(0)
         return super(MyWebEngineView,self).eventFilter(Object,Event)
     def contextMenuEvent(self,Event):
+        # 目前不能完全实现原功能
         ContextMenu=self.page().createStandardContextMenu()
         if ContextMenu is not None:
             ContextMenu.setAttribute(QtCore.Qt.WA_DeleteOnClose,True)
