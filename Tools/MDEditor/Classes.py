@@ -88,8 +88,14 @@ class MyContextMenuBuilder(object):
     def appendSeparatorItem(self):
         self.addMenuItem(ContextMenuItem.Separator)
     # 判断函数
-    def hasInspector(self): return False
-    def isFullScreenMode(self): return self._page.view().isFullScreen()
+    def hasInspector(self):
+        return False
+    def isFullScreenMode(self):
+        return self._page.view().isFullScreen()
+    def canGoBack(self):
+        return len(self._page.view().ui.BackHistory)==0
+    def canGoForward(self):
+        return len(self._page.view().ui.ForwardHistory)==0
     def canViewSource(self):
         return len(self._date.linkText())==0 \
                and not self._date.linkUrl().isValid() \
@@ -179,8 +185,7 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
     def createStandardContextMenu(self):
-        # 初始化
-        if not hasattr(self,"ui"): self.ui=self.view().ui
+        # 初始化菜单及其数据
         ContextMenuDate=self.contextMenuData()
         if not ContextMenuDate: return None
         ContextMenu=QtWidgets.QMenu(self.view())
