@@ -12,16 +12,19 @@ class MyDocument(QtCore.QObject):
     # 类属性定义
     @pyqtProperty(str)
     def text(self):
-        return self._text
+        return self.__text
+    @text.setter
+    def text(self,Text):
+        self.__text=Text
     # 初始化
     def __init__(self,Parent=None):
         super(MyDocument,self).__init__(Parent)
-        self._text=""
+        self.text=""
     # 槽函数定义
     def setText(self,Text):
-        if Text==self._text: return
-        self._text=Text
-        self.textChanged.emit(self._text)
+        if Text==self.text: return
+        self.text=Text
+        self.textChanged.emit(self.text)
 # 实用工具类MyContextMenuBuilder, 用于建立MyWebEnginePage的上下文菜单
 # 根据Qt5.15.2中的工具类(非API)RenderViewContextMenuQt和QContextMenuBuilder进行Python实现
 class MyContextMenuBuilder(object):

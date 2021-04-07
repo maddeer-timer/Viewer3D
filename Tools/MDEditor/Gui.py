@@ -1,4 +1,5 @@
 # coding=utf-8
+import sys
 from chardet import detect
 from PyQt5 import QtWebChannel
 from MainWindow import *
@@ -56,7 +57,14 @@ in the default file directory or its parent directory""".format(Filepath)))
                     "MessageBox","Failed to open the file on the path \"{}\"".format(Filepath)))
             return
         FileContent=TextFile.readAll().data()
-        self.sciScintilla.setText(FileContent.decode(detect(FileContent)["encoding"],"replace"))
+        encoding=detect(FileContent)["encoding"]
+        if encoding is None:
+            encoding=sys.getdefaultencoding()
+            QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
+                "MessageBox","Warning Dialog"),_translate(
+                "MessageBox","""Failed to detect the file encoding, \
+the system default encoding will be used, which is "{}" """.format(encoding)))
+        self.sciScintilla.setText(FileContent.decode(encoding,"replace"))
         self.webEnginePage.CurrentUrl=Filepath
         self.BackHistory.append(self.webEnginePage.CurrentUrl)
     def selectToolBar(self,WidgetNumber):
