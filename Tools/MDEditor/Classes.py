@@ -22,6 +22,80 @@ class MyDocument(QtCore.QObject):
         if Text==self._text: return
         self._text=Text
         self.textChanged.emit(self._text)
+# 实用工具类MyContextMenuBuilder, 用于建立MyWebEnginePage的上下文菜单
+# 根据Qt5.15.2中的工具类(非API)RenderViewContextMenuQt和QContextMenuBuilder进行Python实现
+class MyContextMenuBuilder(object):
+    # 初始化
+    def __init__(self,ContextMenuDate:QtWebEngineWidgets.QWebEngineContextMenuData,
+                 WebEnginePage:QtWebEngineWidgets.QWebEnginePage,
+                 ContextMenu:QtWidgets.QMenu):
+        self._date=ContextMenuDate
+        self._page=WebEnginePage
+        self._menu=ContextMenu
+    # 构造菜单函数
+    def initMenu(self):
+        pass
+    def addMenuItem(self,MenuItem):
+        pass
+    def isMenuItemEnabled(self,MenuItem):
+        pass
+    # 工具函数
+    def appendCanvasItems(self):
+        self.addMenuItem(ContextMenuItem.DownloadImageToDisk)
+        self.addMenuItem(ContextMenuItem.CopyImageToClipboard)
+    def appendCopyItem(self):
+        self.addMenuItem(ContextMenuItem.Copy)
+    def appendDeveloperItems(self):
+        if self.canViewSource(): self.addMenuItem(ContextMenuItem.ViewSource)
+        if self.hasInspector(): self.addMenuItem(ContextMenuItem.InspectElement)
+    def appendEditableItems(self):
+        self.addMenuItem(ContextMenuItem.Undo)
+        self.addMenuItem(ContextMenuItem.Redo)
+        self.appendSeparatorItem()
+        self.addMenuItem(ContextMenuItem.Cut)
+        self.addMenuItem(ContextMenuItem.Copy)
+        self.addMenuItem(ContextMenuItem.Paste)
+        if len(self._date.misspelledWord())==0:
+            self.addMenuItem(ContextMenuItem.PasteAndMatchStyle)
+            self.addMenuItem(ContextMenuItem.SelectAll)
+    def appendExitFullscreenItem(self):
+        self.addMenuItem(ContextMenuItem.ExitFullScreen)
+    def appendImageItems(self):
+        self.addMenuItem(ContextMenuItem.DownloadImageToDisk)
+        self.addMenuItem(ContextMenuItem.CopyImageToClipboard)
+        self.addMenuItem(ContextMenuItem.CopyImageUrlToClipboard)
+    def appendLinkItems(self):
+        self.addMenuItem(ContextMenuItem.OpenLinkInNewTab)
+        self.addMenuItem(ContextMenuItem.OpenLinkInNewWindow)
+        self.appendSeparatorItem()
+        self.addMenuItem(ContextMenuItem.DownloadImageToDisk)
+        self.addMenuItem(ContextMenuItem.CopyLinkToClipboard)
+    def appendMediaItems(self):
+        self.addMenuItem(ContextMenuItem.ToggleMediaLoop)
+        if int(self._date.mediaFlags())\
+                &QtWebEngineWidgets.QWebEngineContextMenuData.MediaCanToggleControls:
+            self.addMenuItem(ContextMenuItem.ToggleMediaControls)
+        self.addMenuItem(ContextMenuItem.DownloadMediaToDisk)
+        self.addMenuItem(ContextMenuItem.CopyMediaUrlToClipboard)
+    def appendPageItems(self):
+        self.addMenuItem(ContextMenuItem.Back)
+        self.addMenuItem(ContextMenuItem.Forward)
+        self.addMenuItem(ContextMenuItem.Reload)
+        self.appendSeparatorItem()
+        self.addMenuItem(ContextMenuItem.SavePage)
+    def appendSpellingSuggestionItems(self):
+        self.addMenuItem(ContextMenuItem.SpellingSuggestions)
+    def appendSeparatorItem(self):
+        self.addMenuItem(ContextMenuItem.Separator)
+    # 判断函数
+    def hasInspector(self): return False
+    def isFullScreenMode(self): return self._page.view().isFullScreen()
+    def canViewSource(self):
+        return len(self._date.linkText())==0 \
+               and not self._date.linkUrl().isValid() \
+               and not self._date.mediaUrl().isValid() \
+               and not self._date.isContentEditable() \
+               and len(self._date.selectedText())==0
 # 重载QsciLexerMarkdown
 class MyLexerMarkdown(Qsci.QsciLexerMarkdown):
     def __init__(self,Parent=None):
@@ -98,19 +172,21 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         if UrlScheme=="qrc":
             if "qrc:/Resources/" in UrlText: RealPath=UrlText.replace("qrc:/Resources/","")
             else: RealPath=os.path.join("..",UrlText.replace("qrc:/",""))
-            RealPath=os.path.abspath(os.path.join(os.path.dirname(self.CurrentUrl),RealPath))
+            RealPath=os.path.abspath(os.path.join(os.path.dirname(
+                self.CurrentUrl),RealPath))
             self.openFile.emit(RealPath,"qrc")
         elif UrlScheme=="file": self.openFile.emit(UrlText.replace("file:///",""),"file")
         else: QtGui.QDesktopServices.openUrl(Url)
         return False
-    def isMenuItemEnabled(self,MenuItem):
-        pass
     def createStandardContextMenu(self):
         # 初始化
         if not hasattr(self,"ui"): self.ui=self.view().ui
-        if not self.contextMenuData(): return None
+        ContextMenuDate=self.contextMenuData()
+        if not ContextMenuDate: return None
         ContextMenu=QtWidgets.QMenu(self.view())
-        # 添加Action并进行设置
+        # 使用MyContextMenuBuilder添加Action并进行设置
+        ContextMenuBuilder=MyContextMenuBuilder(ContextMenuDate,self,ContextMenu)
+        ContextMenuBuilder.initMenu()
         return ContextMenu
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
@@ -148,7 +224,8 @@ class MysciScintilla(Qsci.QsciScintilla):
         self.ui.action_Copy.setEnabled(HasSelectedText)
         if not ReadOnly:
             ContextMenu.addAction(self.ui.action_Paste)
-            self.ui.action_Paste.setEnabled(self.SendScintilla(Qsci.QsciScintilla.SCI_CANPASTE))
+            self.ui.action_Paste.setEnabled(self.SendScintilla(
+                Qsci.QsciScintilla.SCI_CANPASTE))
             ContextMenu.addAction(self.ui.action_Delete)
             self.ui.action_Delete.setEnabled(HasSelectedText)
         if not ContextMenu.isEmpty(): ContextMenu.addSeparator()
