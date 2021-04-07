@@ -38,7 +38,53 @@ class MyContextMenuBuilder(object):
     def addMenuItem(self,MenuItem):
         pass
     def isMenuItemEnabled(self,MenuItem):
-        pass
+        if MenuItem==ContextMenuItem.Back:
+            return self.canGoBack()
+        if MenuItem==ContextMenuItem.Forward:
+            return self.canGoForward()
+        if MenuItem==ContextMenuItem.Reload:
+            return True
+        if MenuItem==ContextMenuItem.Cut:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanCut
+        if MenuItem==ContextMenuItem.Copy:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanCopy
+        if MenuItem==ContextMenuItem.Paste:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanPaste
+        if MenuItem==ContextMenuItem.Undo:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanUndo
+        if MenuItem==ContextMenuItem.Redo:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanRedo
+        if MenuItem==ContextMenuItem.SelectAll:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanSelectAll
+        if MenuItem==ContextMenuItem.PasteAndMatchStyle:
+            return int(self._date.editFlags())\
+                   &QtWebEngineWidgets.QWebEngineContextMenuData.CanPaste
+        if MenuItem==ContextMenuItem.OpenLinkInNewWindow \
+                or MenuItem==ContextMenuItem.OpenLinkInNewTab \
+                or MenuItem==ContextMenuItem.CopyLinkToClipboard \
+                or MenuItem==ContextMenuItem.DownloadLinkToDisk \
+                or MenuItem==ContextMenuItem.CopyImageToClipboard \
+                or MenuItem==ContextMenuItem.CopyImageUrlToClipboard \
+                or MenuItem==ContextMenuItem.DownloadImageToDisk \
+                or MenuItem==ContextMenuItem.CopyMediaUrlToClipboard \
+                or MenuItem==ContextMenuItem.ToggleMediaControls \
+                or MenuItem==ContextMenuItem.ToggleMediaLoop \
+                or MenuItem==ContextMenuItem.DownloadMediaToDisk \
+                or MenuItem==ContextMenuItem.InspectElement \
+                or MenuItem==ContextMenuItem.ExitFullScreen \
+                or MenuItem==ContextMenuItem.SavePage:
+            return True
+        if MenuItem==ContextMenuItem.ViewSource:
+            return self.canViewSource()
+        if MenuItem==ContextMenuItem.SpellingSuggestions \
+                or MenuItem==ContextMenuItem.Separator:
+            return True
     # 工具函数
     def appendCanvasItems(self):
         self.addMenuItem(ContextMenuItem.DownloadImageToDisk)
