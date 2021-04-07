@@ -28,15 +28,208 @@ class MyContextMenuBuilder(object):
     # 初始化
     def __init__(self,ContextMenuDate:QtWebEngineWidgets.QWebEngineContextMenuData,
                  WebEnginePage:QtWebEngineWidgets.QWebEnginePage,
-                 ContextMenu:QtWidgets.QMenu):
+                 ContextMenu:QtWidgets.QMenu,Ui):
+        # 需求对象存储
         self._date=ContextMenuDate
         self._page=WebEnginePage
         self._menu=ContextMenu
+        self._ui=Ui
+        # QAction对象记忆
+        self._actions={}
     # 构造菜单函数
     def initMenu(self):
         pass
     def addMenuItem(self,MenuItem):
-        pass
+        if MenuItem in self._actions:
+            Action=self._actions[MenuItem]
+            Action.setEnabled(self.isMenuItemEnabled(MenuItem))
+            self._menu.addAction(Action)
+            return
+        _translate=QtCore.QCoreApplication.translate
+        Action=None
+        DefineFlag=False
+        if MenuItem==ContextMenuItem.Back:
+            Action=self._ui.action_Back
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Back)
+            DefineFlag=True
+        if MenuItem==ContextMenuItem.Forward:
+            Action=self._ui.action_Forward
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Forward)
+            DefineFlag=True
+        if MenuItem==ContextMenuItem.Reload:
+            Action=self._ui.action_Reload
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Reload)
+            DefineFlag=True
+        if MenuItem==ContextMenuItem.Cut:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Icon=QtGui.QIcon()
+            Icon.addPixmap(QtGui.QPixmap(":/Edit/Images/editcut.png"),
+                           QtGui.QIcon.Normal,QtGui.QIcon.Off)
+            Action.setIcon(Icon)
+            Action.setObjectName("action_Web_Cut")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Cut)
+        if MenuItem==ContextMenuItem.Copy:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Icon=QtGui.QIcon()
+            Icon.addPixmap(QtGui.QPixmap(":/Edit/Images/editcopy.png"),
+                           QtGui.QIcon.Normal,QtGui.QIcon.Off)
+            Action.setIcon(Icon)
+            Action.setObjectName("action_Web_Copy")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Copy)
+        if MenuItem==ContextMenuItem.Paste:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Icon=QtGui.QIcon()
+            Icon.addPixmap(QtGui.QPixmap(":/Edit/Images/editpaste.png"),
+                           QtGui.QIcon.Normal,QtGui.QIcon.Off)
+            Action.setIcon(Icon)
+            Action.setObjectName("action_Web_Paste")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Paste)
+        if MenuItem==ContextMenuItem.Undo:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Icon=QtGui.QIcon()
+            Icon.addPixmap(QtGui.QPixmap(":/Edit/Images/editundo.png"),
+                           QtGui.QIcon.Normal,QtGui.QIcon.Off)
+            Action.setIcon(Icon)
+            Action.setObjectName("action_Web_Undo")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Undo)
+        if MenuItem==ContextMenuItem.Redo:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Icon=QtGui.QIcon()
+            Icon.addPixmap(QtGui.QPixmap(":/Edit/Images/editredo.png"),
+                           QtGui.QIcon.Normal,QtGui.QIcon.Off)
+            Action.setIcon(Icon)
+            Action.setObjectName("action_Web_Redo")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.Redo)
+        if MenuItem==ContextMenuItem.SelectAll:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Web_Select_All")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.SelectAll)
+        if MenuItem==ContextMenuItem.PasteAndMatchStyle:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Web_Paste_And_Match_Style")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.PasteAndMatchStyle)
+        if MenuItem==ContextMenuItem.OpenLinkInNewWindow:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Open_Link_In_New_Window")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.OpenLinkInNewWindow)
+        if MenuItem==ContextMenuItem.OpenLinkInNewTab:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Open_Link_In_New_Tab")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.OpenLinkInNewTab)
+        if MenuItem==ContextMenuItem.CopyLinkToClipboard:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Copy_Link_To_Clipboard")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.CopyLinkToClipboard)
+        if MenuItem==ContextMenuItem.DownloadLinkToDisk:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Download_Link_To_Disk")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.DownloadLinkToDisk)
+        if MenuItem==ContextMenuItem.CopyImageToClipboard:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Copy_Image_To_Clipboard")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.CopyImageToClipboard)
+        if MenuItem==ContextMenuItem.CopyImageUrlToClipboard:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Copy_Image_Url_To_Clipboard")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.CopyImageUrlToClipboard)
+        if MenuItem==ContextMenuItem.DownloadImageToDisk:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Download_Image_To_Disk")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.DownloadImageToDisk)
+        if MenuItem==ContextMenuItem.CopyMediaUrlToClipboard:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Copy_Media_Url_To_Clipboard")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.CopyMediaUrlToClipboard)
+        if MenuItem==ContextMenuItem.ToggleMediaControls:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Toggle_Media_Controls")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.ToggleMediaControls)
+        if MenuItem==ContextMenuItem.ToggleMediaLoop:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Toggle_Media_Loop")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.ToggleMediaLoop)
+        if MenuItem==ContextMenuItem.DownloadMediaToDisk:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Download_Media_To_Disk")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.DownloadMediaToDisk)
+        if MenuItem==ContextMenuItem.InspectElement:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Inspect_Element")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.InspectElement)
+        if MenuItem==ContextMenuItem.ExitFullScreen:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Exit_Full_Screen")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.ExitFullScreen)
+        if MenuItem==ContextMenuItem.SavePage:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_Save_Page")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.SavePage)
+        if MenuItem==ContextMenuItem.ViewSource:
+            Action=QtWidgets.QAction(self._ui.MainWindow)
+            Action.setObjectName("action_View_Source")
+            Action.setText(_translate("MainWindow",""))
+            Action.setStatusTip(_translate("MainWindow",""))
+            Action.setData(QtWebEngineWidgets.QWebEnginePage.ViewSource)
+        if MenuItem==ContextMenuItem.SpellingSuggestions:
+            self.spellCheckerSuggestions=self._date.spellCheckerSuggestions()
+            for Index in range(0,min(len(self.spellCheckerSuggestions),4)):
+                Action=QtWidgets.QAction(self._ui.MainWindow)
+                Action.triggered.connect(lambda:self._page.replaceMisspelledWord(
+                    self.spellCheckerSuggestions[Index]))
+                Action.setText(self.spellCheckerSuggestions[Index])
+                self._menu.addAction(Action)
+            return
+        if MenuItem==ContextMenuItem.Separator:
+            if not self._menu.isEmpty(): self._menu.addSeparator()
+            return
+        if not DefineFlag:
+            Action.triggered.connect(eval("self._ui.MainWindow.{}".format(
+                Action.objectName())))
+            self._actions[MenuItem]=Action
+        Action.setEnabled(self.isMenuItemEnabled(MenuItem))
+        self._menu.addAction(Action)
     def isMenuItemEnabled(self,MenuItem):
         if MenuItem==ContextMenuItem.Back:
             return self.canGoBack()
@@ -139,9 +332,9 @@ class MyContextMenuBuilder(object):
     def isFullScreenMode(self):
         return self._page.view().isFullScreen()
     def canGoBack(self):
-        return len(self._page.view().ui.BackHistory)==0
+        return len(self._ui.BackHistory)==0
     def canGoForward(self):
-        return len(self._page.view().ui.ForwardHistory)==0
+        return len(self._ui.ForwardHistory)==0
     def canViewSource(self):
         return len(self._date.linkText())==0 \
                and not self._date.linkUrl().isValid() \
@@ -236,8 +429,9 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         if not ContextMenuDate: return None
         ContextMenu=QtWidgets.QMenu(self.view())
         # 使用MyContextMenuBuilder添加Action并进行设置
-        ContextMenuBuilder=MyContextMenuBuilder(ContextMenuDate,self,ContextMenu)
-        ContextMenuBuilder.initMenu()
+        self.contextMenuBuilder=MyContextMenuBuilder(
+            ContextMenuDate,self,ContextMenu,self.view().ui)
+        self.contextMenuBuilder.initMenu()
         return ContextMenu
 # 重载QsciScintilla
 class MysciScintilla(Qsci.QsciScintilla):
