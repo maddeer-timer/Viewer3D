@@ -343,7 +343,7 @@ class MyContextMenuBuilder(object):
         self.addMenuItem(ContextMenuItem.OpenLinkInNewTab)
         self.addMenuItem(ContextMenuItem.OpenLinkInNewWindow)
         self.appendSeparatorItem()
-        self.addMenuItem(ContextMenuItem.DownloadImageToDisk)
+        self.addMenuItem(ContextMenuItem.DownloadLinkToDisk)
         self.addMenuItem(ContextMenuItem.CopyLinkToClipboard)
     def appendMediaItems(self):
         self.addMenuItem(ContextMenuItem.ToggleMediaLoop)
@@ -449,7 +449,7 @@ class MyWebEnginePage(QtWebEngineWidgets.QWebEnginePage):
         self.CurrentUrl=""
     def acceptNavigationRequest(self,Url,Type,IsMainFrame):
         UrlScheme=Url.scheme()
-        UrlText=Url.url().replace("/%5C","\\")
+        UrlText=Url.url().replace("/%5C","\\").replace("%5C","\\")
         if UrlText=="qrc:/Resources/index.html": return True
         if UrlScheme=="qrc":
             if "qrc:/Resources/" in UrlText: RealPath=UrlText.replace("qrc:/Resources/","")

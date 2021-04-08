@@ -282,162 +282,162 @@
     <message>
         <location filename="../Classes.py" line="157"/>
         <source>Paste and match style</source>
-        <translation type="unfinished"></translation>
+        <translation>粘贴并匹配样式</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="158"/>
         <source>Paste and match style from the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>从剪贴板粘贴并匹配样式</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="163"/>
         <source>Open link in new window</source>
-        <translation type="unfinished"></translation>
+        <translation>在新窗口中打开链接</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="164"/>
         <source>Open the link in a new window</source>
-        <translation type="unfinished"></translation>
+        <translation>在新窗口中打开链接</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="169"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>在新标签页中打开链接</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="170"/>
         <source>Open the link in a new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>在新标签页中打开链接</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="175"/>
         <source>Copy link address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制链接地址</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="176"/>
         <source>Copy link address to the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>复制链接地址到剪贴板</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="181"/>
         <source>Save link</source>
-        <translation type="unfinished"></translation>
+        <translation>链接另存为</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="182"/>
         <source>Download content from the link to the disk</source>
-        <translation type="unfinished"></translation>
+        <translation>下载链接内容到硬盘</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="187"/>
         <source>Copy image</source>
-        <translation type="unfinished"></translation>
+        <translation>复制图片</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="188"/>
         <source>Copy the image to the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>复制图片到剪贴板</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="193"/>
         <source>Copy image address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制图片地址</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="194"/>
         <source>Copy image address to the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>复制图片地址到剪贴板</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="199"/>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>图片另存为</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="200"/>
         <source>Download the image to the disk</source>
-        <translation type="unfinished"></translation>
+        <translation>下载图片到硬盘</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="205"/>
         <source>Copy media address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制媒体地址</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="206"/>
         <source>Copy media address to the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>复制媒体地址到剪贴板</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="211"/>
         <source>Show controls</source>
-        <translation type="unfinished"></translation>
+        <translation>打开调节器</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="212"/>
         <source>Show media controls</source>
-        <translation type="unfinished"></translation>
+        <translation>显示媒体调节器</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="217"/>
         <source>Loop</source>
-        <translation type="unfinished"></translation>
+        <translation>循环设置</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="218"/>
         <source>Toggle the media loop mode</source>
-        <translation type="unfinished"></translation>
+        <translation>切换媒体循环模式</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="223"/>
         <source>Save media</source>
-        <translation type="unfinished"></translation>
+        <translation>媒体另存为</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="224"/>
         <source>Download the media to the disk</source>
-        <translation type="unfinished"></translation>
+        <translation>下载媒体到硬盘</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="229"/>
         <source>Inspect</source>
-        <translation type="unfinished"></translation>
+        <translation>审查元素</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="230"/>
         <source>Inspect the elements</source>
-        <translation type="unfinished"></translation>
+        <translation>审查元素</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="235"/>
         <source>Exit full screen</source>
-        <translation type="unfinished"></translation>
+        <translation>退出全屏</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="236"/>
         <source>Exit the full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>退出全屏模式</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="241"/>
         <source>Save page</source>
-        <translation type="unfinished"></translation>
+        <translation>网页另存为</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="242"/>
         <source>Save the web page</source>
-        <translation type="unfinished"></translation>
+        <translation>保存网页</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="247"/>
         <source>View page source</source>
-        <translation type="unfinished"></translation>
+        <translation>查看网页源代码</translation>
     </message>
     <message>
         <location filename="../Classes.py" line="248"/>
         <source>View the page source code</source>
-        <translation type="unfinished"></translation>
+        <translation>查看网页源代码</translation>
     </message>
     <message>
         <location filename="../MainWindow.py" line="378"/>
@@ -781,30 +781,31 @@
         <location filename="../Gui.py" line="49"/>
         <location filename="../Gui.py" line="51"/>
         <source>Failed to open the file on the path &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>打开路径&quot;</translation>
     </message>
     <message>
         <location filename="../Gui.py" line="49"/>
         <source>&quot;
 This may be because there is no support for opening relative paths that are not in the default file directory or its parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;上的文件失败
+这可能是因为不支持打开不在默认文件目录或其父目录中的相对路径</translation>
     </message>
     <message>
         <location filename="../Gui.py" line="51"/>
         <source>&quot;</source>
         <comment>Dialog for failed file read</comment>
-        <translation type="unfinished"></translation>
+        <translation>&quot;上的文件失败</translation>
     </message>
     <message>
         <location filename="../Gui.py" line="57"/>
         <source>Failed to detect the file encoding, the system default encoding will be used, which is &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>自动检测文件编码失败, 将使用系统默认编码, 即&quot;</translation>
     </message>
     <message>
         <location filename="../Gui.py" line="57"/>
         <source>&quot;</source>
         <comment>Dialog for detecting encoding failures</comment>
-        <translation type="unfinished"></translation>
+        <translation>&quot;</translation>
     </message>
 </context>
 </TS>
