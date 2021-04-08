@@ -54,7 +54,7 @@ class MyContextMenuBuilder(object):
             else: self.appendPageItems()
         else: self.appendPageItems()
         # 无法使用私有类的unfilteredLinkUrl函数
-        if self._date.linkUrl().isValid() or len(self._date.linkUrl())!=0:
+        if self._date.linkUrl().isValid() or not self._date.linkUrl().isEmpty():
             self.appendLinkItems()
         if self._date.mediaUrl().isValid():
             MediaType=self._date.mediaType()
@@ -92,7 +92,7 @@ class MyContextMenuBuilder(object):
             Action.setData(QtWebEngineWidgets.QWebEnginePage.Forward)
             DefineFlag=True
         elif MenuItem==ContextMenuItem.Reload:
-            Action=self._ui.action_Reload
+            Action=self._ui.action_Reload_MarkDown
             Action.setData(QtWebEngineWidgets.QWebEnginePage.Reload)
             DefineFlag=True
         elif MenuItem==ContextMenuItem.Cut:
@@ -155,7 +155,8 @@ class MyContextMenuBuilder(object):
             Action=QtWidgets.QAction(self._ui.MainWindow)
             Action.setObjectName("action_Web_Paste_And_Match_Style")
             Action.setText(_translate("MainWindow","Paste and match style"))
-            Action.setStatusTip(_translate("MainWindow","Paste and match style from the clipboard"))
+            Action.setStatusTip(_translate(
+                "MainWindow","Paste and match style from the clipboard"))
             Action.setData(QtWebEngineWidgets.QWebEnginePage.PasteAndMatchStyle)
         elif MenuItem==ContextMenuItem.OpenLinkInNewWindow:
             Action=QtWidgets.QAction(self._ui.MainWindow)
@@ -179,7 +180,8 @@ class MyContextMenuBuilder(object):
             Action=QtWidgets.QAction(self._ui.MainWindow)
             Action.setObjectName("action_Download_Link_To_Disk")
             Action.setText(_translate("MainWindow","Save link"))
-            Action.setStatusTip(_translate("MainWindow","Download content from the link to the disk"))
+            Action.setStatusTip(_translate(
+                "MainWindow","Download content from the link to the disk"))
             Action.setData(QtWebEngineWidgets.QWebEnginePage.DownloadLinkToDisk)
         elif MenuItem==ContextMenuItem.CopyImageToClipboard:
             Action=QtWidgets.QAction(self._ui.MainWindow)
@@ -260,8 +262,7 @@ class MyContextMenuBuilder(object):
             if not self._menu.isEmpty(): self._menu.addSeparator()
             return
         if not DefineFlag:
-            Action.triggered.connect(eval("self._ui.MainWindow.{}".format(
-                Action.objectName())))
+            Action.triggered.connect(eval("self._ui.MainWindow.{}".format(Action.objectName())))
             self._actions[MenuItem]=Action
         Action.setEnabled(self.isMenuItemEnabled(MenuItem))
         self._menu.addAction(Action)
@@ -367,9 +368,10 @@ class MyContextMenuBuilder(object):
     def isFullScreenMode(self):
         return self._page.view().isFullScreen()
     def canGoBack(self):
-        return len(self._ui.BackHistory)==0
+        # 默认第一个路径会是Home路径
+        return len(self._ui.BackHistory)>1
     def canGoForward(self):
-        return len(self._ui.ForwardHistory)==0
+        return len(self._ui.ForwardHistory)!=0
     def canViewSource(self):
         return len(self._date.linkText())==0 \
                and not self._date.linkUrl().isValid() \

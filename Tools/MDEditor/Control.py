@@ -117,6 +117,51 @@ class MyMainWindow(QtWidgets.QMainWindow):
         pass
     def action_About_MarkDown(self):
         pass
+    # -> ContextMenu
+    def action_Web_Cut(self):
+        pass
+    def action_Web_Copy(self):
+        pass
+    def action_Web_Paste(self):
+        pass
+    def action_Web_Undo(self):
+        pass
+    def action_Web_Redo(self):
+        pass
+    def action_Web_Select_All(self):
+        pass
+    def action_Web_Paste_And_Match_Style(self):
+        pass
+    def action_Open_Link_In_New_Window(self):
+        pass
+    def action_Open_Link_In_New_Tab(self):
+        pass
+    def action_Copy_Link_To_Clipboard(self):
+        pass
+    def action_Download_Link_To_Disk(self):
+        pass
+    def action_Copy_Image_To_Clipboard(self):
+        pass
+    def action_Copy_Image_Url_To_Clipboard(self):
+        pass
+    def action_Download_Image_To_Disk(self):
+        pass
+    def action_Copy_Media_Url_To_Clipboard(self):
+        pass
+    def action_Toggle_Media_Controls(self):
+        pass
+    def action_Toggle_Media_Loop(self):
+        pass
+    def action_Download_Media_To_Disk(self):
+        pass
+    def action_Inspect_Element(self):
+        pass
+    def action_Exit_Full_Screen(self):
+        pass
+    def action_Save_Page(self):
+        pass
+    def action_View_Source(self):
+        pass
     # 槽(接收信号)
     def menubarTriggered(self,Action):
         # 直接执行对应的函数代码
