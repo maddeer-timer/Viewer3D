@@ -98,6 +98,7 @@ if __name__=="__main__":
         FilepathList=[]
         while True:
             Filepath=input()
+            if Filepath=="": continue
             if Filepath.lower()=="exit": break
             FilepathList.append(Filepath)
         if len(FilepathList)==0:

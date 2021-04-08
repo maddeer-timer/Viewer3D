@@ -48,13 +48,13 @@ class MyUi_MainWindow(Ui_MainWindow):
             if UrlScheme=="qrc":
                 QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
                     "MessageBox","Warning Dialog"),_translate(
-                    "MessageBox","""Failed to open the file on the path "{}"
-This may be because there is no support for opening relative paths that are not \
-in the default file directory or its parent directory""".format(Filepath)))
+                    "MessageBox","Failed to open the file on the path \"")+Filepath+_translate(
+                    "MessageBox","\"\nThis may be because there is no support for opening \
+relative paths that are not in the default file directory or its parent directory"))
             else:
                 QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
                     "MessageBox","Warning Dialog"),_translate(
-                    "MessageBox","Failed to open the file on the path \"{}\"".format(Filepath)))
+                    "MessageBox","Failed to open the file on the path \"")+Filepath+"\"")
             return
         FileContent=TextFile.readAll().data()
         encoding=detect(FileContent)["encoding"]
@@ -62,8 +62,8 @@ in the default file directory or its parent directory""".format(Filepath)))
             encoding=sys.getdefaultencoding()
             QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
                 "MessageBox","Warning Dialog"),_translate(
-                "MessageBox","""Failed to detect the file encoding, \
-the system default encoding will be used, which is "{}" """.format(encoding)))
+                "MessageBox","Failed to detect the file encoding, \
+the system default encoding will be used, which is \"")+encoding+"\"")
         self.sciScintilla.setText(FileContent.decode(encoding,"replace"))
         self.webEnginePage.CurrentUrl=Filepath
         self.BackHistory.append(self.webEnginePage.CurrentUrl)
