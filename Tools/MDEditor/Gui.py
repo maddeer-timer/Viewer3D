@@ -54,7 +54,8 @@ relative paths that are not in the default file directory or its parent director
             else:
                 QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
                     "MessageBox","Warning Dialog"),_translate(
-                    "MessageBox","Failed to open the file on the path \"")+Filepath+"\"")
+                    "MessageBox","Failed to open the file on the path \"")+Filepath+_translate(
+                    "MessageBox","\"","Dialog for failed file read"))
             return
         FileContent=TextFile.readAll().data()
         encoding=detect(FileContent)["encoding"]
@@ -63,7 +64,8 @@ relative paths that are not in the default file directory or its parent director
             QtWidgets.QMessageBox.warning(self.MainWindow,_translate(
                 "MessageBox","Warning Dialog"),_translate(
                 "MessageBox","Failed to detect the file encoding, \
-the system default encoding will be used, which is \"")+encoding+"\"")
+the system default encoding will be used, which is \"")+encoding+_translate(
+                "MessageBox","\"","Dialog for detecting encoding failures"))
         self.sciScintilla.setText(FileContent.decode(encoding,"replace"))
         self.webEnginePage.CurrentUrl=Filepath
         self.BackHistory.append(self.webEnginePage.CurrentUrl)

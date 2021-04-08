@@ -775,7 +775,7 @@
         <location filename="../Gui.py" line="51"/>
         <location filename="../Gui.py" line="57"/>
         <source>Warning Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>警告</translation>
     </message>
     <message>
         <location filename="../Gui.py" line="49"/>
@@ -790,8 +790,20 @@ This may be because there is no support for opening relative paths that are not 
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Gui.py" line="51"/>
+        <source>&quot;</source>
+        <comment>Dialog for failed file read</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Gui.py" line="57"/>
         <source>Failed to detect the file encoding, the system default encoding will be used, which is &quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Gui.py" line="57"/>
+        <source>&quot;</source>
+        <comment>Dialog for detecting encoding failures</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
