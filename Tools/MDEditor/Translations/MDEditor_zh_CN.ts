@@ -160,10 +160,6 @@
         <translation>重命名Markdown文件</translation>
     </message>
     <message>
-        <source>Re&amp;load</source>
-        <translation type="vanished">重新加载(&amp;L)</translation>
-    </message>
-    <message>
         <location filename="../MainWindow.py" line="355"/>
         <source>Reload the file from the hard disk</source>
         <translation>从硬盘重新加载文件</translation>
@@ -522,26 +518,14 @@
         <translation>底部(&amp;O)</translation>
     </message>
     <message>
-        <source>CRLF-Windows(\r\n)</source>
-        <translation type="vanished">CRLF-Windows(\r\n)</translation>
-    </message>
-    <message>
         <location filename="../MainWindow.py" line="388"/>
         <source>Convert the file format to Windows style</source>
         <translation>将文件格式转为Windows风格</translation>
     </message>
     <message>
-        <source>LF-Unix(\n)</source>
-        <translation type="vanished">LF-Unix(\n)</translation>
-    </message>
-    <message>
         <location filename="../MainWindow.py" line="390"/>
         <source>Convert the file format to UNIX(MacOS) style</source>
         <translation>将文件格式转为UNIX(MacOS)风格</translation>
-    </message>
-    <message>
-        <source>CR-MacOS(\r)</source>
-        <translation type="vanished">CR-MacOS(\r)</translation>
     </message>
     <message>
         <location filename="../MainWindow.py" line="392"/>
@@ -562,10 +546,6 @@
         <location filename="../MainWindow.py" line="395"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
-    </message>
-    <message>
-        <source>&amp;Replace...</source>
-        <translation type="vanished">替换(&amp;R)...</translation>
     </message>
     <message>
         <location filename="../MainWindow.py" line="397"/>
@@ -721,10 +701,6 @@
         <location filename="../MainWindow.py" line="428"/>
         <source>Ctrl+Alt+Right</source>
         <translation>Ctrl+Alt+Right</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="vanished">刷新(&amp;R)</translation>
     </message>
     <message>
         <location filename="../MainWindow.py" line="430"/>
