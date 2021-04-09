@@ -24,15 +24,14 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="MyWebEngineView" name="webEngineView" native="true"/>
-      <widget class="MysciScintilla" name="sciScintilla">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+      <widget class="MyWebEngineView" name="webEngineView">
+       <property name="url">
+        <url>
+         <string>about:blank</string>
+        </url>
        </property>
       </widget>
+      <widget class="MysciScintilla" name="sciScintilla"/>
      </widget>
     </item>
    </layout>
@@ -730,16 +729,24 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MysciScintilla</class>
+   <class>QsciScintilla</class>
    <extends>QFrame</extends>
-   <header>Classes.h</header>
-   <container>1</container>
+   <header>Qsci/qsciscintilla.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
   </customwidget>
   <customwidget>
    <class>MyWebEngineView</class>
-   <extends>QWidget</extends>
+   <extends>QWebEngineView</extends>
    <header>Classes.h</header>
-   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MysciScintilla</class>
+   <extends>QsciScintilla</extends>
+   <header>Classes.h</header>
   </customwidget>
  </customwidgets>
  <resources>
