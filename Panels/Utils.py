@@ -32,8 +32,8 @@ def getRelativePath(WorkDirectory,Filepath):
     # 切除WorkDirectory的重复部分并将剩余部分转化为逆向路径
     if WorkDirectory[Pointer]=='\\' or WorkDirectory[Pointer]=='/':
         Pointer+=1
-        WorkDirectory=(os.pardir+os.sep)*len(re.split(r'[\\/]',WorkDirectory[Pointer:]))
-        return WorkDirectory+Filepath[Pointer:]
+        Headpath=(os.pardir+os.sep)*len(re.split(r'[\\/]',WorkDirectory[Pointer:]))
+        return Headpath+Filepath[Pointer:]
     else: return Filepath[Pointer+2:]
 def getTitleHtml(PageTitle,TitleFont="monospace"):
     """
