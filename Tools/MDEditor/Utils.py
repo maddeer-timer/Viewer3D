@@ -25,7 +25,7 @@ def getRelativePath(WorkDirectory,Filepath):
     Pointer=-1
     for Pointer in range(MinLength):
         if WorkDirectory[Pointer]!=Filepath[Pointer]: break
-    if Pointer!=MinLength-1:
+    if Pointer!=MinLength-1 or WorkDirectory[Pointer]!=Filepath[Pointer]:
         for Pointer in range(Pointer,-1,-1):
             if WorkDirectory[Pointer]=='\\' or WorkDirectory[Pointer]=='/':
                 break
