@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/File">
+        <file>filenew.png</file>
+        <file>fileopen.png</file>
+        <file>filereload.png</file>
+        <file>filesave.png</file>
+        <file>filesetting.png</file>
+    </qresource>
+    <qresource prefix="/Edit">
+        <file>editcopy.png</file>
+        <file>editcut.png</file>
+        <file>editfind.png</file>
+        <file>editpaste.png</file>
+        <file>editredo.png</file>
+        <file>editreplace.png</file>
+        <file>editundo.png</file>
+    </qresource>
+    <qresource prefix="/View">
+        <file>viewboth.png</file>
+        <file>vieweditor.png</file>
+        <file>viewpreview.png</file>
+    </qresource>
+    <qresource prefix="/Navigation">
+        <file>naviback.png</file>
+        <file>navibottom.png</file>
+        <file>naviforward.png</file>
+        <file>navihome.png</file>
+        <file>navireload.png</file>
+        <file>navirestore.png</file>
+        <file>navitop.png</file>
+    </qresource>
+    <qresource prefix="/Help">
+        <file>help.png</file>
+        <file>logo.png</file>
+    </qresource>
+</RCC>
