@@ -1,26 +1,26 @@
-## <font color=Maroon>**\[Note\]: 抱歉, 该软件还在开发阶段, 无法实现相关功能, 现在上传的为程序备份!!!**</font>
+## <font color=Maroon>**\[Note\]: Sorry, the software is still in development stage, the relevant functions cannot be implemented yet, now uploaded for the program backup!!!**</font>
 
-## <font color=Maroon>**\[Note\]: 注意, 写这个程序的人是个菜鸟, 如果有任何Bug或者是可以优化的地方欢迎指出, 谢谢!!!**</font>
+## <font color=Maroon>**\[Note\]: Please note this, the person who wrote this program is a rookie, if there are any bugs or areas which can be optimized, please point out, thank you!!!**</font>
 
-### 介绍
-* 这是一个用来读取和显示3D模型的软件, 也可以用于格式转换。
-* 它通过使用PyQt和PyOpenGL来加载和显示模型。 
-* 可以使用鼠标和键盘来移动, 旋转和缩放模型。
-* English: [readme_en.md](readme_en.md)
+### Introduction
+* This is a software for reading and displaying 3D models, and it can also be used for format conversion. 
+* It loads and displays the model by using PyQt and PyOpenGL. 
+* You can use the mouse and the keyboard to move, rotate or scale the model.
+* Chinese: [readme_cn.md](readme_cn.md)
 
-### 需要的库
-* 使用了三个库: PyQt5, QScintilla和chardet。
-* 可以使用pip安装PyQt5, QScintilla和chardet, 即"pip install PackageName"。
-* 请注意, v5.11及更高版本的PyQt5不包含WebEngine模块, 请用pip单独安装PyQtWebEngine。
-* 还有一点需要注意, 若要使用一些Qt工具如Qt Designer, 请用pip安装pyqt5-tools(请注意版本要一致)。
-* 除此之外, 还可以使用打包好的程序, 你可以在[这里][2]下载它。
+### Requirements
+* Two libraries are used: PyQt5, QScintilla and chardet.
+* You can use pip to install PyQt5, QScintilla and chardet, namely, "pip install PackageName".
+* Please note that for v5.11 and later, PyQt5 do not contain the WebEngine modules, please use pip to install PyQtWebEngine separately.
+* Also note that to use some Qt tools such as Qt Designer, install pyqt5-tools using pip (please note that the version should be the same).
+* In addition to this, another option is to use the packaged application, which you can download it [here][2].
 
-### <span id="format">支持的文件格式</span>
-1.	Wavefront(默认)(.obj)
+### <span id="format">Supported file formats</span>
+1.	Wavefront(Default)(.obj)
 2.	FBX(.fbx)
 3.	MikuMikuDance Model(.pmx)
 
-### 未来可能支持的文件格式
+### File formats are possibly supported in the future
 1.	Collada(.dae)
 2.	Alembic(.abc)
 3.	Stl(.stl)
@@ -31,19 +31,19 @@
 8.	Stanford(.ply)
 9.	VRML(.wrl)
 
-### 使用帮助
-1. 模型的查看: 
-> * 可以使用左键来移动模型, 模型会位移至与鼠标的相对位置不变的位置。
-> * 可以使用右键来旋转模型, 按照旋转模式"XYZ欧拉"看, 左右移动鼠标则水平旋转(改变Z值), 上下移动鼠标则垂直翻转(改变Y值), Alt+任意方向移动则平面旋转(改变X值),  具体旋转角度则按离初始位置的距离决定。
-> * 可以滚动鼠标中键来缩放模型, 向前为放大, 向后为缩小。
-2. 文件菜单: 
-> * 模型并不会因为打开另一个模型而关闭, 可以使用快捷键"Ctrl+F"或打开"视图>文件菜单"来查看已经打开的模型, 关闭当前模型请使用快捷键"Ctrl+C"或选择"文件>关闭"。
-3. 格式转换: 
-> * 使用快捷键"Ctrl+E"或选择"文件>导出"进行文件的导出。
-> * 只支持部分通用格式, 参见[支持的文件格式](#format)。
+### Help during using
+1. How to view the models
+> * You can use the left mouse button to move the model, the model will be moved to the same position relative to the mouse position.
+> * You can use the right mouse button to rotate the model, according to the rotation mode "XYZ Euler", move the mouse left and right to rotate horizontally (change the Z value), move the mouse up and down to flip vertically (change the Y value), Alt+any direction to rotate in the plane (change the X value), the specific rotation Angle is determined by the distance from the mouse to its initial position.
+> * You can scroll the middle mouse button to zoom in and out the model. scroll forward to zoom in, and scroll backwards to zoom out.
+2. About the file menu: 
+> * The Model doesn't close while opening another model. You can use the shortcut "Ctrl+F" or click "View>File menu" to view the opened models.To close the current model, please use the shortcut "Ctrl+C" or click "File>Close".
+3. About format conversion:
+> * You can use the shortcut "Ctrl+E" or click "File>Export" to export the model.
+> * Only support some common formats, see [supported file formats](#format) for more information.
 
-### 参考资料
-* 目前还没有参考资料。。。
+### References
+* There are no references yet...
 
 [1]: <https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopengl>
 [2]: <https://www.github.com>

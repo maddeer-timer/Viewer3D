@@ -1,8 +1,9 @@
+# coding=utf-8
 from PyQt5 import QtCore,QtGui,QtWidgets
 from Panels.Utils import getTitleHtml,getTextHtmlWithColor
-# ÖØÔØQLabelÀà, ÒÔÊµÏÖ½ÓÊÕÊó±êË«»÷ÊÂ¼ş
+# é‡è½½QLabelç±», ä»¥å®ç°æ¥æ”¶é¼ æ ‡åŒå‡»äº‹ä»¶
 class MyLabel(QtWidgets.QLabel):
-    # ĞÅºÅ¶¨Òå
+    # ä¿¡å·å®šä¹‰
     mouseDoubleClick=QtCore.pyqtSignal(int)
     def __init__(self,Id,Parent=None):
         super(MyLabel,self).__init__(Parent)
@@ -26,25 +27,25 @@ class MyLabel(QtWidgets.QLabel):
         super(MyLabel,self).leaveEvent(Event)
         self.setText(self.textList[0])
         self.setCursor(QtCore.Qt.ArrowCursor)
-# ÖØÔØQWizardPageÀà
-# IntroPage: ½éÉÜ(1)
+# é‡è½½QWizardPageç±»
+# IntroPage: ä»‹ç»(1)
 class IntroPage(QtWidgets.QWizardPage):
-    # ĞÅºÅ¶¨Òå
+    # ä¿¡å·å®šä¹‰
     setHomeButtonEnabled=QtCore.pyqtSignal(bool)
     jumpToSpecifiedPage=QtCore.pyqtSignal(int)
     def __init__(self,Parent=None):
         super(IntroPage,self).__init__(Parent)
-        # »ù±¾ÉèÖÃ
+        # åŸºæœ¬è®¾ç½®
         self.setFont(QtGui.QFont("Consolas"))
         self.setPixmap(QtWidgets.QWizard.WatermarkPixmap,QtGui.QPixmap(r"Images/watermark.png"))
-        # ÄÚÈİÌî³ä
+        # å†…å®¹å¡«å……
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
         self.labelList=[]
         for Counter in range(MyWizard.Page_Count-1):
             self.labelList.append([MyLabel(Counter+1,self),QtWidgets.QLabel(self)])
             self.labelList[Counter][1].setWordWrap(True)
-        # ²¼¾ÖÉèÖÃ
+        # å¸ƒå±€è®¾ç½®
         self.layout=QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.label)
         self.layout.addSpacing(40)
@@ -55,7 +56,7 @@ class IntroPage(QtWidgets.QWizardPage):
         self.layout.addLayout(self.subLayout)
         self.setLayout(self.layout)
         self.retranslateUi()
-        # Á¬½ÓĞÅºÅ
+        # è¿æ¥ä¿¡å·
         for Counter in range(len(self.labelList)):
             self.labelList[Counter][0].mouseDoubleClick.connect(self.jumpToSpecifiedPageEvent)
     def retranslateUi(self):
@@ -89,19 +90,19 @@ class IntroPage(QtWidgets.QWizardPage):
     def hideEvent(self,Event):
         super(IntroPage,self).hideEvent(Event)
         self.setHomeButtonEnabled.emit(True)
-    # ½ÓÊÕ²Û¶¨Òå
+    # æ¥æ”¶æ§½å®šä¹‰
     def jumpToSpecifiedPageEvent(self,LabelId):
         self.jumpToSpecifiedPage.emit(LabelId)
-# ViewInfoPage: Ä£ĞÍµÄ²é¿´(2)
+# ViewInfoPage: æ¨¡å‹çš„æŸ¥çœ‹(2)
 class ViewInfoPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
         super(ViewInfoPage,self).__init__(Parent)
-        # »ù±¾ÉèÖÃ
+        # åŸºæœ¬è®¾ç½®
         self.setFont(QtGui.QFont("Consolas"))
-        # ÄÚÈİÌî³ä
+        # å†…å®¹å¡«å……
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
-        # ²¼¾ÖÉèÖÃ
+        # å¸ƒå±€è®¾ç½®
         self.layout=QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.label)
         self.setLayout(self.layout)
@@ -111,16 +112,16 @@ class ViewInfoPage(QtWidgets.QWizardPage):
         self.setTitle(getTitleHtml(_translate("WizardPage","How to view the models"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
-# FileMenuPage: ÎÄ¼ş²Ëµ¥(3)
+# FileMenuPage: æ–‡ä»¶èœå•(3)
 class FileMenuPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
         super(FileMenuPage,self).__init__(Parent)
-        # »ù±¾ÉèÖÃ
+        # åŸºæœ¬è®¾ç½®
         self.setFont(QtGui.QFont("Consolas"))
-        # ÄÚÈİÌî³ä
+        # å†…å®¹å¡«å……
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
-        # ²¼¾ÖÉèÖÃ
+        # å¸ƒå±€è®¾ç½®
         self.layout=QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.label)
         self.setLayout(self.layout)
@@ -130,16 +131,16 @@ class FileMenuPage(QtWidgets.QWizardPage):
         self.setTitle(getTitleHtml(_translate("WizardPage","About the file menu"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
-# FormatInfoPage: ¸ñÊ½×ª»»(4)
+# FormatInfoPage: æ ¼å¼è½¬æ¢(4)
 class FormatInfoPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
         super(FormatInfoPage,self).__init__(Parent)
-        # »ù±¾ÉèÖÃ
+        # åŸºæœ¬è®¾ç½®
         self.setFont(QtGui.QFont("Consolas"))
-        # ÄÚÈİÌî³ä
+        # å†…å®¹å¡«å……
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
-        # ²¼¾ÖÉèÖÃ
+        # å¸ƒå±€è®¾ç½®
         self.layout=QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.label)
         self.setLayout(self.layout)
@@ -149,17 +150,17 @@ class FormatInfoPage(QtWidgets.QWizardPage):
         self.setTitle(getTitleHtml(_translate("WizardPage","About format conversion"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
-# DocumentPage: ½áÊøÒ³-ÆäËûËµÃ÷(5)
+# DocumentPage: ç»“æŸé¡µ-å…¶ä»–è¯´æ˜(5)
 class DocumentPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
         super(DocumentPage,self).__init__(Parent)
-        # »ù±¾ÉèÖÃ
+        # åŸºæœ¬è®¾ç½®
         self.setFont(QtGui.QFont("Consolas"))
         self.setPixmap(QtWidgets.QWizard.WatermarkPixmap,QtGui.QPixmap(r"Images/watermark.png"))
-        # ÄÚÈİÌî³ä
+        # å†…å®¹å¡«å……
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
-        # ²¼¾ÖÉèÖÃ
+        # å¸ƒå±€è®¾ç½®
         self.layout=QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.label)
         self.setLayout(self.layout)
@@ -168,32 +169,32 @@ class DocumentPage(QtWidgets.QWizardPage):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","Get more help"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
-# ÖØÔØQWizardÀà
+# é‡è½½QWizardç±»
 class MyWizard(QtWidgets.QWizard):
-    # Ò³Âë¶¨Òå
+    # é¡µç å®šä¹‰
     Page_Intro=0
     Page_ViewInfo=1
     Page_FileMenu=2
     Page_FormatInfo=3
     Page_Document=4
-    # »ùÓÚÒ³ÂëµÄ³£Á¿
+    # åŸºäºé¡µç çš„å¸¸é‡
     Page_Home=Page_Intro
     Page_Count=5
     def __init__(self,Parent=None):
         super(MyWizard,self).__init__(Parent)
-        # ¼ÓÈëÒ³Ãæ
+        # åŠ å…¥é¡µé¢
         self.setPage(MyWizard.Page_Intro,IntroPage())
         self.setPage(MyWizard.Page_ViewInfo,ViewInfoPage())
         self.setPage(MyWizard.Page_FileMenu,FileMenuPage())
         self.setPage(MyWizard.Page_FormatInfo,FormatInfoPage())
         self.setPage(MyWizard.Page_Document,DocumentPage())
         self.setStartId(MyWizard.Page_Home)
-        # Ïòµ¼ÉèÖÃ
+        # å‘å¯¼è®¾ç½®
         self.setWizardStyle(QtWidgets.QWizard.ModernStyle)
         self.setOption(QtWidgets.QWizard.HaveCustomButton1,True)
         self.setPixmap(QtWidgets.QWizard.LogoPixmap,QtGui.QPixmap(r"Images/logo.png"))
         self.retranslateUi()
-        # Á¬½ÓĞÅºÅ
+        # è¿æ¥ä¿¡å·
         self.customButtonClicked.connect(self.backToHomePage)
         self.page(MyWizard.Page_Home).setHomeButtonEnabled.connect(self.setHomeButtonEnabled)
         self.page(MyWizard.Page_Home).jumpToSpecifiedPage.connect(self.jumpToSpecifiedPage)
@@ -201,7 +202,7 @@ class MyWizard(QtWidgets.QWizard):
         _translate=QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("Wizard","Viewer3D Help"))
         self.setButtonText(QtWidgets.QWizard.CustomButton1,_translate("Wizard","&Home"))
-    # ½ÓÊÕ²Û¶¨Òå
+    # æ¥æ”¶æ§½å®šä¹‰
     def backToHomePage(self,Which):
         if Which==QtWidgets.QWizard.CustomButton1: self.restart()
     def setHomeButtonEnabled(self,Enable):
