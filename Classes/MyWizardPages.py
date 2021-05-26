@@ -1,32 +1,8 @@
 # coding=utf-8
 from PyQt5 import QtCore,QtGui,QtWidgets
-from Panels.Utils import getTitleHtml,getTextHtmlWithColor
-# 重载QLabel类, 以实现接收鼠标双击事件
-class MyLabel(QtWidgets.QLabel):
-    # 信号定义
-    mouseDoubleClick=QtCore.pyqtSignal(int)
-    def __init__(self,Id,Parent=None):
-        super(MyLabel,self).__init__(Parent)
-        self.labelId=Id
-        self.colors=["DarkGreen","DarkOliveGreen"]
-    def setOriginalText(self,Text):
-        self.originalText=Text
-        self.textList=[
-            getTextHtmlWithColor(self.originalText,self.colors[0]),
-            getTextHtmlWithColor(self.originalText,self.colors[1],True),
-        ]
-        self.setText(self.textList[0])
-    def mouseDoubleClickEvent(self,Event):
-        super(MyLabel,self).mouseDoubleClickEvent(Event)
-        self.mouseDoubleClick.emit(self.labelId)
-    def enterEvent(self,Event):
-        super(MyLabel,self).enterEvent(Event)
-        self.setText(self.textList[1])
-        self.setCursor(QtCore.Qt.PointingHandCursor)
-    def leaveEvent(self,Event):
-        super(MyLabel,self).leaveEvent(Event)
-        self.setText(self.textList[0])
-        self.setCursor(QtCore.Qt.ArrowCursor)
+from .MyLabel import MyLabel
+from .Enumeration import WizardPageItems
+from Panels.Utils import getTitleHtml
 # 重载QWizardPage类
 # IntroPage: 介绍(1)
 class IntroPage(QtWidgets.QWizardPage):
@@ -42,7 +18,7 @@ class IntroPage(QtWidgets.QWizardPage):
         self.label=QtWidgets.QLabel(self)
         self.label.setWordWrap(True)
         self.labelList=[]
-        for Counter in range(MyWizard.Page_Count-1):
+        for Counter in range(WizardPageItems.Page_Count-1):
             self.labelList.append([MyLabel(Counter+1,self),QtWidgets.QLabel(self)])
             self.labelList[Counter][1].setWordWrap(True)
         # 布局设置
@@ -65,24 +41,24 @@ class IntroPage(QtWidgets.QWizardPage):
         self.label.setText(_translate("WizardPage",r"This wizard will help you learn how to "
             r"use <i>Viewer3D</i> and understand the notices when using it."))
         # ViewInfoPage
-        self.labelList[MyWizard.Page_ViewInfo-1][0].setOriginalText(
+        self.labelList[WizardPageItems.Page_ViewInfo-1][0].setOriginalText(
             _translate("WizardPage","How to view the models"))
-        self.labelList[MyWizard.Page_ViewInfo-1][1].setText(_translate(
+        self.labelList[WizardPageItems.Page_ViewInfo-1][1].setText(_translate(
             "WizardPage",""))
         # FileMenuPage
-        self.labelList[MyWizard.Page_FileMenu-1][0].setOriginalText(
+        self.labelList[WizardPageItems.Page_FileMenu-1][0].setOriginalText(
             _translate("WizardPage","About the file menu"))
-        self.labelList[MyWizard.Page_FileMenu-1][1].setText(_translate(
+        self.labelList[WizardPageItems.Page_FileMenu-1][1].setText(_translate(
             "WizardPage",""))
         # FormatInfoPage
-        self.labelList[MyWizard.Page_FormatInfo-1][0].setOriginalText(
+        self.labelList[WizardPageItems.Page_FormatInfo-1][0].setOriginalText(
             _translate("WizardPage","About format conversion"))
-        self.labelList[MyWizard.Page_FormatInfo-1][1].setText(_translate(
+        self.labelList[WizardPageItems.Page_FormatInfo-1][1].setText(_translate(
             "WizardPage",""))
         # DocumentPage
-        self.labelList[MyWizard.Page_Document-1][0].setOriginalText(
+        self.labelList[WizardPageItems.Page_Document-1][0].setOriginalText(
             _translate("WizardPage","Get more help"))
-        self.labelList[MyWizard.Page_Document-1][1].setText(_translate(
+        self.labelList[WizardPageItems.Page_Document-1][1].setText(_translate(
             "WizardPage",""))
     def showEvent(self,Event):
         super(IntroPage,self).showEvent(Event)
@@ -169,45 +145,3 @@ class DocumentPage(QtWidgets.QWizardPage):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","Get more help"),"Consolas"))
         self.label.setText(_translate("WizardPage","Hello"))
-# 重载QWizard类
-class MyWizard(QtWidgets.QWizard):
-    # 页码定义
-    Page_Intro=0
-    Page_ViewInfo=1
-    Page_FileMenu=2
-    Page_FormatInfo=3
-    Page_Document=4
-    # 基于页码的常量
-    Page_Home=Page_Intro
-    Page_Count=5
-    def __init__(self,Parent=None):
-        super(MyWizard,self).__init__(Parent)
-        # 加入页面
-        self.setPage(MyWizard.Page_Intro,IntroPage())
-        self.setPage(MyWizard.Page_ViewInfo,ViewInfoPage())
-        self.setPage(MyWizard.Page_FileMenu,FileMenuPage())
-        self.setPage(MyWizard.Page_FormatInfo,FormatInfoPage())
-        self.setPage(MyWizard.Page_Document,DocumentPage())
-        self.setStartId(MyWizard.Page_Home)
-        # 向导设置
-        self.setWizardStyle(QtWidgets.QWizard.ModernStyle)
-        self.setOption(QtWidgets.QWizard.HaveCustomButton1,True)
-        self.setPixmap(QtWidgets.QWizard.LogoPixmap,QtGui.QPixmap(r"Images/logo.png"))
-        self.retranslateUi()
-        # 连接信号
-        self.customButtonClicked.connect(self.backToHomePage)
-        self.page(MyWizard.Page_Home).setHomeButtonEnabled.connect(self.setHomeButtonEnabled)
-        self.page(MyWizard.Page_Home).jumpToSpecifiedPage.connect(self.jumpToSpecifiedPage)
-    def retranslateUi(self):
-        _translate=QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("Wizard","Viewer3D Help"))
-        self.setButtonText(QtWidgets.QWizard.CustomButton1,_translate("Wizard","&Home"))
-    # 接收槽定义
-    def backToHomePage(self,Which):
-        if Which==QtWidgets.QWizard.CustomButton1: self.restart()
-    def setHomeButtonEnabled(self,Enable):
-        self.button(QtWidgets.QWizard.CustomButton1).setEnabled(Enable)
-    def jumpToSpecifiedPage(self,Id):
-        JumpTime=Id-self.currentId()
-        if JumpTime<=0: return
-        for Counter in range(JumpTime): self.next()

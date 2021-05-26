@@ -4,9 +4,9 @@ import sys
 import traceback
 from PyQt5 import QtCore,QtGui,QtWidgets
 import Panels.Gui as Gui
-import Panels.Wizard as Wizard
-from Core import *
+from Classes.MyWizard import MyWizard
 import Core.Model as Model
+from Models.Connector import *
 # 重载QMainWindow类
 class MyMainWindow(QtWidgets.QMainWindow):
     # 信号(请求槽)
@@ -123,7 +123,7 @@ class MyMainWindow(QtWidgets.QMainWindow):
     def action_status(self):
         pass
     def action_help(self):
-        WizardWindow=Wizard.MyWizard(self)
+        WizardWindow=MyWizard(self)
         WizardWindow.exec()
     def action_Chinese(self):
         self.App.installTranslator(self.Translators[0])
