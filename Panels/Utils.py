@@ -48,3 +48,16 @@ def getTextHtmlWithColor(RawText,TextColor="Black",Underline=False):
     """
     if not Underline: return '<font color="'+TextColor+'">'+RawText+'</font>'
     else: return '<u><font color="'+TextColor+'">'+RawText+'</font></u>'
+def getFileNameFromHtml(HtmlText):
+    """
+    获取嵌入HTML标签中的文件名\n
+    该文件名应该在<li>标签之中\n
+    注意<li>标签中括号里的内容将被当做注释忽略\n
+    将以列表形式返回所有找到的文件名\n
+    """
+    ContentList=re.findall(r"<li>(.*?)</li>",HtmlText)
+    for Index in range(len(ContentList)):
+        ContentList[Index]=re.sub(r"\(.*?\)","",ContentList[Index])
+        ContentList[Index]=re.sub(r"^(\s*(&nbsp;)*\s*)*","",ContentList[Index],1)
+        ContentList[Index]=re.sub(r"(\s*(&nbsp;)*\s*)*$","",ContentList[Index],1)
+    return ContentList

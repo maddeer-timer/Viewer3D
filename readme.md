@@ -30,11 +30,11 @@
 9.	VRML(.wrl)
 
 ### Help during using
-1. How to view the models
+1. How to view the models:
 > * You can use the left mouse button to move the model, the model will be moved to the same position relative to the mouse position.
 > * You can use the right mouse button to rotate the model, according to the rotation mode "XYZ Euler", move the mouse left and right to rotate horizontally (change the Z value), move the mouse up and down to flip vertically (change the Y value), Alt+any direction to rotate in the plane (change the X value), the specific rotation Angle is determined by the distance from the mouse to its initial position.
 > * You can scroll the middle mouse button to zoom in and out the model. scroll forward to zoom in, and scroll backwards to zoom out.
-2. About the file menu: 
+2. About the file menu:
 > * The Model doesn't close while opening another model. You can use the shortcut "Ctrl+F" or click "View>File menu" to view the opened models.To close the current model, please use the shortcut "Ctrl+C" or click "File>Close".
 3. About format conversion:
 > * You can use the shortcut "Ctrl+E" or click "File>Export" to export the model.

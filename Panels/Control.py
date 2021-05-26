@@ -186,8 +186,10 @@ def main():
     if not Translator.load("Viewer3D_zh_CN",directory="Translations") or \
             not TranslatorSystem.load("qt_zh_CN",directory=SystemTranslationsPath) or \
             not TranslatorSystemEn.load("qt_en",directory=SystemTranslationsPath):
-        # sys.exit()
-        pass
+        QtWidgets.QMessageBox.warning(
+            None,"警告",
+            "读取翻译文件失败, 请检查安装目录下的\"Translations\"目录中是否存在以下三个文件: "
+            "VideoPlayer_zh_CN.qm, qt_zh_CN.qm, qt_en.qm。界面可能只能以纯英文方式显示。")
     App.installTranslator(Translator)
     App.installTranslator(TranslatorSystem)
     # 窗口创建
