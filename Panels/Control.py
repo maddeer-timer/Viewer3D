@@ -84,7 +84,8 @@ class MyMainWindow(QtWidgets.QMainWindow):
         if length==1:
             # 对于单文件
             _translate=QtCore.QCoreApplication.translate
-            FileDialog=QtWidgets.QFileDialog(self,_translate("FileDialog","Export 3D model files"))
+            FileDialog=QtWidgets.QFileDialog(self,_translate(
+                "FileDialog","Export 3D model files"))
             FileDialog.setAcceptMode(QtWidgets.QFileDialog.AcceptSave)
             FileDialog.setViewMode(QtWidgets.QFileDialog.Detail)
             FileDialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
@@ -96,7 +97,8 @@ class MyMainWindow(QtWidgets.QMainWindow):
         else:
             # 对于多个文件
             _translate=QtCore.QCoreApplication.translate
-            FileDialog=QtWidgets.QFileDialog(self,_translate("FileDialog","Export 3D model files"))
+            FileDialog=QtWidgets.QFileDialog(self,_translate(
+                "FileDialog","Export 3D model files"))
             FileDialog.setAcceptMode(QtWidgets.QFileDialog.AcceptOpen)
             FileDialog.setViewMode(QtWidgets.QFileDialog.Detail)
             FileDialog.setFileMode(QtWidgets.QFileDialog.DirectoryOnly)
