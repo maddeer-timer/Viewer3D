@@ -96,8 +96,10 @@ class ViewInfoPage(QtWidgets.QWizardPage):
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        self.setTitle(getTitleHtml(_translate("WizardPage","How to view the models"),"Consolas"))
-        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.setTitle(getTitleHtml(_translate(
+            "WizardPage","How to view the models<br/>"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate(
+            "WizardPage","Explain how to move, rotate and scale the model."),"Consolas"))
         self.labelList[0].setText(_translate(
             "WizardPage","<ul><li>You can use the left mouse button to move the model, the \
 model will be moved to the same position relative to the mouse position.</li></ul>"))
@@ -130,8 +132,10 @@ class FileMenuPage(QtWidgets.QWizardPage):
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        self.setTitle(getTitleHtml(_translate("WizardPage","About the file menu"),"Consolas"))
-        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.setTitle(getTitleHtml(_translate(
+            "WizardPage","About the file menu<br/>"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate(
+            "WizardPage","Explain the related problems of the file menu."),"Consolas"))
         self.labelList[0].setText(_translate(
             "WizardPage","<ul><li>The Model doesn't close while opening another model. You \
 can use the shortcut \"Ctrl+F\" or click \"View>File menu\" to view the opened models. To \
@@ -156,8 +160,10 @@ class FormatInfoPage(QtWidgets.QWizardPage):
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
-        self.setTitle(getTitleHtml(_translate("WizardPage","About format conversion"),"Consolas"))
-        self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
+        self.setTitle(getTitleHtml(_translate(
+            "WizardPage","About format conversion<br/>"),"Consolas"))
+        self.setSubTitle(getTitleHtml(_translate(
+            "WizardPage","Explain the related problems of format conversion."),"Consolas"))
         self.labelList[0].setText(_translate(
             "WizardPage","<ul><li>You can use the shortcut \"Ctrl+E\" or click \
 \"File>Export\" to export the model.</li></ul>"))
