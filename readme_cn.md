@@ -4,15 +4,13 @@
 
 ### 介绍
 * 这是一个用来读取和显示3D模型的软件, 也可以用于格式转换。
-* 它通过使用PyQt和PyOpenGL来加载和显示模型。 
+* 它通过使用PyQt和PyOpenGL来加载和显示模型。
 * 可以使用鼠标和键盘来移动, 旋转和缩放模型。
 * English: [readme.md](readme.md)
 
 ### 需要的库
-* 使用了三个库: PyQt5, QScintilla和chardet。
-* 可以使用pip安装PyQt5, QScintilla和chardet, 即"pip install PackageName"。
-* 请注意, v5.11及更高版本的PyQt5不包含WebEngine模块, 请用pip单独安装PyQtWebEngine。
-* 还有一点需要注意, 若要使用一些Qt工具如Qt Designer, 请用pip安装pyqt5-tools(请注意版本要一致)。
+* 仅使用了一个库: PyQt5, 可以使用pip安装, 即"pip install pyqt5"。
+* 请注意, 若要使用一些Qt工具如Qt Designer, 请用pip安装pyqt5-tools(请注意版本要一致)。
 * 除此之外, 还可以使用打包好的程序, 你可以在[这里][2]下载它。
 
 ### <span id="format">支持的文件格式</span>

@@ -3,16 +3,14 @@
 ## <font color=Maroon>**\[Note\]: Please note this, the person who wrote this program is a rookie, if there are any bugs or areas which can be optimized, please point out, thank you!!!**</font>
 
 ### Introduction
-* This is a software for reading and displaying 3D models, and it can also be used for format conversion. 
-* It loads and displays the model by using PyQt and PyOpenGL. 
+* This is a software for reading and displaying 3D models, and it can also be used for format conversion.
+* It loads and displays the model by using PyQt and PyOpenGL.
 * You can use the mouse and the keyboard to move, rotate or scale the model.
 * Chinese: [readme_cn.md](readme_cn.md)
 
 ### Requirements
-* Two libraries are used: PyQt5, QScintilla and chardet.
-* You can use pip to install PyQt5, QScintilla and chardet, namely, "pip install PackageName".
-* Please note that for v5.11 and later, PyQt5 do not contain the WebEngine modules, please use pip to install PyQtWebEngine separately.
-* Also note that to use some Qt tools such as Qt Designer, install pyqt5-tools using pip (please note that the version should be the same).
+* Only one library is used: PyQt5, you can use pip to install it, namely, "pip install pyqt5".
+* Please note that to use some Qt tools such as Qt Designer, install pyqt5-tools using pip (please note that the version should be the same).
 * In addition to this, another option is to use the packaged application, which you can download it [here][2].
 
 ### <span id="format">Supported file formats</span>
