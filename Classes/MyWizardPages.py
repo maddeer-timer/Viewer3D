@@ -190,7 +190,7 @@ class DocumentPage(QtWidgets.QWizardPage):
         self.labelList=[]
         for Counter in range(1):
             self.labelList.append(MyLabel(Counter,self))
-            self.labelList[Counter].setWordWrap(True)
+            # self.labelList[Counter].setWordWrap(True)
         self.label2=QtWidgets.QLabel(self)
         self.label2.setWordWrap(True)
         self.UrlLabel=MyLabel(0,self)
