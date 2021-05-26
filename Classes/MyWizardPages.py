@@ -83,18 +83,33 @@ class ViewInfoPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-        self.label=QtWidgets.QLabel(self)
-        self.label.setWordWrap(True)
+        self.labelList=[]
+        for Counter in range(3):
+            self.labelList.append(QtWidgets.QLabel(self))
+            self.labelList[Counter].setWordWrap(True)
         # 布局设置
         self.layout=QtWidgets.QVBoxLayout()
-        self.layout.addWidget(self.label)
+        for Counter in range(len(self.labelList)):
+            if Counter!=0: self.layout.addSpacing(10)
+            self.layout.addWidget(self.labelList[Counter])
         self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","How to view the models"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
-        self.label.setText(_translate("WizardPage","Hello"))
+        self.labelList[0].setText(_translate(
+            "WizardPage","<ul><li>You can use the left mouse button to move the model, the \
+model will be moved to the same position relative to the mouse position.</li></ul>"))
+        self.labelList[1].setText(_translate(
+            "WizardPage","<ul><li>You can use the right mouse button to rotate the model, \
+according to the rotation mode \"XYZ Euler\", move the mouse left and right to rotate \
+horizontally (change the Z value), move the mouse up and down to flip vertically (change \
+the Y value), Alt+any direction to rotate in the plane (change the X value), the specific \
+rotation Angle is determined by the distance from the mouse to its initial position.</li></ul>"))
+        self.labelList[2].setText(_translate(
+            "WizardPage","<ul><li>You can scroll the middle mouse button to zoom in and out \
+the model. scroll forward to zoom in, and scroll backwards to zoom out.</li></ul>"))
 # FileMenuPage: 文件菜单(3)
 class FileMenuPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
@@ -102,18 +117,25 @@ class FileMenuPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-        self.label=QtWidgets.QLabel(self)
-        self.label.setWordWrap(True)
+        self.labelList=[]
+        for Counter in range(1):
+            self.labelList.append(QtWidgets.QLabel(self))
+            self.labelList[Counter].setWordWrap(True)
         # 布局设置
         self.layout=QtWidgets.QVBoxLayout()
-        self.layout.addWidget(self.label)
+        for Counter in range(len(self.labelList)):
+            if Counter!=0: self.layout.addSpacing(10)
+            self.layout.addWidget(self.labelList[Counter])
         self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","About the file menu"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
-        self.label.setText(_translate("WizardPage","Hello"))
+        self.labelList[0].setText(_translate(
+            "WizardPage","<ul><li>The Model doesn't close while opening another model. You \
+can use the shortcut \"Ctrl+F\" or click \"View>File menu\" to view the opened models. To \
+close the current model, please use the shortcut \"Ctrl+C\" or click \"File>Close\".</li></ul>"))
 # FormatInfoPage: 格式转换(4)
 class FormatInfoPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
@@ -121,18 +143,34 @@ class FormatInfoPage(QtWidgets.QWizardPage):
         # 基本设置
         self.setFont(QtGui.QFont("Consolas"))
         # 内容填充
-        self.label=QtWidgets.QLabel(self)
-        self.label.setWordWrap(True)
+        self.labelList=[]
+        for Counter in range(2):
+            self.labelList.append(QtWidgets.QLabel(self))
+            self.labelList[Counter].setWordWrap(True)
         # 布局设置
         self.layout=QtWidgets.QVBoxLayout()
-        self.layout.addWidget(self.label)
+        for Counter in range(len(self.labelList)):
+            if Counter!=0: self.layout.addSpacing(10)
+            self.layout.addWidget(self.labelList[Counter])
         self.setLayout(self.layout)
         self.retranslateUi()
     def retranslateUi(self):
         _translate=QtCore.QCoreApplication.translate
         self.setTitle(getTitleHtml(_translate("WizardPage","About format conversion"),"Consolas"))
         self.setSubTitle(getTitleHtml(_translate("WizardPage","Hello"),"Consolas"))
-        self.label.setText(_translate("WizardPage","Hello"))
+        self.labelList[0].setText(_translate(
+            "WizardPage","<ul><li>You can use the shortcut \"Ctrl+E\" or click \
+\"File>Export\" to export the model.</li></ul>"))
+        self.labelList[1].setText(_translate("WizardPage","""
+<ul>
+	<li>Only support some common formats, the list is as follows: 
+		<ol>
+			<li>Wavefront(Default)(.obj)</li>
+			<li>FBX(.fbx)</li>
+			<li>MikuMikuDance Model(.pmx)</li>
+		</ol>
+	</li>
+</ul>"""))
 # DocumentPage: 结束页-其他说明(5)
 class DocumentPage(QtWidgets.QWizardPage):
     def __init__(self,Parent=None):
