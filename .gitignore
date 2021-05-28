@@ -1,3 +1,4 @@
+# IDEA项目文件
 /.idea/dictionaries/Administrator.xml
 /.idea/.gitignore
 /.idea/encodings.xml
@@ -6,3 +7,4 @@
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
 /.idea/Viewer3D.iml
+**/__pycache__/*
