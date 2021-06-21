@@ -28,15 +28,17 @@ def extractor(FilepathList,TargetPath):
                 r'r?(?P<mark3>["\']{1,3}).*?(?<!\\)(?P=mark3))\s*\)',flags=re.DOTALL)
             MatchObject=TranslatePattern.search(ThisContent)
             while MatchObject is not None:
-                ReplaceString=MatchObject.expand(r'\g<context>::tr(\g<arguments>)')
+                MatchString=MatchObject.group()
+                ReplaceString=MatchObject.group('context')+'::tr('
                 ReplaceContent=MatchObject.group("arguments")
                 VariableStringList=eval('['+ReplaceContent+']')
                 for StringIndex,VariableString in enumerate(VariableStringList):
                     RealValue='"'+repr(VariableString)[1:-1].replace(r"\'",r"'")\
                         .replace(r"'",r"\'").replace(r'\"',r'"').replace(r'"',r'\"')+'"'
                     VariableStringList[StringIndex]=RealValue
-                ReplaceString=ReplaceString.replace(ReplaceContent,",".join(VariableStringList))
-                ThisContent=ThisContent.replace(MatchObject.group(),ReplaceString)
+                ReplaceString+=",".join(VariableStringList)+')'
+                ReplaceString+='\n'*(len(MatchString.splitlines())-1)
+                ThisContent=ThisContent.replace(MatchString,ReplaceString)
                 MatchObject=TranslatePattern.search(
                     ThisContent,MatchObject.start()+len(ReplaceString))
             # 改名原文件写入新文件

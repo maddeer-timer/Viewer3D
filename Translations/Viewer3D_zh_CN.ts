@@ -10,13 +10,13 @@
     </message>
     <message>
         <location filename="../Panels/Control.py" line="87"/>
-        <location filename="../Panels/Control.py" line="99"/>
+        <location filename="../Panels/Control.py" line="100"/>
         <source>Export 3D model files</source>
         <translation>导出3D模型文件</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="92"/>
-        <location filename="../Panels/Control.py" line="103"/>
+        <location filename="../Panels/Control.py" line="93"/>
+        <location filename="../Panels/Control.py" line="105"/>
         <source>&amp;Export</source>
         <translation>导出(&amp;E)</translation>
     </message>
@@ -223,12 +223,12 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../Panels/Control.py" line="138"/>
+        <location filename="../Panels/Control.py" line="140"/>
         <source>About Viewer3D</source>
         <translation>关于Viewer3D</translation>
     </message>
     <message>
-        <location filename="../Panels/Control.py" line="139"/>
+        <location filename="../Panels/Control.py" line="141"/>
         <source>
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -282,29 +282,29 @@
 </translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="203"/>
-        <location filename="../Classes/MyWizardPages.py" line="209"/>
+        <location filename="../Classes/MyWizardPages.py" line="241"/>
+        <location filename="../Classes/MyWizardPages.py" line="250"/>
         <source>Warning Dialog</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="203"/>
+        <location filename="../Classes/MyWizardPages.py" line="242"/>
         <source>Failed to open the file named &quot;</source>
         <translation>无法打开名为&quot;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="203"/>
+        <location filename="../Classes/MyWizardPages.py" line="243"/>
         <source>&quot;</source>
         <comment>Dialog for failed file open</comment>
         <translation>&quot;的文件</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="209"/>
+        <location filename="../Classes/MyWizardPages.py" line="251"/>
         <source>Failed to open &quot;</source>
         <translation>无法打开链接&quot;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="209"/>
+        <location filename="../Classes/MyWizardPages.py" line="252"/>
         <source>&quot;</source>
         <comment>Dialog for failed URL open</comment>
         <translation>&quot;</translation>
@@ -336,103 +336,103 @@
         <translation>此向导旨在帮助您学习&lt;i&gt;View3D&lt;/i&gt;的使用方法并了解其使用时的注意事项。</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="50"/>
+        <location filename="../Classes/MyWizardPages.py" line="52"/>
         <source>View</source>
         <translation>查看</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="51"/>
+        <location filename="../Classes/MyWizardPages.py" line="53"/>
         <source>How to view the models</source>
         <translation>模型的查看</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="54"/>
+        <location filename="../Classes/MyWizardPages.py" line="57"/>
         <source>File Menu</source>
         <translation>文件菜单</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="55"/>
+        <location filename="../Classes/MyWizardPages.py" line="58"/>
         <source>About the file menu</source>
         <translation>文件菜单</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="58"/>
+        <location filename="../Classes/MyWizardPages.py" line="62"/>
         <source>Format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="59"/>
+        <location filename="../Classes/MyWizardPages.py" line="63"/>
         <source>About format conversion</source>
         <translation>格式转换</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="62"/>
+        <location filename="../Classes/MyWizardPages.py" line="67"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="63"/>
-        <location filename="../Classes/MyWizardPages.py" line="192"/>
+        <location filename="../Classes/MyWizardPages.py" line="68"/>
+        <location filename="../Classes/MyWizardPages.py" line="227"/>
         <source>Get more help</source>
         <translation>获取更多帮助</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="93"/>
+        <location filename="../Classes/MyWizardPages.py" line="99"/>
         <source>How to view the models&lt;br/&gt;</source>
         <translation>模型的查看&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="94"/>
+        <location filename="../Classes/MyWizardPages.py" line="101"/>
         <source>Explain how to move, rotate and scale the model.</source>
         <translation>说明模型的移动, 旋转和缩放方法。</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="95"/>
+        <location filename="../Classes/MyWizardPages.py" line="103"/>
         <source>&lt;ul&gt;&lt;li&gt;You can use the left mouse button to move the model, the model will be moved to the same position relative to the mouse position.&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;可以使用左键来移动模型, 模型会位移至与鼠标的相对位置不变的位置。&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="96"/>
+        <location filename="../Classes/MyWizardPages.py" line="106"/>
         <source>&lt;ul&gt;&lt;li&gt;You can use the right mouse button to rotate the model, according to the rotation mode &quot;XYZ Euler&quot;, move the mouse left and right to rotate horizontally (change the Z value), move the mouse up and down to flip vertically (change the Y value), Alt+any direction to rotate in the plane (change the X value), the specific rotation Angle is determined by the distance from the mouse to its initial position.&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;可以使用右键来旋转模型, 按照旋转模式&quot;XYZ欧拉&quot;看, 左右移动鼠标则水平旋转(改变Z值), 上下移动鼠标则垂直翻转(改变Y值), Alt+任意方向移动则平面旋转(改变X值),  具体旋转角度则按离初始位置的距离决定。&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="97"/>
+        <location filename="../Classes/MyWizardPages.py" line="112"/>
         <source>&lt;ul&gt;&lt;li&gt;You can scroll the middle mouse button to zoom in and out the model. scroll forward to zoom in, and scroll backwards to zoom out.&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;可以滚动鼠标中键来缩放模型, 向前为放大, 向后为缩小。&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="118"/>
+        <location filename="../Classes/MyWizardPages.py" line="135"/>
         <source>About the file menu&lt;br/&gt;</source>
         <translation>文件菜单&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="119"/>
+        <location filename="../Classes/MyWizardPages.py" line="137"/>
         <source>Explain the related problems of the file menu.</source>
         <translation>解释文件菜单的相关问题。</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="120"/>
+        <location filename="../Classes/MyWizardPages.py" line="139"/>
         <source>&lt;ul&gt;&lt;li&gt;The Model doesn&apos;t close while opening another model. You can use the shortcut &quot;Ctrl+F&quot; or click &quot;View&gt;File menu&quot; to view the opened models. To close the current model, please use the shortcut &quot;Ctrl+C&quot; or click &quot;File&gt;Close&quot;.&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;模型并不会因为打开另一个模型而关闭, 可以使用快捷键&quot;Ctrl+F&quot;或打开&quot;视图&gt;文件菜单&quot;来查看已经打开的模型, 关闭当前模型请使用快捷键&quot;Ctrl+C&quot;或选择&quot;文件&gt;关闭&quot;。&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="141"/>
+        <location filename="../Classes/MyWizardPages.py" line="163"/>
         <source>About format conversion&lt;br/&gt;</source>
         <translation>格式转换&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="142"/>
+        <location filename="../Classes/MyWizardPages.py" line="165"/>
         <source>Explain the related problems of format conversion.</source>
         <translation>说明格式转换的相关问题。</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="143"/>
+        <location filename="../Classes/MyWizardPages.py" line="167"/>
         <source>&lt;ul&gt;&lt;li&gt;You can use the shortcut &quot;Ctrl+E&quot; or click &quot;File&gt;Export&quot; to export the model.&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;使用快捷键&quot;Ctrl+E&quot;或选择&quot;文件&gt;导出&quot;进行文件的导出。&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="144"/>
+        <location filename="../Classes/MyWizardPages.py" line="170"/>
         <source>
 &lt;ul&gt;
 	&lt;li&gt;Only support some common formats, the list is as follows: 
@@ -455,22 +455,22 @@
 &lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="193"/>
+        <location filename="../Classes/MyWizardPages.py" line="228"/>
         <source>For more help, see the files in the application root directory: </source>
         <translation>要获取更多帮助请查看应用程序根目录下的这些文件: </translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="194"/>
+        <location filename="../Classes/MyWizardPages.py" line="230"/>
         <source>&lt;ul&gt;&lt;li&gt;readme.md&amp;nbsp;(English)&lt;/li&gt;&lt;/ul&gt;</source>
         <translation>&lt;ul&gt;&lt;li&gt;readme_cn.md&amp;nbsp;(简体中文)&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="195"/>
+        <location filename="../Classes/MyWizardPages.py" line="232"/>
         <source>you can use &lt;i&gt;MDEditor&lt;/i&gt; to view these Markdown documents.</source>
         <translation>可以使用&lt;i&gt;MDEditor&lt;/i&gt;来查看这种Markdown文档。</translation>
     </message>
     <message>
-        <location filename="../Classes/MyWizardPages.py" line="196"/>
+        <location filename="../Classes/MyWizardPages.py" line="234"/>
         <source>You can find it here.</source>
         <translation>可以在这里找到它。</translation>
     </message>
