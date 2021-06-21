@@ -1,0 +1,12 @@
+; 该文件指示如何生成应用程序的翻译文件(.ts)
+; input指示需要翻译的文件位置, output指示输出的翻译文件(.ts)位置
+
+[input]
+group_1 += ../Panels/Control.py
+group_1 += ../Panels/Gui.py
+group_1 += ../Panels/MainWindow.py
+group_1 += ../Classes/MyWizard.py
+group_1 += ../Classes/MyWizardPages.py
+
+[output]
+group_1 => ./Viewer3D_zh_CN.ts

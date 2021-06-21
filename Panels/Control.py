@@ -178,14 +178,13 @@ class MyMainWindow(QtWidgets.QMainWindow):
 def main():
     # 初始化部分
     App=QtWidgets.QApplication(sys.argv)
-    SystemTranslationsPath=QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)
-    # 翻译和安装部分
     Translator=QtCore.QTranslator()
     TranslatorSystem=QtCore.QTranslator()
     TranslatorSystemEn=QtCore.QTranslator()
+    # 翻译和安装部分
     if not Translator.load("Viewer3D_zh_CN",directory="Translations") or \
-            not TranslatorSystem.load("qt_zh_CN",directory=SystemTranslationsPath) or \
-            not TranslatorSystemEn.load("qt_en",directory=SystemTranslationsPath):
+            not TranslatorSystem.load("qt_zh_CN",directory="Translations") or \
+            not TranslatorSystemEn.load("qt_en",directory="Translations"):
         QtWidgets.QMessageBox.warning(
             None,"警告",
             "读取翻译文件失败, 请检查安装目录下的\"Translations\"目录中是否存在以下三个文件: "
