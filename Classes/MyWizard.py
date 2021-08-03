@@ -16,7 +16,7 @@ class MyWizard(QtWidgets.QWizard):
         # 向导设置
         self.setWizardStyle(QtWidgets.QWizard.ModernStyle)
         self.setOption(QtWidgets.QWizard.HaveCustomButton1,True)
-        self.setPixmap(QtWidgets.QWizard.LogoPixmap,QtGui.QPixmap(r"Images/logo.png"))
+        self.setPixmap(QtWidgets.QWizard.LogoPixmap,QtGui.QPixmap(r"Images/text.png"))
         self.retranslateUi()
         # 连接信号
         self.customButtonClicked.connect(self.backToHomePage)
