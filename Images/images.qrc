@@ -2,5 +2,6 @@
     <qresource prefix="/Images">
         <file>logo.png</file>
         <file>watermark.png</file>
+        <file>text.png</file>
     </qresource>
 </RCC>
