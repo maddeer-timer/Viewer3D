@@ -26,7 +26,7 @@
    <string>Viewer3D</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../Images/images.qrc">
+   <iconset resource="Images/images.qrc">
     <normaloff>:/Images/logo.png</normaloff>:/Images/logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -265,7 +265,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../Images/images.qrc"/>
+  <include location="Images/images.qrc"/>
  </resources>
  <connections>
   <connection>
