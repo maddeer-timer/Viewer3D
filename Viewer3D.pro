@@ -8,13 +8,16 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-VERSION = "1.0.0"
-RC_ICONS = logo.ico
-RC_LANG = 0x0004
-#QMAKE_TARGET_COMPANY =
-#QMAKE_TARGET_COPYRIGHT =
-QMAKE_TARGET_PRODUCT = "Viewer3D"
-QMAKE_TARGET_DESCRIPTION = 3D Models Viewer
+VERSION = 1.0.0.0
+win32 {
+    RC_ICONS = logo.ico
+    RC_LANG = 0x0804
+    RC_CODEPAGE = 1200
+    QMAKE_TARGET_COMPANY = "Maddeer"
+    QMAKE_TARGET_DESCRIPTION = "3D Models Viewer"
+    QMAKE_TARGET_COPYRIGHT = "Copyright 2021 maddeer-timer. All rights reserved"
+    QMAKE_TARGET_PRODUCT = "Viewer3D"
+}
 
 SOURCES += \
     Core/exporterbase.cpp \
@@ -66,11 +69,13 @@ DISTFILES += \
     Models/ObjLoader/ObjLoader.json \
     Models/PmxLoader/PmxLoader.json
 
-win32:CONFIG(release, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x86/release/' -llibfbxsdk
-else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x86/debug/' -llibfbxsdk
-
-win32:CONFIG(release, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x64/release/' -llibfbxsdk
-else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x64/debug/' -llibfbxsdk
+contains(QMAKE_HOST.arch, x86_64) {
+    win32:CONFIG(release, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x64/release/' -llibfbxsdk
+    else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x64/debug/' -llibfbxsdk
+} else {
+    win32:CONFIG(release, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x86/release/' -llibfbxsdk
+    else:win32:CONFIG(debug, debug|release): LIBS += -L'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/lib/vs2019/x86/debug/' -llibfbxsdk
+}
 
 INCLUDEPATH += 'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/include'
 DEPENDPATH += 'D:/VS Resource/Autodesk FBX/FBX SDK/2020.2/include'
