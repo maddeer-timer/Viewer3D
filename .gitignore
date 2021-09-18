@@ -7,4 +7,7 @@
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
 /.idea/Viewer3D.iml
+
+# 临时目录
 **/__pycache__/*
+/Release/*
